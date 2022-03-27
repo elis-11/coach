@@ -11,20 +11,20 @@ export const Course = () => {
       Course
       <ul>
         <li>
-          <Link to="">Context</Link>
-        </li>
-        <li>
-          <Link to="state">State</Link>
+          <Link to="">State</Link>
         </li>
         <li>
           <Link to="effect">Effect</Link>
         </li>
+        <li>
+          <Link to="context">Context</Link>
+        </li>
       </ul>
       <div className="roures">
         <Routes>
-          <Route path="/" element={<Context />} />
-          <Route path="state" element={<State />} />
+          <Route path="" element={<State />} />
           <Route path="effect" element={<Effect />} />
+          <Route path="context" element={<Context />} />
         </Routes>
       </div>
     </div>
