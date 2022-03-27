@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import "../Course.scss";
 import Button from "react-bootstrap/Button"
 import Card from "react-bootstrap/Card"
 
-const getInitialState = () => false
 
 export const State = () => {
+  const getInitialState = () => false
 const [visible, setVisibility]= useState(getInitialState); 
 
   const handleClick = () => {
