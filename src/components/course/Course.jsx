@@ -8,7 +8,6 @@ import "./Course.scss";
 export const Course = () => {
   return (
     <div>
-      Course
       <ul>
         <li>
           <Link to="">State</Link>
