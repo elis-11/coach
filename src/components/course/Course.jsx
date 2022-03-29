@@ -8,17 +8,17 @@ import "./Course.scss";
 export const Course = () => {
   return (
     <div>
-      <ul>
-        <li>
-          <Link to="">State</Link>
-        </li>
-        <li>
-          <Link to="effect">Effect</Link>
-        </li>
-        <li>
-          <Link to="context">Context</Link>
-        </li>
-      </ul>
+      <div className="links">
+      <Link to="" 
+        className={(navData) => (navData.isActive ? "active" : "none")}
+      >State</Link>
+      <Link to="effect" 
+        className={(navData) => (navData.isActive ? "active" : "none")}
+      >Effect</Link>
+      <Link to="context" 
+        className={(navData) => (navData.isActive ? "active" : "none")}
+      >Context</Link>
+      </div>
       <div className="roures">
         <Routes>
           <Route path="" element={<State />} />
