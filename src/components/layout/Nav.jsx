@@ -13,10 +13,10 @@ export const Nav = () => {
         Home
       </NavLink>
       <NavLink
-        to="/todo"
+        to="/ebook"
         className={(navData) => (navData.isActive ? "active" : "none")}
       >
-        Todo
+        EBook
       </NavLink>
       <NavLink
         to="/course"

@@ -1,24 +1,14 @@
-// import React, { useState } from "react";
+import React from "react";
 import { FaEdit } from "react-icons/fa";
 import { FaTrashAlt } from "react-icons/fa";
 import "./Books.scss";
 
-export const Books = (props) => {
+export const Books = () => {
   const books = [
     { id: "1", title: "Guide to Happines", author: "Gael" },
     { id: "2", title: "Guide to JavaScript", author: "Elisa" },
     { id: "3", title: "Guide to Coaching", author: "Robert" },
   ];
-  // const [name, setName] = useState('')
-
-const addBook=(props)=> {
-alert(books)
-}
-const handleSubmit=(e)=>{
-  e.preventDefault();
-props.addBook('hallo')
-
-}
 
   return (
     <div className="Books">
@@ -28,10 +18,6 @@ props.addBook('hallo')
       <main>
         {books.length ? (
           <div className="container">
-            <div className="add">{addBook}</div>
-            <form 
-              onSubmit={handleSubmit}
-              >Add new Book</form>
             <div className="search">Search</div>
             <div className="book-list">
               {books.map((book) => (
