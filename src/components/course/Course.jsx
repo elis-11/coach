@@ -9,15 +9,9 @@ export const Course = () => {
   return (
     <div>
       <div className="links">
-      <Link to="" 
-        className={(navData) => (navData.isActive ? "active" : "none")}
-      >State</Link>
-      <Link to="effect" 
-        className={(navData) => (navData.isActive ? "active" : "none")}
-      >Effect</Link>
-      <Link to="context" 
-        className={(navData) => (navData.isActive ? "active" : "none")}
-      >Context</Link>
+      <Link to="" >State</Link>
+      <Link to="effect" >Effect</Link>
+      <Link to="context" >Context</Link>
       </div>
       <div className="roures">
         <Routes>
