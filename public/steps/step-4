@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { AddForm } from "./AddForm";
-import { BookItem } from "./BookItem";
+import { FaEdit } from "react-icons/fa";
+import { FaTrashAlt } from "react-icons/fa";
 import "./EBook.scss";
-import { EditForm } from "./EditForm";
 
 export const EBook = () => {
   const [books, setBooks] = useState(() => {
@@ -26,7 +25,7 @@ export const EBook = () => {
     setBook(e.target.value);
   };
 
-  const handleEditBookChange = (e) => {
+  const handleEditBook = (e) => {
     setCurrentBook({ ...currentBook, text: e.target.value });
     console.log(currentBook);
   };
@@ -64,7 +63,7 @@ export const EBook = () => {
     setBooks(updatedItem);
   };
 
-  const handleEditBook = (book) => {
+  const handleEditClick = (book) => {
     setIsEditing(true);
     setCurrentBook({ ...book });
   };
@@ -73,27 +72,55 @@ export const EBook = () => {
     <div className="EBook">
       <h2>Book App</h2>
       {isEditing ? (
-    <EditForm
-    currentBook={currentBook}
-    setIsEditing={setIsEditing}
-    handleEditBookChange={handleEditBookChange}
-    handleEditFormSubmit={handleEditFormSubmit}
-    />
+        <form onSubmit={handleEditFormSubmit}>
+          <h2>Edit Book</h2>
+          <label htmlFor="editBook"></label>
+          <input
+            name="editBook"
+            type="text"
+            placeholder="Edit Book"
+            value={currentBook.text}
+            onChange={handleEditBook}
+          />
+          <button type="submit">Update</button>
+          <button onClick={() => setIsEditing(false)}>Cancel</button>
+        </form>
       ) : (
-      <AddForm
-      book={book}
-       handleBookChange={handleBookChange}
-      handleFormSubmit={handleFormSubmit}
-      />
+        <form onSubmit={handleFormSubmit}>
+          {/* <h2>Add Book</h2> */}
+          <label htmlFor="addBook"> </label>
+          <input
+            name="book"
+            type="text"
+            placeholder="Create a new Book "
+            value={book}
+            onChange={handleBookChange}
+          />
+        </form>
       )}
 
       <div className="book-list">
         {books.map((book) => (
-          <BookItem
-          book={book}
-          handleEditClick={handleEditBook}
-          handleDeleteBook={handleDeleteBook}
-          />
+          // <div key={book.id}>{book.text}
+          <div key={book.id} className="book">
+            {book.text}
+            <div>{book.title}</div>
+            <div>{book.author}</div>
+            <div className="icons">
+              <FaEdit
+                onClick={() => handleEditClick(book)}
+                className="icon"
+                role="button"
+                tabIndex="0"
+              />
+              <FaTrashAlt
+                onClick={() => handleDeleteBook(book.id)}
+                className="icon"
+                role="button"
+                tabIndex="0"
+              />
+            </div>
+          </div>
         ))}
       </div>
     </div>
