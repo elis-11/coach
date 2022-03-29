@@ -6,3 +6,6 @@
 
 - Create CRUD Todo App:
 ### https://dev.to/joelynn/series/12791
+
+- The BEST! (EBook)
+### https://dev.to/joelynn/build-a-react-crud-todo-app-add-read-todos-1l8a

@@ -1,21 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./EBook.scss";
 
 export const EBook = () => {
-  const [books, setBooks] = useState(()=> {
-    const savedBooks =localStorage.getItem("books");
-    if (savedBooks){
-      return JSON.parse(savedBooks);
-    } else {
-      return []
-    }
-  });
+  const [books, setBooks] = useState([]);
 
   const [book, setBook] = useState("");
-
-  useEffect(() => {
-    localStorage.setItem("books", JSON.stringify(books));
-  }, [books]);
 
   const handleBookChange = (e) => {
     setBook(e.target.value);
@@ -25,13 +14,10 @@ export const EBook = () => {
     e.preventDefault();
 
     if (book !== "") {
-      setBooks([
-        ...books,
-        {
-          id: books.length + 1,
-          text: book.trim(),
-        },
-      ]);
+      setBooks([...books, { 
+        id: books.length + 1, 
+        text: book.trim() 
+      }]);
     }
     setBook("");
   };
