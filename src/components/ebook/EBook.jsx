@@ -14,6 +14,8 @@ export const EBook = () => {
   });
 
   const [book, setBook] = useState("");
+  const [isEditing, setIsEditing] = useState(false);
+  const [currentBook, setCurrentBook] = useState({});
 
   useEffect(() => {
     localStorage.setItem("books", JSON.stringify(books));
@@ -21,6 +23,11 @@ export const EBook = () => {
 
   const handleBookChange = (e) => {
     setBook(e.target.value);
+  };
+
+  const handleEditBook = (e) => {
+    setCurrentBook({ ...currentBook, text: e.target.value });
+    console.log(currentBook);
   };
 
   const handleFormSubmit = (e) => {
@@ -38,23 +45,59 @@ export const EBook = () => {
     setBook("");
   };
 
+  const handleEditFormSubmit = (e) => {
+    e.preventDefault();
+    handleUpdateBook(currentBook.id, currentBook);
+  };
+
   const handleDeleteBook = (id) => {
     const removeBook = books.filter((book) => book.id !== id);
     setBooks(removeBook);
   };
 
+  const handleUpdateBook = (id, updatedBook) => {
+    const updatedItem = books.map((book) => {
+      return book.id === id ? updatedBook : book;
+    });
+    setIsEditing(false);
+    setBooks(updatedItem);
+  };
+
+  const handleEditClick = (book) => {
+    setIsEditing(true);
+    setCurrentBook({ ...book });
+  };
+
   return (
     <div className="EBook">
       <h2>EBook App</h2>
-      <form onSubmit={handleFormSubmit}>
-        <input
-          name="book"
-          type="text"
-          value={book}
-          onChange={handleBookChange}
-          placeholder="Create a new Book "
-        />
-      </form>
+      {isEditing ? (
+        <form onSubmit={handleEditFormSubmit}>
+          <h2>Edit Book</h2>
+          <label htmlFor="editBook">Edit Book: </label>
+          <input
+            name="editBook"
+            type="text"
+            placeholder="Edit Book"
+            value={currentBook.text}
+            onChange={handleEditBook}
+          />
+          <button type="submit">Update</button>
+          <button onClick={() => setIsEditing(false)}>Cancel</button>
+        </form>
+      ) : (
+        <form onSubmit={handleFormSubmit}>
+          <h2>Add Book</h2>
+          <label htmlFor="addBook">Add Book: </label>
+          <input
+            name="book"
+            type="text"
+            placeholder="Create a new Book "
+            value={book}
+            onChange={handleBookChange}
+          />
+        </form>
+      )}
 
       <div className="book-list">
         {books.map((book) => (
@@ -64,7 +107,12 @@ export const EBook = () => {
             <div>{book.title}</div>
             <div>{book.author}</div>
             <div className="icons">
-              <FaEdit className="icon" role="button" tabIndex="0" />
+              <FaEdit
+                onClick={() => handleEditClick(book)}
+                className="icon"
+                role="button"
+                tabIndex="0"
+              />
               <FaTrashAlt
                 onClick={() => handleDeleteBook(book.id)}
                 className="icon"
