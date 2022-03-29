@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { FaEdit } from "react-icons/fa";
+import { FaTrashAlt } from "react-icons/fa";
 import "./EBook.scss";
 
 export const EBook = () => {
@@ -51,7 +53,15 @@ export const EBook = () => {
 
       <div className="book-list">
         {books.map((book) => (
-          <div key={book.id}>{book.text}</div>
+          // <div key={book.id}>{book.text}
+             <div key={book.id} className="book">
+                  <div>{book.title}</div>
+                  <div>{book.author}</div>
+                  <div className="icons">
+                    <FaEdit className="icon" role="button" tabIndex="0" />
+                    <FaTrashAlt className="icon" role="button" tabIndex="0" />
+                  </div>
+          </div>
         ))}
       </div>
     </div>
