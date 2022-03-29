@@ -2,26 +2,41 @@
   width: 100%;
   header {
     height: 15vh;
-    border: 1px solid #ccc;
+    // border: 1px solid #ccc;
   }
   main {
     height: 74vh;
-    border: 1px solid #ccc;
+    // border: 1px solid #ccc;
     display: flex;
     justify-content: center;
     .container {
-      width: 50%;
+      width: 60%;
       min-height: 70%;
-      border: 1px solid #ccc;
+      // border: 1px solid #ccc;
       .book {
         position: relative;
-        border: 1px solid #ccc;
+        height: 3rem;
+        background-color: #ccc;
+        margin: 2px;
+        border-radius: 4px;
+        font-size: 20px;
+        color: grey;
       }
       .icons {
         position: absolute;
         top: 50%;
         right: 0;
+        font-size: 1.4rem;
         transform: translateY(-50%);
+        .icon {
+          padding-right: 1px;
+          color: rgb(124, 123, 123);
+          cursor: pointer;
+          :hover{
+            color: rgb(248, 244, 244);
+            outline: none;
+          }
+        }
       }
     }
   }
