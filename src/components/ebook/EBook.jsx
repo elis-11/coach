@@ -4,12 +4,12 @@ import { FaTrashAlt } from "react-icons/fa";
 import "./EBook.scss";
 
 export const EBook = () => {
-  const [books, setBooks] = useState(()=> {
-    const savedBooks =localStorage.getItem("books");
-    if (savedBooks){
+  const [books, setBooks] = useState(() => {
+    const savedBooks = localStorage.getItem("books");
+    if (savedBooks) {
       return JSON.parse(savedBooks);
     } else {
-      return []
+      return [];
     }
   });
 
@@ -38,6 +38,11 @@ export const EBook = () => {
     setBook("");
   };
 
+  const handleDeleteBook = (id) => {
+    const removeBook = books.filter((book) => book.id !== id);
+    setBooks(removeBook);
+  };
+
   return (
     <div className="EBook">
       <h2>EBook App</h2>
@@ -54,13 +59,19 @@ export const EBook = () => {
       <div className="book-list">
         {books.map((book) => (
           // <div key={book.id}>{book.text}
-             <div key={book.id} className="book">
-                  <div>{book.title}</div>
-                  <div>{book.author}</div>
-                  <div className="icons">
-                    <FaEdit className="icon" role="button" tabIndex="0" />
-                    <FaTrashAlt className="icon" role="button" tabIndex="0" />
-                  </div>
+          <div key={book.id} className="book">
+            {book.text}
+            <div>{book.title}</div>
+            <div>{book.author}</div>
+            <div className="icons">
+              <FaEdit className="icon" role="button" tabIndex="0" />
+              <FaTrashAlt
+                onClick={() => handleDeleteBook(book.id)}
+                className="icon"
+                role="button"
+                tabIndex="0"
+              />
+            </div>
           </div>
         ))}
       </div>
