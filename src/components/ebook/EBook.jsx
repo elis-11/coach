@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { AddForm } from "./AddForm";
 import { BookItem } from "./BookItem";
-import "./EBook.scss";
 import { EditForm } from "./EditForm";
+import "./EBook.scss";
 
 export const EBook = () => {
   const [books, setBooks] = useState(() => {
@@ -22,23 +22,23 @@ export const EBook = () => {
     localStorage.setItem("books", JSON.stringify(books));
   }, [books]);
 
-  const handleBookChange = (e) => {
+  const handleAddInputChange = (e) => {
     setBook(e.target.value);
   };
 
-  const handleEditBookChange = (e) => {
+  const handleEditInputChange = (e) => {
     setCurrentBook({ ...currentBook, text: e.target.value });
     console.log(currentBook);
   };
 
-  const handleFormSubmit = (e) => {
+  const handleAddFormSubmit = (e) => {
     e.preventDefault();
 
     if (book !== "") {
       setBooks([
         ...books,
         {
-          id: books.length + 1,
+          id: new Date(),
           text: book.trim(),
         },
       ]);
@@ -51,9 +51,9 @@ export const EBook = () => {
     handleUpdateBook(currentBook.id, currentBook);
   };
 
-  const handleDeleteBook = (id) => {
-    const removeBook = books.filter((book) => book.id !== id);
-    setBooks(removeBook);
+  const handleDeleteClick = (id) => {
+    const removeItem = books.filter((book) => book.id !== id);
+    setBooks(removeItem);
   };
 
   const handleUpdateBook = (id, updatedBook) => {
@@ -64,7 +64,7 @@ export const EBook = () => {
     setBooks(updatedItem);
   };
 
-  const handleEditBook = (book) => {
+  const handleEditClick = (book) => {
     setIsEditing(true);
     setCurrentBook({ ...book });
   };
@@ -73,26 +73,26 @@ export const EBook = () => {
     <div className="EBook">
       <h2>Book App</h2>
       {isEditing ? (
-    <EditForm
-    currentBook={currentBook}
-    setIsEditing={setIsEditing}
-    handleEditBookChange={handleEditBookChange}
-    handleEditFormSubmit={handleEditFormSubmit}
-    />
+        <EditForm
+          currentBook={currentBook}
+          setIsEditing={setIsEditing}
+          handleEditInputChange={handleEditInputChange}
+          handleEditFormSubmit={handleEditFormSubmit}
+        />
       ) : (
-      <AddForm
-      book={book}
-       handleBookChange={handleBookChange}
-      handleFormSubmit={handleFormSubmit}
-      />
+        <AddForm
+          book={book}
+          handleAddInputChange={handleAddInputChange}
+          handleAddFormSubmit={handleAddFormSubmit}
+        />
       )}
 
       <div className="book-list">
         {books.map((book) => (
           <BookItem
-          book={book}
-          handleEditClick={handleEditBook}
-          handleDeleteBook={handleDeleteBook}
+            book={book}
+            handleEditClick={handleEditClick}
+            handleDeleteClick={handleDeleteClick}
           />
         ))}
       </div>

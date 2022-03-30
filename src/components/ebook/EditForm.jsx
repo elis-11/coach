@@ -3,7 +3,7 @@ import React from 'react'
 export const EditForm = ({
     currentBook, 
     setIsEditing, 
-    handleEditBook, 
+    handleEditInputChange, 
     handleEditFormSubmit
 }) => {
   return (
@@ -15,7 +15,7 @@ export const EditForm = ({
       type="text"
       placeholder="Edit Book"
       value={currentBook.text}
-      onChange={handleEditBook}
+      onChange={handleEditInputChange}
     />
     <button type="submit" onClick={handleEditFormSubmit}>Update</button>
     <button onClick={() => setIsEditing(false)}>Cancel</button>

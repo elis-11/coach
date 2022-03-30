@@ -3,7 +3,7 @@ import { FaEdit } from "react-icons/fa";
 import { FaTrashAlt } from "react-icons/fa";
 
 
-export const BookItem = ({book, handleEditBook, handleDeleteBook}) => {
+export const BookItem = ({book, handleEditClick, handleDeleteClick}) => {
 
   return (
 
@@ -13,13 +13,13 @@ export const BookItem = ({book, handleEditBook, handleDeleteBook}) => {
     <div>{book.author}</div>
     <div className="icons">
       <FaEdit
-        onClick={() => handleEditBook(book)}
+        onClick={() => handleEditClick(book)}
         className="icon"
         role="button"
         tabIndex="0"
       />
       <FaTrashAlt
-        onClick={() => handleDeleteBook(book.id)}
+        onClick={() => handleDeleteClick(book.id)}
         className="icon"
         role="button"
         tabIndex="0"

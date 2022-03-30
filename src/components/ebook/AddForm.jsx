@@ -1,8 +1,8 @@
 import React from "react";
 
-export const AddForm = ({ book, handleBookChange, handleFormSubmit }) => {
+export const AddForm = ({ book, handleAddInputChange, handleAddFormSubmit }) => {
   return (
-    <form onSubmit={handleFormSubmit}>
+    <form onSubmit={handleAddFormSubmit}>
       {/* <h2>Add Book</h2> */}
       <label htmlFor="addBook"> </label>
       <input
@@ -10,7 +10,7 @@ export const AddForm = ({ book, handleBookChange, handleFormSubmit }) => {
         type="text"
         placeholder="Create a new Book "
         value={book}
-        onChange={handleBookChange}
+        onChange={handleAddInputChange}
       />
     </form>
   );
