@@ -72,6 +72,7 @@ export const EBook = () => {
   return (
     <div className="EBook">
       <h2>Book App</h2>
+      <div className="container">
       {isEditing ? (
         <EditForm
           currentBook={currentBook}
@@ -90,12 +91,14 @@ export const EBook = () => {
       <div className="book-list">
         {books.map((book) => (
           <BookItem
+            key={book.id}
             book={book}
             handleEditClick={handleEditClick}
             handleDeleteClick={handleDeleteClick}
-          />
+            />
         ))}
       </div>
-    </div>
+    </div>    
+   </div>
   );
 };
