@@ -10,7 +10,6 @@ export const Books = () => {
     { id: "3", title: "Guide to Coaching", author: "Robert" },
   ];
 
-
   return (
     <div className="Books">
       <div>
@@ -19,7 +18,7 @@ export const Books = () => {
       <main>
         {books.length ? (
           <div className="container">
-            
+
             <div className="add">Create a new book</div>
             <div className="search">Search</div>
 
