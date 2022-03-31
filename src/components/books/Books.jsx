@@ -19,8 +19,10 @@ export const Books = () => {
       <main>
         {books.length ? (
           <div className="container">
+            
             <div className="add">Create a new book</div>
             <div className="search">Search</div>
+
             <div className="book-list">
               {books.map((book) => (
                 <div key={book.id} className="book">
@@ -33,7 +35,7 @@ export const Books = () => {
                 </div>
               ))}
             </div>
-            <div className="add-book"></div>
+            {/* <div className="add-book"></div> */}
           </div>
         ) : (
           <p style={{ marginTop: "2rem" }}> Your list is empty.</p>

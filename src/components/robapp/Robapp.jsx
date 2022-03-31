@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { FaEdit } from "react-icons/fa";
+import { FaTrashAlt } from "react-icons/fa";
 import "./Robapp.scss";
 
 export const Robapp = () => {
@@ -41,20 +43,22 @@ export const Robapp = () => {
       <main>
         <div className="container">
           <div className="search">
-          <input
-                type="text"
-                name="search"
-                placeholder="Search"
-                // value={bookNew.title}
-              />
-
+            <input
+              type="text"
+              name="search"
+              placeholder="Search"
+              // value={bookNew.title}
+            />
           </div>
           <div className="book-list">
             {books.map((book) => (
               <div key={book._id} className="book">
                 <div>{book.title}</div>
                 <div>{book.author}</div>
-                <div className="icons">Icons</div>
+                <div className="icons">
+                  <FaEdit className="icon" role="button" tabIndex="0" />
+                  <FaTrashAlt className="icon" role="button" tabIndex="0" />
+                </div>
               </div>
             ))}
           </div>

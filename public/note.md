@@ -12,3 +12,6 @@
 
 - HOOKS!
 ### https://www.youtube.com/watch?v=4pO-HcG2igk
+
+-JSON-SERVER
+### https://github.com/typicode/json-server#database
