@@ -1,0 +1,49 @@
+  * {
+    box-sizing: border-box;
+  }
+  
+  header {
+    height: 15vh;
+    border: 2px solid #ccc;
+  }
+  
+  main {
+    height: 75vh;
+    padding: 30px;
+    border: 2px solid #ccc;
+  
+    display: grid;
+    place-items: center;
+  }
+  
+  footer {
+    height: 10vh;
+    border: 2px solid #ccc;
+    display: grid;
+    place-items: center; // align vertical & horizintal
+  }
+  
+  .container {
+    width: 50%;
+    min-height: 70%;
+  }
+  
+  .book-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .book {
+    position: relative;
+    border: 1px solid #ccc;
+    // display: flex;
+    // justify-content: space-between;
+  }
+  
+  .icons {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }

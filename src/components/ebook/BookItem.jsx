@@ -10,7 +10,7 @@ export const BookItem = ({book, handleEditClick, handleDeleteClick}) => {
   return (
 
     <div key={book.id} className="book">
-    {book.text}
+    {/* {book.text} */}
     <div>{book.title}</div>
     <div>{book.author}</div>
     <div className="icons">

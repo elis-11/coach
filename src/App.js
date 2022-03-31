@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { Books } from './components/books/Books';
+import { Robapp } from './components/robapp/Robapp';
 import { Course } from './components/course/Course';
 import { Home } from './components/home/Home';
 import { Nav } from './components/layout/Nav';
@@ -15,6 +16,7 @@ function App() {
   <Route path="/ebook/*" element={<EBook />} />
   <Route path="/course/*" element={<Course />} />
   <Route path="/books" element={<Books />} />
+  <Route path="/robapp" element={<Robapp />} />
 </Routes>
     </div>
   );

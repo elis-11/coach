@@ -39,7 +39,8 @@ export const EBook = () => {
         ...books,
         {
           id: new Date(),
-          text: book.trim(),
+          title: book.trim(),
+          author: book.trim(),
         },
       ]);
     }
