@@ -13,11 +13,21 @@
       width: 60%;
       min-height: 70%;
       // border: 1px solid #ccc;
+      .search,
+      .add {
+        height: 3rem;
+        background-color: rgb(247, 241, 241);
+        border-radius: 4px;
+        font-size: 20px;
+        color: grey;
+        margin: 5px 0;
+      }
+
       .book {
         position: relative;
+        margin: 5px 0;
         height: 3rem;
-        background-color: #ccc;
-        margin: 2px;
+        background-color: rgb(247, 241, 241);
         border-radius: 4px;
         font-size: 20px;
         color: grey;
@@ -32,8 +42,9 @@
           padding-right: 1px;
           color: rgb(124, 123, 123);
           cursor: pointer;
-          :hover{
-            color: rgb(248, 244, 244);
+          :hover {
+            // color: rgb(248, 244, 244);
+            color: #edb4b4;
             outline: none;
           }
         }
