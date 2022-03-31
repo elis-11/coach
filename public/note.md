@@ -9,3 +9,6 @@
 
 - The BEST! (EBook)
 ### https://dev.to/joelynn/build-a-react-crud-todo-app-add-read-todos-1l8a
+
+- HOOKS!
+### https://www.youtube.com/watch?v=4pO-HcG2igk

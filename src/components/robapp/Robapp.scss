@@ -1,49 +1,85 @@
-  * {
-    box-sizing: border-box;
-  }
-  
-  header {
-    height: 15vh;
+* {
+  box-sizing: border-box;
+}
+
+header {
+  height: 15vh;
+  border: 2px solid #ccc;
+}
+
+main {
+  height: 75vh;
+  padding: 30px;
+  border: 2px solid #ccc;
+
+  display: grid;
+  place-items: center;
+}
+
+footer {
+  height: 10vh;
+  border: 2px solid #ccc;
+  display: grid;
+  place-items: center; // align vertical & horizintal
+}
+
+.container {
+  width: 70%;
+  min-height: 70%;
+  // border: 2px solid #ccc;
+
+  .search {
+    input{
+      width: 100%;
+      text-align: center;
+      font-size: 20px;
+    height: 3rem;
     border: 2px solid #ccc;
+    margin-bottom: 20px;
+    background-color: #e6e0e0;
   }
-  
-  main {
-    height: 75vh;
-    padding: 30px;
-    border: 2px solid #ccc;
-  
-    display: grid;
-    place-items: center;
   }
-  
-  footer {
-    height: 10vh;
-    border: 2px solid #ccc;
-    display: grid;
-    place-items: center; // align vertical & horizintal
-  }
-  
-  .container {
-    width: 50%;
-    min-height: 70%;
-  }
-  
+
   .book-list {
     display: flex;
     flex-direction: column;
     gap: 15px;
+
+    .book {
+      width: 100%;
+      height: 3rem;
+      position: relative;
+      border: 2px solid #ccc;
+      // display: flex;
+      // justify-content: space-between;
+    }
+
+    .icons {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
   }
-  
-  .book {
-    position: relative;
-    border: 1px solid #ccc;
-    // display: flex;
-    // justify-content: space-between;
+  .add {
+    margin-top: 20px;
+    width: 100%;
+    // height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    input {
+      width: 90%;
+      text-align: center;
+      font-size: 20px;
+      height: 2.5rem;
+      background-color: #e6e0e0;
+      border: 2px solid #ccc;
+    }
+    button {
+      border: 2px solid #ccc;
+      background-color: #e6e0e0;
+      width: 100%;
+      height: 2.5rem;
+    }
   }
-  
-  .icons {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-  }
+}
