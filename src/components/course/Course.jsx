@@ -5,15 +5,17 @@ import { Context } from "./Context";
 import { Hooks } from "./Hooks";
 import { Link, Route, Routes } from "react-router-dom";
 import "./Course.scss";
+import { UseS } from "./UseS";
 
 export const Course = () => {
   return (
     <div>
       <div className="links">
-      <Link to="" >State</Link>
-      <Link to="effect" >Effect</Link>
-      <Link to="context" >Context</Link>
-      <Link to="hooks" >Hooks</Link>
+        <Link to="">State</Link>
+        <Link to="effect">Effect</Link>
+        <Link to="context">Context</Link>
+        <Link to="hooks">Hooks</Link>
+        <Link to="uses">UseS</Link>
       </div>
       <div className="roures">
         <Routes>
@@ -21,7 +23,7 @@ export const Course = () => {
           <Route path="effect" element={<Effect />} />
           <Route path="context" element={<Context />} />
           <Route path="hooks" element={<Hooks />} />
-
+          <Route path="uses" element={<UseS />} />
         </Routes>
       </div>
     </div>

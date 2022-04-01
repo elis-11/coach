@@ -12,10 +12,8 @@ export const EditForm = ({
     <form
     className="edit-form"
     onSubmit={handleEditFormSubmit}>
-    {/* <h2>Edit Book</h2> */}
     <label htmlFor="editBook"></label>
     <input
-    // className="input"
       name="editBook"
       type="text"
       placeholder="Edit Book"

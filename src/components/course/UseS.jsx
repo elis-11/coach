@@ -1,45 +1,25 @@
-import { useState, useEffect } from "react";
-import { FaEdit } from "react-icons/fa";
+import { useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
-import "./Robapp.scss";
+import { FaEdit } from "react-icons/fa";
 
-export const Robapp = () => {
-  // const books = [
-  //   { _id: "b1", title: "Guide to Happiness", author: "Gael" },
-  //   { _id: "b2", title: "Guide to JavaScript", author: "Eliza" },
-  //   { _id: "b3", title: "Guide to Coaching", author: "Rob" },
-  // ];
-
-  const [books, setBooks] = useState([]);
+export const UseS = () => {
+  const [books, setBooks] = useState([
+    { id: 1, title: "React", author: "Rob" },
+    { id: 2, title: "JavaScript", author: "Julia" },
+    { id: 3, title: "JavaScript Description", author: "Gael" },
+  ]);
   const [bookNew, setBookNew] = useState({
     title: "",
     author: "",
   });
 
-  useEffect(() => {
-    
-    // const fetchData =  () => {
-    //   const response =  fetch("http://localhost:5000/books");
-    //   const data =  response.json();
-    //   setBooks(data);
-    // };
-
-    const fetchData = async () => {
-      const response = await fetch("http://localhost:5000/books");
-      const data = await response.json();
-      setBooks(data);
-    };
-
-    fetchData();
-  }, []);
-
   const addBook = () => {
     const bookNewState = { title: bookNew.title, author: bookNew.author };
     setBooks([...books, bookNewState]);
   };
-  const handleBookInput = (event) => {
-    console.log((event.target.name, event.target.value));
-    setBookNew({ ...bookNew, [event.target.name]: event.target.value });
+
+  const handleBookInput = (e) => {
+    setBookNew({ ...bookNew, [e.target.name]: e.target.value });
   };
 
   return (
@@ -50,16 +30,11 @@ export const Robapp = () => {
       <main>
         <div className="container">
           <div className="search">
-            <input
-              type="text"
-              name="search"
-              placeholder="Search"
-              // value={bookNew.title}
-            />
+            <input type="text" name="search" placeholder="Search" />
           </div>
           <div className="book-list">
             {books.map((book) => (
-              <div key={book._id} className="book">
+              <div key={book.id} className="book">
                 <div>{book.title}</div>
                 <div>{book.author}</div>
                 <div className="icons">
@@ -94,6 +69,7 @@ export const Robapp = () => {
           </div>
         </div>
       </main>
+      <footer>&copy; Rob Books Unlimited</footer>
     </div>
   );
 };
