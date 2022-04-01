@@ -17,11 +17,19 @@ export const Robapp = () => {
   });
 
   useEffect(() => {
+    
+    // const fetchData =  () => {
+    //   const response =  fetch("http://localhost:5000/books");
+    //   const data =  response.json();
+    //   setBooks(data);
+    // };
+
     const fetchData = async () => {
       const response = await fetch("http://localhost:5000/books");
       const data = await response.json();
       setBooks(data);
     };
+
     fetchData();
   }, []);
 
@@ -36,7 +44,7 @@ export const Robapp = () => {
   };
 
   return (
-    <div className="App">
+    <div className="Robapp">
       <header>
         <h1>Book App</h1>
       </header>
