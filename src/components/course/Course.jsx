@@ -6,6 +6,7 @@ import { Hooks } from "./Hooks";
 import { Link, Route, Routes } from "react-router-dom";
 import "./Course.scss";
 import { UseS } from "./UseS";
+import { UseSt } from "./UseSt";
 
 export const Course = () => {
   return (
@@ -16,6 +17,7 @@ export const Course = () => {
         <Link to="context">Context</Link>
         <Link to="hooks">Hooks</Link>
         <Link to="uses">UseS</Link>
+        <Link to="usest">UseSt</Link>
       </div>
       <div className="roures">
         <Routes>
@@ -24,6 +26,7 @@ export const Course = () => {
           <Route path="context" element={<Context />} />
           <Route path="hooks" element={<Hooks />} />
           <Route path="uses" element={<UseS />} />
+          <Route path="usest" element={<UseSt />} />
         </Routes>
       </div>
     </div>

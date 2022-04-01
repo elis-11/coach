@@ -2,25 +2,13 @@ import { useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
 
-export const UseS = () => {
+export const UseSt = (props) => {
   const [books, setBooks] = useState([
     { id: 1, title: "Guide to Happiness", author: "Gael" },
-    { id: 2, title: "JavaScript", author: "Julia" },
     { id: 3, title: "Guide to Coaching", author: "Rob" },
-]);
-  const [bookNew, setBookNew] = useState({
-    title: "",
-    author: "",
-  });
+  ]);
+  //   const [book, setBook] = useState("");
 
-  const addBook = () => {
-    const bookNewState = { title: bookNew.title, author: bookNew.author };
-    setBooks([...books, bookNewState]);
-  };
-
-  const handleBookInput = (e) => {
-    setBookNew({ ...bookNew, [e.target.name]: e.target.value });
-  };
 
   return (
     <div className="Robapp">
@@ -44,27 +32,14 @@ export const UseS = () => {
               </div>
             ))}
           </div>
-          <div className="add">
-            <div>
+          <div className="add" >
               <input
                 type="text"
                 name="title"
-                placeholder="Title"
-                onChange={handleBookInput}
-                value={bookNew.title}
+                placeholder="Create a new book"
               />
-            </div>
             <div>
-              <input
-                type="text"
-                name="author"
-                placeholder="Author"
-                onChange={handleBookInput}
-                value={bookNew.author}
-              />
-            </div>
-            <div>
-              <button onClick={addBook}>Add</button>
+              <button type="submit">Add</button>
             </div>
           </div>
         </div>

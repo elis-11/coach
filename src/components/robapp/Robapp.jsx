@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
+import { useState } from "react";
 import { FaEdit } from "react-icons/fa";
 import { FaTrashAlt } from "react-icons/fa";
 import "./Robapp.scss";
@@ -10,28 +11,25 @@ export const Robapp = () => {
   //   { _id: "b3", title: "Guide to Coaching", author: "Rob" },
   // ];
 
-  const [books, setBooks] = useState([]);
+  const [books, setBooks] = useState([
+    { _id: "b1", title: "Guide to Happiness", author: "Gael" },
+    { _id: "b2", title: "Guide to JavaScript", author: "Eliza" },
+    { _id: "b3", title: "Guide to Coaching", author: "Rob" },
+  ]);
   const [bookNew, setBookNew] = useState({
     title: "",
     author: "",
   });
 
-  useEffect(() => {
-    
-    // const fetchData =  () => {
-    //   const response =  fetch("http://localhost:5000/books");
-    //   const data =  response.json();
-    //   setBooks(data);
-    // };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const response = await fetch("http://localhost:5000/books");
+  //     const data = await response.json();
+  //     setBooks(data);
+  //   };
 
-    const fetchData = async () => {
-      const response = await fetch("http://localhost:5000/books");
-      const data = await response.json();
-      setBooks(data);
-    };
-
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
   const addBook = () => {
     const bookNewState = { title: bookNew.title, author: bookNew.author };
