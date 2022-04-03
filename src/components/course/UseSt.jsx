@@ -3,24 +3,22 @@ import { FaTrashAlt } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
 
 export const UseSt = () => {
+  
   const [books, setBooks] = useState([
     { _id: "b1", title: "Guide to Happiness", author: "Gael" },
     { _id: "b2", title: "Guide to JavaScript", author: "Eliza" },
     { _id: "b3", title: "Guide to Coaching", author: "Rob" },
   ]);
-  const [book, setBook] = useState({
-    title: "",
-    author: "",
-  });
+  const [newBook, setNewBook] = useState({});
 
   const addBook = () => {
     const bookNewState={
-      title:book.title,
-      author:book.author}
+      title:newBook.title,
+      author:newBook.author}
       setBooks([...books, bookNewState])
   }
   const handleBookInput=(e) => {
-    setBook({...book, [e.target.name]:e.target.value})
+    setNewBook({...newBook, [e.target.name]:e.target.value})
   }
 
   return (
@@ -37,7 +35,6 @@ export const UseSt = () => {
             {books.map((book) => (
               <div key={book.id} className="book">
                 <div>{book.title}</div>
-                <div>{book.author}</div>
                 <div className="icons">
                   <FaEdit className="icon" role="button" tabIndex="0" />
                   <FaTrashAlt className="icon" role="button" tabIndex="0" />
@@ -49,17 +46,9 @@ export const UseSt = () => {
             <input 
             type="text" 
             name="title" 
-            placeholder="Title" 
-            // placeholder="Create a new book" 
+            placeholder="Create a new Book" 
             onChange={handleBookInput}
-            value={book.title}
-            />
-            <input 
-            type="text" 
-            name="author" 
-            placeholder="Author" 
-            onChange={handleBookInput}
-            value={book.author}
+            value={newBook.title}
             />
             <div>
               <button onClick={addBook}>Add</button>

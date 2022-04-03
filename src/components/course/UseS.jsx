@@ -27,7 +27,7 @@ export const UseS = () => {
   return (
     <div className="Robapp">
       <header>
-        <h1>Book App</h1>
+        <h2>Book App</h2>
       </header>
       <main>
         <div className="container">
@@ -47,7 +47,6 @@ export const UseS = () => {
             ))}
           </div>
           <div className="add">
-            <div>
               <input
                 type="text"
                 name="title"
@@ -55,8 +54,6 @@ export const UseS = () => {
                 onChange={handleBookInput}
                 value={bookNew.title}
               />
-            </div>
-            <div>
               <input
                 type="text"
                 name="author"
@@ -64,7 +61,6 @@ export const UseS = () => {
                 onChange={handleBookInput}
                 value={bookNew.author}
               />
-            </div>
             <div>
               <button onClick={addBook}>Add</button>
             </div>
