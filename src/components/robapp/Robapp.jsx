@@ -5,11 +5,6 @@ import { FaTrashAlt } from "react-icons/fa";
 import "./Robapp.scss";
 
 export const Robapp = () => {
-  // const books = [
-  //   { _id: "b1", title: "Guide to Happiness", author: "Gael" },
-  //   { _id: "b2", title: "Guide to JavaScript", author: "Eliza" },
-  //   { _id: "b3", title: "Guide to Coaching", author: "Rob" },
-  // ];
 
   const [books, setBooks] = useState([
     { _id: "b1", title: "Guide to Happiness", author: "Gael" },
@@ -32,11 +27,12 @@ export const Robapp = () => {
   // }, []);
 
   const addBook = () => {
-    const bookNewState = { title: bookNew.title, author: bookNew.author };
+    const bookNewState = { 
+      title: bookNew.title, 
+      author: bookNew.author };
     setBooks([...books, bookNewState]);
   };
   const handleBookInput = (event) => {
-    console.log((event.target.name, event.target.value));
     setBookNew({ ...bookNew, [event.target.name]: event.target.value });
   };
 
