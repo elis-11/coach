@@ -33,7 +33,7 @@ export const UseS = () => {
       <main>
         <div className="container">
           <div className="search">
-            <input type="text" name="search" placeholder="Search" />
+            <input type="text" name="search" placeholder="Search..." />
           </div>
           <div className="book-list">
             {books.map((book) => (

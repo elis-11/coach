@@ -64,7 +64,7 @@ const handleBookInput = (e) => {
           <div className="search">
             <input
               type="search"
-              placeholder="Search"
+              placeholder="Search..."
             />
             {/* <div>
               <button>Search</button>
