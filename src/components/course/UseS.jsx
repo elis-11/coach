@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
+import './Course.scss'
 
 
 
@@ -25,7 +26,7 @@ export const UseS = () => {
   };
 
   return (
-    <div className="Robapp">
+    <div className="Book">
       <header>
         <h2>Book App</h2>
       </header>
@@ -67,7 +68,6 @@ export const UseS = () => {
           </div>
         </div>
       </main>
-      <footer>&copy; Rob Books Unlimited</footer>
     </div>
   );
 };

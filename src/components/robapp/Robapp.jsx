@@ -48,7 +48,6 @@ export const Robapp = () => {
               type="text"
               name="search"
               placeholder="Search"
-              // value={bookNew.title}
             />
           </div>
           <div className="book-list">
