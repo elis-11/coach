@@ -3,13 +3,14 @@ import { FaTrashAlt } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
 
 export const UseSt = () => {
-  
+
   const [books, setBooks] = useState([
-    { _id: "b1", title: "Guide to Happiness", author: "Gael" },
-    { _id: "b2", title: "Guide to JavaScript", author: "Eliza" },
-    { _id: "b3", title: "Guide to Coaching", author: "Rob" },
+    { id: 1, title: "Guide to Happiness", author: "Gael", email: "gael@gmail.com", city: "Berlin"},
+    { id: 2, title: "Guide to JavaScript", author: "Elisa", email: "elisa@gmail.com", city: "Hamburg"},
+    { id: 3, title: "Guide to Coaching", author: "Rob", email: "robert@gmail.com", city: "Berlin"},
   ]);
   const [newBook, setNewBook] = useState({});
+  
 
   const addBook = () => {
     const bookNewState={
