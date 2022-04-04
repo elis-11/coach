@@ -100,13 +100,13 @@ export const Home = () => {
                   <FaEdit
                     className="icon"
                     role="button"
-                    // onClick={handleEditClick(book)}
+                    // onClick={() => handleEditClick(book)}
                     tabIndex="0"
                   />
                   <FaTrashAlt
                     className="icon"
                     role="button"
-                    onClick={handleDeleteClick(book.id)}
+                    onClick={() => handleDelete(book.id)}
                     tabIndex="0"
                   />
                 </div>
