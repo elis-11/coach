@@ -53,11 +53,7 @@ export const EBook = () => {
     handleUpdateBook(currentBook.id, currentBook);
   };
 
-  const handleDeleteClick = (id) => {
-    const removeItem = books.filter((book) => book.id !== id);
-    setBooks(removeItem);
-  };
-
+  
   const handleUpdateBook = (id, updatedBook) => {
     const updatedItem = books.map((book) => {
       return book.id === id ? updatedBook : book;
@@ -65,10 +61,15 @@ export const EBook = () => {
     setIsEditing(false);
     setBooks(updatedItem);
   };
-
+  
   const handleEditClick = (book) => {
     setIsEditing(true);
     setCurrentBook({ ...book });
+  };
+  
+  const handleDeleteClick = (id) => {
+    const removeItem = books.filter((book) => book.id !== id);
+    setBooks(removeItem);
   };
 
   return (
