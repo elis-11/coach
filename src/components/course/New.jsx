@@ -11,17 +11,35 @@ export const New = () => {
   };
 
   //! string
-  const [message, setMessage] = useState('Hi');
-const newMmessage=()=>{
-  let message='Hi people'
-  setMessage(message)
-}
+  const [message, setMessage] = useState("Hi");
+  const newMmessage = () => {
+    let message = "Hi people";
+    setMessage(message);
+  };
 
   //! boolean
   const [online, setOnline] = useState(true);
-  const onlineStatys=()=>{
-    setOnline( !online  )
-  }
+  const onlineStatys = () => {
+    setOnline(!online);
+  };
+
+  //! object
+  const [user, setUser] = useState({ name: "Rob", admin: true });
+  const updateUserRole = () => {
+    const userUpdate = { ...user, admin: !user.admin };
+    setUser(userUpdate);
+  };
+  
+  // //! update name
+  // const [userName, setUserName] = useState("");
+  // const updateUserName = (e) => {
+  //   const newUserName = e.target.value;
+  //   setUserName(newUserName);
+  // };
+
+  // const updateUserObjectName = () => {
+  //   setUser({ ...user, name: userName });
+  // };
 
   return (
     <div>
@@ -35,10 +53,23 @@ const newMmessage=()=>{
       <hr />
       <div onClick={newMmessage}> {message}</div>
       <hr />
-      <div onClick={onlineStatys}>Elisa is {online ? 'online' : 'offline'}</div>
+      <div onClick={onlineStatys}>Elisa is {online ? "online" : "offline"}</div>
+      <hr />
+      <div onClick={updateUserRole}>
+        {user.name} is {user.admin ? "admin" : "user"}
+      </div>
       <hr />
       <hr />
-      <hr />
+      {/* <div>
+        <input
+          type="text"
+          name="username"
+          value={userName}
+          onChange={updateUserName}
+          placeholder="Name"
+        />
+        <button onClick={updateUserObjectName}>Update Name</button>
+      </div> */}
     </div>
   );
 };

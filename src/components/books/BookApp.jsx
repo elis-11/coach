@@ -28,31 +28,6 @@ export const BookApp = () => {
     },
   ]);
 
-  const [newBook, setNewBook]= useState({})
-
-const addBook= () => {
-  const bookNewState={title: newBook.title, author: newBook.author}
-  setBooks([...books, bookNewState])
-}
-
-const handleBookInput = (e) => {
-  setNewBook({...newBook, [e.target.name]: e.target.value})
-}
-
-
-
-  // add new book
-  // const addBook = () => {
-  //   const bookNewState = {
-  //     title: newBook.title,
-  //     author: newBook.author,
-  //   };
-  //   setBooks([...books, bookNewState]);
-  // };
-  // const handleBookInput = (e) => {
-  //   setNewBook({ ...newBook, [e.target.name]: e.target.value });
-  // };
-  // add new book end
 
   return (
     <div className="Book">
@@ -71,26 +46,22 @@ const handleBookInput = (e) => {
             </div> */}
           </div>
           <div className="book-list">
-            {books.map((book) => (
-              <div key={book.id} className="book">
-                <div>{book.title}</div>
+              <div className="book">
+                <div></div>
                 <div className="icons">
                   <FaEdit className="icon" role="button" tabIndex="0" />
                   <FaTrashAlt className="icon" role="button" tabIndex="0" />
                 </div>
               </div>
-            ))}
           </div>
           <div className="add">
             <input
               type="text"
               name="title"
               placeholder="Create a new Book"
-              onChange={handleBookInput}
-              value={newBook.title}
             />
             <div>
-              <button onClick={addBook}>Add</button>
+              <button>Add</button>
             </div>
           </div>
         </div>

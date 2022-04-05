@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
 import "../books/robapp/Robapp.scss";
@@ -14,9 +14,9 @@ export const Home = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [currentBook, setCurrentBook] = useState("");
 
-  useEffect(() => {
-    console.log("use effect ran");
-  });
+  // useEffect(() => {
+  //   console.log("use effect ran");
+  // });
 
   // ADD BOOK
   const addBook = () => {

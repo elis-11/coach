@@ -35,16 +35,16 @@ export const UseSt = () => {
     setOnline(!online);
   };
   //***************************** */
-  //! INPUT field state
-  const [userName, setUserName] = useState("");
-  const updateUserRole = (e) => {
-    const userUpdate = { ...user, admin: !user.admin };
-    setUser(userUpdate);
-    setUserName(e.target.value);
-  };
-  //******************************* */
   //! user OBJECT
   const [user, setUser] = useState({ name: "Elisa", admin: true });
+  //! INPUT field state
+  // const [userName, setUserName] = useState("");
+
+  const updateUserRole = () => {
+    const userUpdate = { ...user, admin: !user.admin };
+    setUser(userUpdate);
+  };
+  //******************************* */
 
 
   //! Array
