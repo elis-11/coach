@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const UseState1 = () => {
+export const UseState = () => {
   // NUMBER
   const [number, setNumber] = useState(0);
   // STRING
@@ -31,10 +31,10 @@ export const UseState1 = () => {
   };
   // OBJECT
   const updateUserRole = (e) => {
-    const userUpdate={...user, admin: !user.admin}
-    setUser(userUpdate)
-    setUserName(e.target.value)
-  }
+    const userUpdate = { ...user, admin: !user.admin };
+    setUser(userUpdate);
+    setUserName(e.target.value);
+  };
 
   // Array
 
@@ -47,9 +47,11 @@ export const UseState1 = () => {
       </div>
       <div onClick={updateMessage}>String: {message}</div>
       <div onClick={updateOnlineStatus}>Online: {online ? "Ja" : "Nein"}</div>
-      <div onClick={updateOnlineStatus}> {online ? 'Online' : "Offline"}</div>
+      <div onClick={updateOnlineStatus}> {online ? "Online" : "Offline"}</div>
       <div>Array: </div>
-      <div onClick={updateUserRole}>Object: {user.name} {user.admin ? 'Admin' : 'User'}</div>
+      <div onClick={updateUserRole}>
+        Object: {user.name} {user.admin ? "Admin" : "User"}
+      </div>
     </div>
   );
 };
