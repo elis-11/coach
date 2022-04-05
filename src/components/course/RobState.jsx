@@ -1,32 +1,18 @@
 import { useState } from 'react';
 
-export const UseState1=()=> {
+export const RobState=()=> {
 
   // number
   const [ number, setNumber] = useState( 0 )
-
-  // string
-  const [ message, setMessage ] = useState("hey")
-
-  // user object
-  const [ user, setUser ] = useState({ name: "Eliza", admin: true }) 
-
-  // INPUT field state
-  const [ username, setUsername ] = useState("") 
-
-
-
-  // boolean (true / false)
-  const [ online, setOnline ] = useState( true )
-
-  // array (will follow....)
-
 
   // update number
   const increaseNumber = () => {
     console.log("Increase Number called...")
     setNumber( number + 1 )
   }
+  
+  // string
+  const [ message, setMessage ] = useState("hey")
 
   // update string (=message)
   const updateMessage = () => {
@@ -35,19 +21,9 @@ export const UseState1=()=> {
     setMessage( messageNew )
   }
 
-  const updateOnlineStatus = () => {
-    console.log("Update Online status called...")
-
-    console.log( "!true", !true )
-    console.log( "!false", !false )
-
-    setOnline( !online  ) // toggle boolean variable online (if true => false, if false => true)
-    // setOnline( online ? false : true  )
-  }
-
-
+  // user object
+  const [ user, setUser ] = useState({ name: "Eliza", admin: true }) 
   // toggle Admin status => if admin true => false und umgekehrt
-
   const updateUserRole = () => {
     console.log("Update User status")
     // user.admin = false // does not work to update object directly!
@@ -58,22 +34,32 @@ export const UseState1=()=> {
     setUser( userUpdate ) // setXXX => überschreibt alte Daten komplett!
   }
 
-// INPUT
-  const updateUserName = (event) => {
-    console.log("Update user name")
 
-    const usernameTyped = event.target.value
+  // INPUT field state
+  const [ username, setUsername ] = useState("") 
 
-    console.log( usernameTyped )
-    setUsername( usernameTyped )
+
+
+  // boolean (true / false)
+  const [ online, setOnline ] = useState( true )
+ 
+  const updateOnlineStatus = () => {
+    console.log("Update Online status called...")
+
+    console.log( "!true", !true )
+    console.log( "!false", !false )
+
+    setOnline( !online  ) // toggle boolean variable online (if true => false, if false => true)
+    // setOnline( online ? false : true  )
   }
 
-  // button was clicked 
-  // update username in user object ! 
-  
-  const updateUserObjectName = () => {
-    console.log("Updating username in object")
+  // array (will follow....)
 
+// INPUT
+  const updateUserName = (event) => {
+    setUsername( event.target.value )
+  }
+  const updateUserObjectName = () => {
     setUser( { ...user, name: username } )
   }
 
