@@ -1,46 +1,33 @@
-import React from "react";
-import { FaEdit } from "react-icons/fa";
-import { FaTrashAlt } from "react-icons/fa";
+import { Link, Route, Routes } from "react-router-dom";
+import { State } from "./State";
+import { NewBook } from "./NewBook";
+import { UseState } from "./UseState";
+import { DoubleBook } from "./DoubleBook";
+import { BookApp } from "./BookApp";
+import { Robapp } from "./robapp/Robapp";
 import "./Books.scss";
 
 export const Books = () => {
-  const books = [
-    { id: "1", title: "Guide to Happines", author: "Gael" },
-    { id: "2", title: "Guide to JavaScript", author: "Elisa" },
-    { id: "3", title: "Guide to Coaching", author: "Robert" },
-  ];
-
   return (
-    <div className="Books">
-      <div>
-        <h2>Book App</h2>
+    <div>
+      <div className="links">
+        <Link to="">Robapp</Link>
+        <Link to="newbook">NewBook</Link>
+        <Link to="doublebook">DoubleBook</Link>
+        <Link to="bookapp">BookApp</Link>
+        <Link to="state">State</Link>
+        <Link to="usestate">UseState</Link>
       </div>
-      <main>
-        {books.length ? (
-          <div className="container">
-
-            <div className="add">Create a new book</div>
-            <div className="search">Search</div>
-
-            <div className="book-list">
-              {books.map((book) => (
-                <div key={book.id} className="book">
-                  <div>{book.title}</div>
-                  <div>{book.author}</div>
-                  <div className="icons">
-                    <FaEdit className="icon" role="button" tabIndex="0" />
-                    <FaTrashAlt className="icon" role="button" tabIndex="0" />
-                  </div>
-                </div>
-              ))}
-            </div>
-            {/* <div className="add-book"></div> */}
-          </div>
-        ) : (
-          <p style={{ marginTop: "2rem" }}> Your list is empty.</p>
-        )}
-      </main>
-      <footer>&copy; Copyright 2022</footer>
+      <div className="roures">
+        <Routes>
+          <Route path="" element={<Robapp />} />
+          <Route path="newbook" element={<NewBook />} />
+          <Route path="doublebook" element={<DoubleBook />} />
+          <Route path="bookapp" element={<BookApp />} />
+          <Route path="state" element={<State />} />
+          <Route path="usestate" element={<UseState />} />
+        </Routes>
+      </div>
     </div>
   );
 };
