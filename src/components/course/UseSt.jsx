@@ -1,29 +1,17 @@
 import { useState } from "react";
-import Button from "react-bootstrap/Button"
-import Card from "react-bootstrap/Card"
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 
-const getInitialState = () => false
-
+const getInitialState = () => false;
 
 export const UseSt = () => {
-  // NUMBER
-  const [number, setNumber] = useState(0);
-  // STRING
-  const [message, setMessage] = useState("Hi");
-  // BOOLEAN
-  const [online, setOnline] = useState(true);
-  // INPUT field state
-  const [userName, setUserName] = useState("");
-  // user OBJECT
-  const [user, setUser] = useState({ name: "Elisa", admin: true });
-
-  const [visible, setVisibility]= useState(getInitialState); 
-
+  const [visible, setVisibility] = useState(getInitialState);
   const handleClick = () => {
-    setVisibility((currentValue)=>!currentValue)
+    setVisibility((currentValue) => !currentValue);
   };
-
-
+//***************************** *
+  //! NUMBER
+  const [number, setNumber] = useState(10);
   // NUMBER
   const increaseNumber = () => {
     setNumber(number + 1);
@@ -31,24 +19,35 @@ export const UseSt = () => {
   const decreaseNumber = () => {
     setNumber(number - 1);
   };
+  //****************************** */
+  //! STRING
+  const [message, setMessage] = useState("Hi");
   // STRING
   const updateMessage = () => {
-    console.log("Update message...");
     let newMmessage = "Hallo";
     setMessage(newMmessage);
   };
+  //***************************** */
+  // BOOLEAN
+  const [online, setOnline] = useState(true);
   // BOOLEAN
   const updateOnlineStatus = () => {
     setOnline(!online);
   };
-  // OBJECT
+  //***************************** */
+  //! INPUT field state
+  const [userName, setUserName] = useState("");
   const updateUserRole = (e) => {
     const userUpdate = { ...user, admin: !user.admin };
     setUser(userUpdate);
     setUserName(e.target.value);
   };
+  //******************************* */
+  //! user OBJECT
+  const [user, setUser] = useState({ name: "Elisa", admin: true });
 
-  // Array
+
+  //! Array
 
   return (
     <div>
@@ -57,24 +56,35 @@ export const UseSt = () => {
         <button onClick={increaseNumber}>+</button>
         <button onClick={decreaseNumber}>-</button>
       </div>
+      <hr />
       <div onClick={updateMessage}>String: {message}</div>
+      <hr />
+      <hr />
       <div onClick={updateOnlineStatus}>Online: {online ? "Ja" : "Nein"}</div>
-      <div onClick={updateOnlineStatus}> {online ? "Online" : "Offline"}</div>
+      <hr />
+      <div onClick={updateOnlineStatus}>Shi is {online ? "Online" : "Offline"}</div>
+      <hr />
+      <hr />
       <div>Array: </div>
+      <hr />
+      <hr />
       <div onClick={updateUserRole}>
         Object: {user.name} {user.admin ? "Admin" : "User"}
       </div>
       <hr />
+      <hr />
       <div>
-      <h2>What is React ?</h2>
+        <h2>What is React ?</h2>
         <Button variant="primary" onClick={handleClick}>
           Show answer
         </Button>
         {visible && (
           <Card>
-          <Card.Body>A JavaScript library for building user interfaces</Card.Body>
-        </Card>
-          )}
+            <Card.Body>
+              A JavaScript library for building user interfaces
+            </Card.Body>
+          </Card>
+        )}
       </div>
       <hr />
     </div>

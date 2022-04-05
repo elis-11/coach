@@ -1,93 +1,92 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-export const RobState=()=> {
-
-  // number
-  const [ number, setNumber] = useState( 0 )
+export const RobState = () => {
+  //! number
+  const [number, setNumber] = useState(0);
 
   // update number
   const increaseNumber = () => {
-    console.log("Increase Number called...")
-    setNumber( number + 1 )
-  }
-  
-  // string
-  const [ message, setMessage ] = useState("hey")
+    console.log("Increase Number called...");
+    setNumber(number + 1);
+  };
+  //******************************** */
+  //! string
+  const [message, setMessage] = useState("hey");
 
   // update string (=message)
   const updateMessage = () => {
-    console.log("Update Message called...")
-    let messageNew = "hallo"
-    setMessage( messageNew )
-  }
+    console.log("Update Message called...");
+    let messageNew = "hallo";
+    setMessage(messageNew);
+  };
+  //******************************** */
+  //! boolean (true / false)
+  const [online, setOnline] = useState(true);
 
-  // user object
-  const [ user, setUser ] = useState({ name: "Eliza", admin: true }) 
+  const updateOnlineStatus = () => {
+    console.log("Update Online status called...");
+
+    console.log("!true", !true);
+    console.log("!false", !false);
+
+    setOnline(!online); // toggle boolean variable online (if true => false, if false => true)
+    // setOnline( online ? false : true  )
+  };
+  //******************************** */
+  //! user object
+  const [user, setUser] = useState({ name: "Eliza", admin: true });
   // toggle Admin status => if admin true => false und umgekehrt
   const updateUserRole = () => {
-    console.log("Update User status")
+    console.log("Update User status");
     // user.admin = false // does not work to update object directly!
 
     // toggle admin status
-    const userUpdate = { ...user, admin: !user.admin }
+    const userUpdate = { ...user, admin: !user.admin };
 
-    setUser( userUpdate ) // setXXX => überschreibt alte Daten komplett!
-  }
+    setUser(userUpdate); // setXXX => überschreibt alte Daten komplett!
+  };
+  //******************************** */
+  //! INPUT field state
+  const [username, setUsername] = useState("");
 
-
-  // INPUT field state
-  const [ username, setUsername ] = useState("") 
-
-
-
-  // boolean (true / false)
-  const [ online, setOnline ] = useState( true )
- 
-  const updateOnlineStatus = () => {
-    console.log("Update Online status called...")
-
-    console.log( "!true", !true )
-    console.log( "!false", !false )
-
-    setOnline( !online  ) // toggle boolean variable online (if true => false, if false => true)
-    // setOnline( online ? false : true  )
-  }
-
-  // array (will follow....)
-
-// INPUT
   const updateUserName = (event) => {
-    setUsername( event.target.value )
-  }
+    setUsername(event.target.value);
+  };
   const updateUserObjectName = () => {
-    setUser( { ...user, name: username } )
-  }
-
-
-
+    setUser({ ...user, name: username });
+  };
+  //******************************** */
   return (
     <div className="App">
       <header className="App-header">
         <h2>UseState Training camp</h2>
 
         {/* Update SIMPLE values (number, string, boolean) */}
-        <div onClick={ increaseNumber } >Number: { number } </div>
-        <div onClick={ updateMessage  }>String: { message } </div>
-        <div onClick={ updateOnlineStatus } >Online: { online ? "Ja" : "Nein" }</div>
-
+        <div onClick={increaseNumber}>Number: {number} </div>
+        <hr />
+        <div onClick={updateMessage}>String: {message} </div>
+        <hr />
+        <div onClick={updateOnlineStatus}>Online: {online ? "Ja" : "Nein"}</div>
+        <hr />
         {/* Update OBJECT field => Change role von Admin zu User  */}
-        <div onClick={ updateUserRole } >Object:  { user.name } {user.admin ? "Admin" : "User" } </div>
-
+        <div onClick={updateUserRole}>
+          Object: {user.name} {user.admin ? "Admin" : "User"}{" "}
+        </div>
+        <hr />
         {/* Update OBJECT field by Input Field
           Save INPUT from user in a STATE
           On Click => overwrite the name of the user OBJECT with the data from INPUT field (stored n state "username")
         */}
         <div>
-          <input type="text" name="username" value={ username } onChange={ updateUserName  } />
-          <button onClick={ updateUserObjectName }>Update name</button>
+          <input
+            type="text"
+            name="username"
+            value={username}
+            onChange={updateUserName}
+          />
+          <button onClick={updateUserObjectName}>Update name</button>
         </div>
-
       </header>
     </div>
   );
-}
+};
