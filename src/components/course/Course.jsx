@@ -6,12 +6,14 @@ import { RobState } from "./RobState";
 import { UseSt } from "./UseSt";
 import {New} from "./New";
 import "./Course.scss";
+import { HW } from "./HW";
 
 export const Course = () => {
   return (
     <div>
       <div className="links">
         <Link to="" >State</Link>
+        <Link to="hw">HW</Link>
         <Link to="effect">Effect</Link>
         <Link to="context">Context</Link>
         <Link to="usest">UseSt</Link>
@@ -21,6 +23,7 @@ export const Course = () => {
       <div className="roures">
         <Routes>
           <Route path="" element={<State />} />
+          <Route path="hw" element={<HW />} />
           <Route path="effect" element={<Effect />} />
           <Route path="context" element={<Context />} />
           <Route path="usest" element={<UseSt />} />

@@ -1,75 +1,90 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 export const New = () => {
-  //! numbers
-  const [number, setNumber] = useState(0);
+  const [num, setNum] = useState(3);
   const increment = () => {
-    setNumber(number + 1);
+    setNum(num + 5);
   };
   const decrement = () => {
-    setNumber(number - 5);
+    setNum(num - 4);
   };
+  //************ */
+  const [greeting, setGreeting] = useState("Hi");
 
-  //! string
-  const [message, setMessage] = useState("Hi");
-  const newMmessage = () => {
-    let message = "Hi people";
-    setMessage(message);
+  const updateGreeting = () => {
+    let greeting = "Hi people";
+    setGreeting(greeting);
   };
+  //************ */
+  const [plant, setPlant] = useState(true);
 
-  //! boolean
-  const [online, setOnline] = useState(true);
-  const onlineStatys = () => {
-    setOnline(!online);
+  const updatePlantStatus = () => {
+    setPlant(!plant);
   };
+  //************ */
 
-  //! object
-  const [user, setUser] = useState({ name: "Rob", admin: true });
-  const updateUserRole = () => {
-    const userUpdate = { ...user, admin: !user.admin };
-    setUser(userUpdate);
+  const [user, setUser] = useState({
+    name: "Luis",
+    age: 18,
+    city: "Hamburg",
+    student: true,
+  });
+
+  const updateStudent = () => {
+    setUser({ ...user, student: !user.student, age: user.age + 1 });
   };
-  
-  // //! update name
-  // const [userName, setUserName] = useState("");
-  // const updateUserName = (e) => {
-  //   const newUserName = e.target.value;
-  //   setUserName(newUserName);
-  // };
+  //************ */
+  const [newUser, setNewUser] = useState("");
 
-  // const updateUserObjectName = () => {
-  //   setUser({ ...user, name: userName });
-  // };
+  const updateUserName = (e) => {
+    setNewUser(e.target.value);
+  };
+  const updateName= () => {
+    setUser({ ...user, name: newUser });
+  }
 
   return (
     <div>
-      New
+      <hr />
+      number
+      <div>
+        <div>
+          {num}
+          <div onClick={increment}>+</div>
+          <div onClick={decrement}>-</div>
+        </div>
+      </div>
       <hr />
       <div>
-        number {number}
-        <div onClick={increment}>+</div>
-        <div onClick={decrement}>-</div>
+        string
+        <div onClick={updateGreeting}>{greeting}</div>
       </div>
       <hr />
-      <div onClick={newMmessage}> {message}</div>
-      <hr />
-      <div onClick={onlineStatys}>Elisa is {online ? "online" : "offline"}</div>
-      <hr />
-      <div onClick={updateUserRole}>
-        {user.name} is {user.admin ? "admin" : "user"}
+      <div>
+        boolean
+        <div onClick={updatePlantStatus}>
+          Rose is a {plant ? "plant" : "flower"}
+        </div>
       </div>
       <hr />
-      <hr />
-      {/* <div>
+      <div>
+        object
+        <div onClick={updateStudent}>
+          {user.name} is a {user.student ? "Student" : "Worker"} and he is{" "}
+          {user.age}
+        </div>
+      </div>
+      <div>
         <input
           type="text"
-          name="username"
-          value={userName}
-          onChange={updateUserName}
+          name="user"
           placeholder="Name"
+          onChange={updateUserName}
+          value={newUser}
         />
-        <button onClick={updateUserObjectName}>Update Name</button>
-      </div> */}
+        <button onClick={updateName}>Update</button>
+      </div>
+      <hr />
     </div>
   );
 };

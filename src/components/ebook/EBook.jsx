@@ -22,18 +22,14 @@ export const EBook = () => {
     localStorage.setItem("books", JSON.stringify(books));
   }, [books]);
 
+  // add book
   const handleAddInputChange = (e) => {
     setBook(e.target.value);
   };
-
-  const handleEditInputChange = (e) => {
-    setCurrentBook({ ...currentBook, text: e.target.value });
-    console.log(currentBook);
-  };
-
+  
   const handleAddFormSubmit = (e) => {
     e.preventDefault();
-
+    
     if (book !== "") {
       setBooks([
         ...books,
@@ -47,13 +43,15 @@ export const EBook = () => {
     }
     setBook("");
   };
-
+  // edit
+  const handleEditInputChange = (e) => {
+    setCurrentBook({ ...currentBook, text: e.target.value });
+    console.log(currentBook);
+  };
   const handleEditFormSubmit = (e) => {
     e.preventDefault();
     handleUpdateBook(currentBook.id, currentBook);
   };
-
-  
   const handleUpdateBook = (id, updatedBook) => {
     const updatedItem = books.map((book) => {
       return book.id === id ? updatedBook : book;
@@ -61,12 +59,11 @@ export const EBook = () => {
     setIsEditing(false);
     setBooks(updatedItem);
   };
-  
   const handleEditClick = (book) => {
     setIsEditing(true);
     setCurrentBook({ ...book });
   };
-  
+  // delete
   const handleDeleteClick = (id) => {
     const removeItem = books.filter((book) => book.id !== id);
     setBooks(removeItem);

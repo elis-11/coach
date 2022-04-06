@@ -24,7 +24,9 @@ export const RobState = () => {
   };
   //**************
   //! object user
-  const [user, setUser] = useState({ name: "Eliza", admin: true });
+  const [user, setUser] = useState({
+     name: "Eliza", admin: true 
+    });
   const updateUserRole = () => {
     const userUpdate = { ...user, admin: !user.admin };
     setUser(userUpdate);
@@ -55,8 +57,7 @@ export const RobState = () => {
         <div onClick={updateUserRole}>
           Object: {user.name} is {user.admin ? "Admin" : "User"}{" "}
         </div>
-        <hr />
-        <div>
+          <div>
           <input
             type="text"
             name="username"
