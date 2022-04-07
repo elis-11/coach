@@ -53,8 +53,8 @@ export const UseSt = () => {
     <div>
       <div>
         Number: {number}
-        <button onClick={increaseNumber}>+</button>
-        <button onClick={decreaseNumber}>-</button>
+        <Button onClick={increaseNumber}>+</Button>
+        <Button onClick={decreaseNumber}>-</Button>
       </div>
       <hr />
       <div onClick={updateMessage}>String: {message}</div>
@@ -69,7 +69,7 @@ export const UseSt = () => {
       <hr />
       <hr />
       <div onClick={updateUserRole}>
-        Object: {user.name} {user.admin ? "Admin" : "User"}
+        Object: {user.name} is {user.admin ? "Admin" : "User"}
       </div>
       <hr />
       <hr />

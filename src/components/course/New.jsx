@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Button from "react-bootstrap/Button";
+
 
 export const New = () => {
   const [num, setNum] = useState(3);
@@ -50,8 +52,10 @@ export const New = () => {
       <div>
         <div>
           {num}
-          <div onClick={increment}>+</div>
-          <div onClick={decrement}>-</div>
+          <div>
+          <Button onClick={increment}>+</Button>
+          <Button onClick={decrement}>-</Button>
+          </div>
         </div>
       </div>
       <hr />
