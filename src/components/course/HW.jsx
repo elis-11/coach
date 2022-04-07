@@ -1,6 +1,4 @@
 import { useState } from "react";
-import Button from "react-bootstrap/Button";
-
 
 export const HW = () => {
   const [person, setPerson] = useState({
@@ -12,11 +10,10 @@ export const HW = () => {
   });
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
-  
+  const [fullname, setFullname] = useState(""); 
+
   const updatePersonData = () => {
-    setPerson({ ...person, 
-      student: !person.student,
-    });
+    setPerson({ ...person, student: !person.student });
   };
 
   const updatePersonFirstname = (e) => {
@@ -31,22 +28,11 @@ export const HW = () => {
       ...person,
       fname: firstname,
       lname: lastname,
-      id: new Date(),
+      id: new Date().toString(),
     });
-    setFirstname({ ...firstname, fname: "" });
-    setLastname({ ...lastname, lname: "" });
-  };
-  //******Fullname*******
-  const [fullname, setFullname] = useState("");
-  const showFullName = () => {
-    const fullname = {
-      fname: firstname.fname,
-      lname: lastname.fname,
-    };
-    setPerson({ ...person, fullname });
-  };
-  const handleFullName = (e) => {
-    setFullname({ ...fullname, [e.target.name]: e.target.value });
+    setFullname(`${firstname} ${lastname}`);
+    setFirstname("");
+    setLastname("");
   };
 
   return (
@@ -58,39 +44,24 @@ export const HW = () => {
       </div>
       <div>
         <input
-        key={person.id}
+          key={person.id}
           type="text"
           name="firstname"
           placeholder="Firstname"
           onChange={updatePersonFirstname}
-          value={person.firstname}
+          value={firstname}
         />
         <input
           type="text"
           name="lastname"
           placeholder="Lastname"
           onChange={updatePersonLastname}
-          value={person.lastname}
+          value={lastname}
         />
         <button onClick={updatePersonName}>Update</button>
       </div>
-      <div>
-        <input
-          type="text"
-          name="firstname"
-          placeholder="Firstname"
-          onChange={handleFullName}
-          value={fullname.fname}
-        />
-        <input
-          type="text"
-          name="lastname"
-          placeholder="Lastname"
-          onChange={handleFullName}
-          value={lastname.lname}
-        />
-        <button onClick={showFullName}>FullName</button>
-      </div>
+      <div>Fullname:  { `${person.fname} ${person.lname}` }</div>
     </div>
   );
 };
+ 

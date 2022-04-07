@@ -1,8 +1,16 @@
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 
+const getInitialState = () => false;
 
 export const New = () => {
+
+  const [visible, setVisibility] = useState(getInitialState);
+  const handleClick = () => {
+    setVisibility((currentValue) => !currentValue);
+  };
+//****NUMBER***** *
   const [num, setNum] = useState(3);
   const increment = () => {
     setNum(num + 5);
@@ -10,20 +18,20 @@ export const New = () => {
   const decrement = () => {
     setNum(num - 4);
   };
-  //************ */
+  //******STRING****** */
   const [greeting, setGreeting] = useState("Hi");
 
   const updateGreeting = () => {
     let greeting = "Hi people";
     setGreeting(greeting);
   };
-  //************ */
+  //******BOOLEAN****** */
   const [plant, setPlant] = useState(true);
 
   const updatePlantStatus = () => {
     setPlant(!plant);
   };
-  //************ */
+  //******OBJECT****** */
 
   const [user, setUser] = useState({
     name: "Luis",
@@ -89,6 +97,22 @@ export const New = () => {
         <button onClick={updateName}>Update</button>
       </div>
       <hr />
+      <hr />
+      <div>
+        <h2>What is React ?</h2>
+        <Button variant="primary" onClick={handleClick}>
+          Show answer
+        </Button>
+        {visible && (
+          <Card>
+            <Card.Body>
+              A JavaScript library for building user interfaces
+            </Card.Body>
+          </Card>
+        )}
+      </div>
+      <hr />
+
     </div>
   );
 };

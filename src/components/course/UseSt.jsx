@@ -1,92 +1,60 @@
 import { useState } from "react";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-
-const getInitialState = () => false;
 
 export const UseSt = () => {
-  const [visible, setVisibility] = useState(getInitialState);
-  const handleClick = () => {
-    setVisibility((currentValue) => !currentValue);
-  };
-//***************************** *
-  //! NUMBER
-  const [number, setNumber] = useState(10);
-  // NUMBER
-  const increaseNumber = () => {
-    setNumber(number + 1);
-  };
-  const decreaseNumber = () => {
-    setNumber(number - 1);
-  };
-  //****************************** */
-  //! STRING
-  const [message, setMessage] = useState("Hi");
-  // STRING
-  const updateMessage = () => {
-    let newMmessage = "Hallo";
-    setMessage(newMmessage);
-  };
-  //***************************** */
-  // BOOLEAN
-  const [online, setOnline] = useState(true);
-  // BOOLEAN
-  const updateOnlineStatus = () => {
-    setOnline(!online);
-  };
-  //***************************** */
-  //! user OBJECT
-  const [user, setUser] = useState({ name: "Elisa", admin: true });
-  //! INPUT field state
-  // const [userName, setUserName] = useState("");
 
-  const updateUserRole = () => {
-    const userUpdate = { ...user, admin: !user.admin };
-    setUser(userUpdate);
-  };
-  //******************************* */
+  const [blogs, setBlogs] = useState([
+    { id: "1", title: "Blog 1", author: "Gael"}, 
+    { id: "2", title: "Blog 2", author: "Rob"},
+    { id: "3", title: "Blog 3", author: "Gael"},
+    { id: "4", title: "Blog 4", author: "Eliza"} 
+  ])
+  const [blogTitleNew, setBlogTitleNew] = useState("") // INPUT STATE
+  const [blogAuthorNew, setBlogAuthorNew] = useState("")
+
+  console.log( blogs )
+
+  // map DATA array to HTML array
+  const arrBlogsHTML = blogs.map( (blog) => {
+    return <div key={blog.id}>{ blog.title } von { blog.author }</div> // convert EACH data object into HTML
+  })
 
 
-  //! Array
+  // reacted auf BUTTON CLICK => ADD des Users
+  const addNewBlogToArray = () => {
+    // blogs.push("Gael")
+    const newId = Date.now().toString()
+    const newBlog = {  id: newId, title: blogTitleNew, author: blogAuthorNew }
+    setBlogs([...blogs, newBlog ]) // copy all items from previous array and ADD a new one 
+  }
 
+  // reacted auf TYPING des Users
+  const onTitleChange = (event) => {
+    // user hat getippt => aber wo ist es?
+    setBlogTitleNew( event.target.value)
+  }
+
+  const onAuthorChange=(event) => {
+    setBlogAuthorNew( event.target.value)
+  }
+
+  // JSX SNIPPETS
+  // PizzaList.jsx
+  const divBlogs = 
+  (
+    <div className="blogs">
+      { arrBlogsHTML }
+    </div>    
+  );
+
+  // JSX (=> LAYOUT)
   return (
     <div>
-      <div>
-        Number: {number}
-        <Button onClick={increaseNumber}>+</Button>
-        <Button onClick={decreaseNumber}>-</Button>
-      </div>
-      <hr />
-      <div onClick={updateMessage}>String: {message}</div>
-      <hr />
-      <hr />
-      <div onClick={updateOnlineStatus}>Online: {online ? "Ja" : "Nein"}</div>
-      <hr />
-      <div onClick={updateOnlineStatus}>Shi is {online ? "Online" : "Offline"}</div>
-      <hr />
-      <hr />
-      <div>Array: </div>
-      <hr />
-      <hr />
-      <div onClick={updateUserRole}>
-        Object: {user.name} is {user.admin ? "Admin" : "User"}
-      </div>
-      <hr />
-      <hr />
-      <div>
-        <h2>What is React ?</h2>
-        <Button variant="primary" onClick={handleClick}>
-          Show answer
-        </Button>
-        {visible && (
-          <Card>
-            <Card.Body>
-              A JavaScript library for building user interfaces
-            </Card.Body>
-          </Card>
-        )}
-      </div>
-      <hr />
+      <h2>Blog posts</h2>
+      { divBlogs }
+      {/* INPUT STATE */}
+      <input value={ blogTitleNew } onChange={  onTitleChange }  />
+      <input value={ blogAuthorNew } onChange={  onAuthorChange }  />
+      <button onClick={ addNewBlogToArray }>Add Blog</button>
     </div>
   );
 };
