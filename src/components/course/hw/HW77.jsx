@@ -1,42 +1,34 @@
-import React, { useState } from "react";
+import { useState} from "react";
 
 export const HW77 = () => {
-  const [blogs, setBlogs] = useState([
-    { id: "1", title: "Blog 1", author: "Gael" },
-    { id: "2", title: "Blog 2", author: "Rob" },
-    { id: "3", title: "Blog 3", author: "Elisa" },
-  ]);
-const [newTitle, setNewTitle] =useState('')
-const [newAuthor, setNewAuthor] = useState('')
+  const [person, setPerson] = useState({ firstname: "", lastname: "" });
 
-const onNewTitle = (e)=>{
-  setNewTitle(e.target.value);
-}
-const onNewAuthor = (e)=>{
-  setNewAuthor(e.target.value);
-}
+  const addNewPerson = (e) => {
+    const { name, value } = e.target;
 
-const addNewBlog = ()=>{
-  const newId = Date.now().toString();
-  const newBlog= {id: newId, title: newTitle, author: newAuthor}
-  setBlogs([...blogs, newBlog]);
-  setNewTitle('')
-  setNewAuthor('')
-}
+
+    setPerson((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
 
   return (
     <div>
-      {blogs.map((blog) => (
-        <div key={blog.id}>
-          {blog.title}
-          {blog.author}
-        </div>
-      ))}
-      <div>
-        <input value={newTitle} onChange={onNewTitle} />
-        <input value={newAuthor} onChange={onNewAuthor} />
-        <button onClick={addNewBlog}>Add</button>
-      </div>
+      <input
+        value={person.firstname}
+        type="text"
+        onChange={addNewPerson}
+        name="firstname"
+      />
+      <input
+        value={person.lastname}
+        type="text"
+        onChange={addNewPerson}
+        name="lastname"
+      />
+
     </div>
   );
 };
+//https://stackoverflow.com/questions/54150783/react-hooks-usestate-with-object
