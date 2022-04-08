@@ -51,13 +51,13 @@ export const UseSt = () => {
       {
         <div className="blogs">
           {/* {arrBlogsHTML} */}
-          {blogs.map((blog) => {
-            return (
+          {blogs.map(
+            (blog) => (
               <div key={blog.id}>
                 {blog.title} von {blog.author}
               </div>
-            ); // convert EACH data object into HTML
-          })}
+            ) // convert EACH data object into HTML
+          )}
         </div>
       }
       {/* INPUT STATE */}
