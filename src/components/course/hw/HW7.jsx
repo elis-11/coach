@@ -6,29 +6,29 @@ export const HW7 = () => {
     { id: "2", title: "Blog 2", author: "Rob" },
     { id: "3", title: "Blog 3", author: "Elisa" },
   ]);
-  const [blogTitleNew, setBlogTitleNew] = useState(""); // INPUT STATE
-  const [blogAuthorNew, setBlogAuthorNew] = useState("");
+  const [newTitle, setNewTitle] = useState(""); // INPUT STATE
+  const [newAuthor, setNewAuthor] = useState("");
 
   console.log(blogs);
-
-  // map DATA array to HTML array
-
-  // reacted auf BUTTON CLICK => ADD des Users
-  const addNewBlogToArray = () => {
-    // blogs.push("Gael")
-    const newId = Date.now().toString();
-    const newBlog = { id: newId, title: blogTitleNew, author: blogAuthorNew };
-    setBlogs([...blogs, newBlog]); // copy all items from previous array and ADD a new one
-  };
 
   // reacted auf TYPING des Users
   const onTitleChange = (event) => {
     // user hat getippt => aber wo ist es?
-    setBlogTitleNew(event.target.value);
+    setNewTitle(event.target.value);
   };
   const onAuthorChange = (event) => {
-    setBlogAuthorNew(event.target.value);
+    setNewAuthor(event.target.value);
   };
+
+  // reacted auf BUTTON CLICK => ADD des Users
+  const addNewBlog = () => {
+    const newId = Date.now().toString();
+    const newBlog = { id: newId, title: newTitle, author: newAuthor };
+    setBlogs([...blogs, newBlog]); // copy all items from previous array and ADD a new one
+    setNewTitle("")
+    setNewAuthor("")
+  };
+
 
   // JSX (=> LAYOUT)
   return (
@@ -46,9 +46,9 @@ export const HW7 = () => {
         </div>
       }
       {/* INPUT STATE */}
-      <input value={blogTitleNew} onChange={onTitleChange} />
-      <input value={blogAuthorNew} onChange={onAuthorChange} />
-      <button onClick={addNewBlogToArray}>Add</button>
+      <input value={newTitle} onChange={onTitleChange} />
+      <input value={newAuthor} onChange={onAuthorChange} />
+      <button onClick={addNewBlog}>Add</button>
     </div>
   );
 };

@@ -10,7 +10,7 @@ export const HW6 = () => {
   });
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
-  const [fullname, setFullname] = useState(""); 
+  // const [fullname, setFullname] = useState(""); 
 
   const updatePersonData = () => {
     setPerson({ ...person, student: !person.student });
@@ -30,7 +30,7 @@ export const HW6 = () => {
       lname: lastname,
       id: new Date().toString(),
     });
-    setFullname(`${firstname} ${lastname}`);
+    // setFullname(`${firstname} ${lastname}`);
     setFirstname("");
     setLastname("");
   };

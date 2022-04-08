@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 export const HW77 = () => {
   const [blogs, setBlogs] = useState([
@@ -6,36 +6,37 @@ export const HW77 = () => {
     { id: "2", title: "Blog 2", author: "Rob" },
     { id: "3", title: "Blog 3", author: "Elisa" },
   ]);
-  const [titleNew, setTitleNew] = useState("");
-  const [authorNew, setAuthorNew] = useState("");
+const [newTitle, setNewTitle] =useState('')
+const [newAuthor, setNewAuthor] = useState('')
 
-  const onTitleChange = (event) => {
-    setTitleNew(event.target.value);
-  };
+const onNewTitle = (e)=>{
+  setNewTitle(e.target.value);
+}
+const onNewAuthor = (e)=>{
+  setNewAuthor(e.target.value);
+}
 
-  const onAuthorChange= (event) => {
-    setAuthorNew(event.target.value);
-  }
-
-  const addNewBlog = () => {
-    const newId = new Date().toString();
-    const newTitle = { id: newId, title: titleNew, author:authorNew };
-    setBlogs([...blogs, newTitle], );
-    setTitleNew("")
-    setAuthorNew("")
-  };
+const addNewBlog = ()=>{
+  const newId = Date.now().toString();
+  const newBlog= {id: newId, title: newTitle, author: newAuthor}
+  setBlogs([...blogs, newBlog]);
+  setNewTitle('')
+  setNewAuthor('')
+}
 
   return (
     <div>
-      <h2>Blogs posts</h2>
       {blogs.map((blog) => (
         <div key={blog.id}>
-          {blog.title} {blog.author}
+          {blog.title}
+          {blog.author}
         </div>
       ))}
-      <input value={titleNew} onChange={onTitleChange} />
-      <input value={authorNew} onChange={onAuthorChange} />
-      <button onClick={addNewBlog}>Add</button>
+      <div>
+        <input value={newTitle} onChange={onNewTitle} />
+        <input value={newAuthor} onChange={onNewAuthor} />
+        <button onClick={addNewBlog}>Add</button>
+      </div>
     </div>
   );
 };
