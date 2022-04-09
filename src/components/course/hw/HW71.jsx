@@ -27,6 +27,7 @@ export const HW71 = () => {
 
   return (
     <div>
+      <p>HW-71</p>
       {blogs.map((blog) => (
         <HW72
           key={blog.id}

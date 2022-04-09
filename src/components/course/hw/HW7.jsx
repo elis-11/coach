@@ -33,6 +33,7 @@ export const HW7 = () => {
   // JSX (=> LAYOUT)
   return (
     <div>
+      <p>HW-7</p>
       <h2>Blog posts</h2>
       {/* { divBlogs } */}
       {

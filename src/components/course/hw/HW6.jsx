@@ -37,6 +37,7 @@ export const HW6 = () => {
 
   return (
     <div>
+      <p>HW-6</p>
       <div onClick={updatePersonData}>
         {" "}
         The name of this {person.student ? "student" : "worker"} is{" "}
