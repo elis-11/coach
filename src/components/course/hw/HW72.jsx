@@ -1,10 +1,10 @@
 import React from "react";
 
-export const HW72 = (blog) => {
+export const HW72 = (user) => {
   return (
     <div>
-      <div key={blog.id}>
-        {blog.title} {blog.author}
+      <div key={user.id}>
+        {user.firstname} {user.lastname} {user.age} {user.email} {user.password}
       </div>
     </div>
   );
