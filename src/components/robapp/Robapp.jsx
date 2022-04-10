@@ -5,11 +5,10 @@ import { FaTrashAlt } from "react-icons/fa";
 import "./Robapp.scss";
 
 export const Robapp = () => {
-
   const [books, setBooks] = useState([
-    { _id: "b1", title: "Guide to Happiness", author: "Gael" },
-    { _id: "b2", title: "Guide to JavaScript", author: "Eliza" },
-    { _id: "b3", title: "Guide to Coaching", author: "Rob" },
+    { id: "b1", title: "Guide to Happiness", author: "Gael" },
+    { id: "b2", title: "Guide to JavaScript", author: "Eliza" },
+    { id: "b3", title: "Guide to Coaching", author: "Rob" },
   ]);
   const [bookNew, setBookNew] = useState({
     title: "",
@@ -27,20 +26,23 @@ export const Robapp = () => {
   // }, []);
 
   const addBook = () => {
-    const bookNewState = { 
-      title: bookNew.title, 
-      author: bookNew.author };
+    const newId = Date.now().toString();
+    const bookNewState = {
+      id: newId,
+      title: bookNew.title,
+      author: bookNew.author,
+    };
     setBooks([...books, bookNewState]);
-    setBookNew({...bookNew, title:'', author:'',})
+    setBookNew({ ...bookNew, title: "", author: "" });
   };
   const handleBookInput = (event) => {
     setBookNew({ ...bookNew, [event.target.name]: event.target.value });
   };
 
-  const handleDelete =(id) => {
-    const deleteBook= books.filter(book=>book.id !==id)
+  const handleDelete = (id) => {
+    const deleteBook = books.filter((book) => book.id !== id);
     setBooks(deleteBook);
-  }
+  };
 
   return (
     <div className="Robapp">
@@ -50,20 +52,21 @@ export const Robapp = () => {
       <main>
         <div className="container">
           <div className="search">
-            <input
-              type="text"
-              name="search"
-              placeholder="Search"
-            />
+            <input type="text" name="search" placeholder="Search" />
           </div>
           <div className="book-list">
             {books.map((book) => (
-              <div key={book._id} className="book">
+              <div key={book.id} className="book">
                 <div>{book.title}</div>
                 <div>{book.author}</div>
                 <div className="icons">
                   <FaEdit className="icon" role="button" tabIndex="0" />
-                  <FaTrashAlt className="icon" onClick={()=>handleDelete(book.id)} role="button" tabIndex="0" />
+                  <FaTrashAlt
+                    className="icon"
+                    onClick={() => handleDelete(book.id)}
+                    role="button"
+                    tabIndex="0"
+                  />
                 </div>
               </div>
             ))}
