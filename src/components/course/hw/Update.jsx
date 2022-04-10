@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const HomW62 = () => {
+export const Update = () => {
   const [person, setPerson] = useState({
     id: 1,
     fname: "",
@@ -51,7 +51,7 @@ export const HomW62 = () => {
 
   return (
     <div>
-      <p>HW-6</p>
+      <p>Update User ✨</p>
       {/* <div onClick={updatePersonData}> */}
       <div>
         {/* {" "}
@@ -66,6 +66,7 @@ export const HomW62 = () => {
           placeholder="Firstname"
           onChange={updatePersonFirstname}
           value={firstname}
+          autoFocus
         />
       </div>
       <div>

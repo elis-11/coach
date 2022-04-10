@@ -51,6 +51,7 @@ export const HW6 = () => {
           placeholder="Firstname"
           onChange={updatePersonFirstname}
           value={firstname}
+          autoFocus
         />
         <input
           type="text"

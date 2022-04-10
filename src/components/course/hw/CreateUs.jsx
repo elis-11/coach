@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { HW72 } from "./HW72";
 
-export const HW73 = () => {
+export const CreateUs = () => {
   const [users, setUsers] = useState([
     { id: "", firstname: "", lastname: "", age: "", email: "", password: "" },
   ]);
@@ -47,7 +47,7 @@ export const HW73 = () => {
 
   return (
     <div>
-      <p>HW-73</p>
+      <p>CreateUsers ✨</p>
       <div>
         <div>
           <input
@@ -55,6 +55,7 @@ export const HW73 = () => {
             placeholder="Firstname"
             value={newFirstname}
             onChange={onNewFirstname}
+            autoFocus={true}
           />
         </div>
         <div>
