@@ -31,6 +31,7 @@ export const Robapp = () => {
       title: bookNew.title, 
       author: bookNew.author };
     setBooks([...books, bookNewState]);
+    setBookNew({...bookNew, title:'', author:'',})
   };
   const handleBookInput = (event) => {
     setBookNew({ ...bookNew, [event.target.name]: event.target.value });

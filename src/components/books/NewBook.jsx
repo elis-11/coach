@@ -19,6 +19,13 @@ export const NewBook = () => {
     setNewBook({ ...newBook, [e.target.name]: e.target.value });
   };
 
+  //**deleteBook** */
+const HandleDelete=(id) => {
+  const deleteBook=books.filter(book => book.id !== id)
+  setBooks(deleteBook)
+}
+
+
   return (
     <div className="Robapp">
       <h2>New Book</h2>
@@ -34,7 +41,7 @@ export const NewBook = () => {
                 <div>{book.author}</div>
                 <div className="icons">
                   <FaEdit className="icon" role="button" tabIndex="0" />
-                  <FaTrashAlt className="icon" role="button" tabIndex="0" />
+                  <FaTrashAlt className="icon" onClick={()=> HandleDelete(book.id)} role="button" tabIndex="0" />
                 </div>
               </div>
             ))}

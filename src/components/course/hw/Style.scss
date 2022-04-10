@@ -1,0 +1,21 @@
+.person {
+  .users {
+    width: 80%;
+    display: column;
+    // align-items: center;
+    .user {
+        display: flex;
+        justify-content: space-around;
+      border: 2px solid #ccc;
+      align-items: center;
+      color: rgb(105, 101, 101);
+    }
+  }
+  .inputs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    color: rgb(134, 25, 25);
+  }
+}

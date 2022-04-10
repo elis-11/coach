@@ -6,7 +6,7 @@ import { HW71 } from "./HW71";
 import { CreateUs } from "./CreateUs";
 import { CreatePers } from "./CreatePers";
 import { HW8 } from "./HW8";
-import { Person } from "./Person";
+import Person  from "./Person";
 
 export const HW = () => {
   return (

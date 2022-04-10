@@ -57,8 +57,8 @@ export const Home = () => {
 
   // Delete book
   const handleDelete = (id) => {
-    const newBooks = books.filter((book) => book.id !== id);
-    setBooks(newBooks);
+    const deleteBook = books.filter((book) => book.id !== id);
+    setBooks(deleteBook);
   };
 
   return (
