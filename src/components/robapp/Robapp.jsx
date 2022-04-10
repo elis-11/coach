@@ -37,6 +37,11 @@ export const Robapp = () => {
     setBookNew({ ...bookNew, [event.target.name]: event.target.value });
   };
 
+  const handleDelete =(id) => {
+    const deleteBook= books.filter(book=>book.id !==id)
+    setBooks(deleteBook);
+  }
+
   return (
     <div className="Robapp">
       <header>
@@ -58,7 +63,7 @@ export const Robapp = () => {
                 <div>{book.author}</div>
                 <div className="icons">
                   <FaEdit className="icon" role="button" tabIndex="0" />
-                  <FaTrashAlt className="icon" role="button" tabIndex="0" />
+                  <FaTrashAlt className="icon" onClick={()=>handleDelete(book.id)} role="button" tabIndex="0" />
                 </div>
               </div>
             ))}

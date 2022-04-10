@@ -42,6 +42,12 @@ const handleBookInput = (e) => {
   setNewBook({ ...newBook, [e.target.name]: e.target.value})
 }
 
+//**deleteBook** */
+const handleDelete= (id) => {
+  const deleteBook=books.filter(book=>book.id !== id)
+  setBooks(deleteBook)
+}
+
   return (
     <div className="Book">
       <header>
@@ -64,7 +70,7 @@ const handleBookInput = (e) => {
                 <div>{book.title}</div>
                 <div className="icons">
                   <FaEdit className="icon" role="button" tabIndex="0" />
-                  <FaTrashAlt className="icon" role="button" tabIndex="0" />
+                  <FaTrashAlt className="icon" onClick={() => handleDelete(book.id)} role="button" tabIndex="0" />
                 </div>
               </div>
                 ))}
