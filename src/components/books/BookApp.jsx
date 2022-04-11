@@ -44,7 +44,7 @@ export const BookApp = () => {
   const handleBookInput = (e) => {
     setNewBook({ ...newBook, [e.target.name]: e.target.value });
   };
-  //*Edit*
+  //*Edit****************************************
   const handleEditBook = (e) => {
     setCurrentBook({ ...currentBook, title: e.target.value });
     console.log(currentBook);
@@ -65,7 +65,7 @@ export const BookApp = () => {
     setCurrentBook({ ...book });
   };
 
-  //**deleteBook** */
+  //**deleteBook** */***************************** */
   const handleDelete = (id) => {
     const deleteBook = books.filter((book) => book.id !== id);
     setBooks(deleteBook);

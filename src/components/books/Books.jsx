@@ -5,6 +5,7 @@ import { NewBook } from "./NewBook";
 import { DoubleBook } from "./DoubleBook";
 import { UseState } from "./UseState";
 import { State } from "./State";
+import { RobOrigin } from "./RobOrigin";
 import "./Books.scss";
 
 export const Books = () => {
@@ -17,6 +18,7 @@ export const Books = () => {
         <Link to="doublebook">DoubleBook</Link>
         <Link to="usestate">UseState</Link>
         <Link to="state">State</Link>
+        <Link to="roborigin">RobOrigin</Link>
       </div>
       <div className="roures">
         <Routes>
@@ -26,6 +28,7 @@ export const Books = () => {
           <Route path="doublebook" element={<DoubleBook />} />
           <Route path="usestate" element={<UseState />} />
           <Route path="state" element={<State />} />
+          <Route path="roborigin" element={<RobOrigin />} />
         </Routes>
       </div>
     </div>
