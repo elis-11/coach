@@ -35,13 +35,9 @@ export const Home = () => {
   };
 
   // EDIT BOOK
-  const handleBookEdit = (e) => {
+  const handleEditBook = (e) => {
     setCurrentBook({ ...currentBook, title: e.target.value });
     console.log(currentBook);
-  };
-  const handleEditFormSubmit = (e) => {
-    e.preventDefault();
-    handleUpdateBook(currentBook.id, currentBook);
   };
   const handleUpdateBook = (id, updatedBook) => {
     const updatedItem = books.map((book) => {
@@ -49,6 +45,10 @@ export const Home = () => {
     });
     setIsEditing(false);
     setBooks(updatedItem);
+  };
+  const handleEditForm = (e) => {
+    e.preventDefault();
+    handleUpdateBook(currentBook.id, currentBook);
   };
   const handleEditClick = (book) => {
     setIsEditing(true);
@@ -71,13 +71,13 @@ export const Home = () => {
           </div>
 
           {isEditing ? (
-            <form className="edit-form" onSubmit={handleEditFormSubmit}>
+            <form className="edit-form" onSubmit={handleEditForm}>
               <input
                 name="editBook"
                 type="text"
                 placeholder="Edit Book"
                 value={currentBook.title}
-                onChange={handleBookEdit}
+                onChange={handleEditBook}
               />
               <button className="update" type="submit">
                 Update
