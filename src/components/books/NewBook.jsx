@@ -8,7 +8,7 @@ export const NewBook = () => {
     { id: 2, title: "Guide to JavaScript", author: "Eliza" },
     { id: 3, title: "Guide to Coaching", author: "Rob" },
   ]);
-
+//*Add Book
   const [newBook, setNewBook] = useState({});
 
   const addBook = () => {

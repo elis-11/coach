@@ -14,17 +14,17 @@ export const BookApp = () => {
     },
     {
       id: 2,
-      title: "Guide to JavaScript",
-      author: "Elisa",
-      email: "elisa@gmail.com",
-      city: "Hamburg",
-    },
-    {
-      id: 3,
       title: "Guide to Coaching",
       author: "Rob",
       email: "robert@gmail.com",
       city: "Berlin",
+    },
+    {
+      id: 3,
+      title: "Guide to JavaScript",
+      author: "Elisa",
+      email: "elisa@gmail.com",
+      city: "Hamburg",
     },
   ]);
   //*Add new Book */
@@ -36,8 +36,7 @@ export const BookApp = () => {
   const addBook = () => {
     const bookNewState = {
       title: newBook.title,
-      id: new Date(),
-      // id: new Date().toString()
+      id: new Date().toString()
     };
     setBooks([...books, bookNewState]);
     setNewBook({ ...newBook, title: "" });
