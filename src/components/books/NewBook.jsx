@@ -12,8 +12,9 @@ export const NewBook = () => {
   const [newBook, setNewBook] = useState({});
 
   const addBook = () => {
-    const bookNewState = { title: newBook.title, author: newBook.author };
+    const bookNewState = {id: new Date(), title: newBook.title, author: newBook.author };
     setBooks([...books, bookNewState]);
+    setNewBook({ ...newBook, title: ""})
   };
   const handleBookInput = (e) => {
     setNewBook({ ...newBook, [e.target.name]: e.target.value });
@@ -53,6 +54,7 @@ const HandleDelete=(id) => {
               placeholder="Create a new book"
               onChange={handleBookInput}
               value={newBook.title}
+              autoFocus
             />
             <div>
               <button onClick={addBook}>Add</button>
