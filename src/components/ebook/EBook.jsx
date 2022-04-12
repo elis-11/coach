@@ -48,6 +48,7 @@ export const EBook = () => {
     setCurrentBook({ ...currentBook, text: e.target.value });
     console.log(currentBook);
   };
+
   const handleEditFormSubmit = (e) => {
     e.preventDefault();
     handleUpdateBook(currentBook.id, currentBook);
