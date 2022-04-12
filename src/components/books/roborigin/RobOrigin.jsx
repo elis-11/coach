@@ -6,9 +6,8 @@ import "../robapp/Robapp.scss";
 
 export const RobOrigin = () => {
   const [books, setBooks] = useState([
-    { id: "b1", title: "Guide to Happiness", author: "Gael" },
-    { id: "b2", title: "Guide to JavaScript", author: "Eliza" },
-    { id: "b3", title: "Guide to Coaching", author: "Rob" },
+    { id: "b1", title: "Guide to Coaching", author: "Rob" },
+    { id: "b2", title: "Guide to JavaScript", author: "Gael" },
   ]);
   const [bookNew, setBookNew] = useState({
     title: "",
@@ -96,6 +95,7 @@ export const RobOrigin = () => {
           </div>
         </div>
       </main>
+      <footer>&copy; Rob Books Unlimited</footer>
     </div>
   );
 };

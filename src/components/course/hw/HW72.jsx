@@ -1,6 +1,6 @@
 import React from "react";
 
-export const HW72 = (user) => {
+export const HW72 = ({user}) => {
   return (
     <div>
       <div key={user.id}>
