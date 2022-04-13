@@ -3,19 +3,19 @@
 }
 .Robapp {
   header {
-    height: 15vh;
+    height: 8vh;
     border: 2px solid #ccc;
   }
 
   main {
-    height: 75vh;
+    height: 70vh;
     padding: 30px;
     display: grid;
     place-items: center;
     border: 2px solid #ccc;
   }
   footer {
-    height: 10vh;
+    height: 7vh;
     border: 2px solid #ccc;
     display: grid;
     place-items: center; // align vertical & horizintal

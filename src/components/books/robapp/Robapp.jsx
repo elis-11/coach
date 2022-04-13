@@ -96,6 +96,7 @@ export const Robapp = () => {
           </div>
         </div>
       </main>
+      <footer>&copy; Books Unlimited</footer>
     </div>
   );
 };

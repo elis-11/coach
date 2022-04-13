@@ -11,7 +11,7 @@ const Person = () => {
       firstname: "Luis",
       lastname: "Pahl",
       age: 36,
-      email: "lp@gmail.com",
+      email: "luis@gmail.com",
     },
     {
       id: 2,
@@ -66,6 +66,7 @@ const Person = () => {
   return (
     <div className="person">
       Person
+      <div className='container'>
       <div className="inputs">
         <input
           type="text"
@@ -96,10 +97,10 @@ const Person = () => {
       <div className="users">
         {users.map((user) => (
           <div className="user" key={user.id}>
-            <div>{user.firstname}</div>
-            <div>{user.lastname}</div>
-            <div>{user.age}</div>
-            <div>{user.email}</div>
+            <div className='item'>{user.firstname}</div>
+            <div className='item'>{user.lastname}</div>
+            <div className='item'>{user.age}</div>
+            <div className='item'>{user.email}</div>
             <div className="icons">
               <FaEdit className="icon" />
               <FaTrashAlt
@@ -111,6 +112,7 @@ const Person = () => {
             </div>
           </div>
         ))}
+      </div>
       </div>
     </div>
   );

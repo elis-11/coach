@@ -22,6 +22,7 @@ export const UseState = () => {
   //   fetchData();
   // }, []); // empty arre [] => means: only run this effect ONCE after first render!
 
+  //**Add**/
   const addBook = () => {
     const newId = Date.now().toString();
     const bookNewState = {
@@ -38,6 +39,7 @@ export const UseState = () => {
     setBookNew({ ...bookNew, [event.target.name]: event.target.value });
   };
 
+//**Delete**/
   const handleDelete = (id) => {
     const deleteBook = books.filter((book) => book.id !== id);
     setBooks(deleteBook);
@@ -74,7 +76,6 @@ export const UseState = () => {
               <button onClick={addBook}>Add</button>
             </div>
           </div>
-
           <div className="book-list">
             {books.map((book) => (
               <div key={book._id} className="book">
@@ -94,7 +95,7 @@ export const UseState = () => {
           </div>
         </div>
       </main>
-      <footer>&copy; Rob Books Unlimited</footer>
+      <footer>&copy; Books Unlimited</footer>
     </div>
   );
 };
