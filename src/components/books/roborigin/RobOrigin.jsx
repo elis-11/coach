@@ -27,7 +27,7 @@ export const RobOrigin = () => {
       ...bookNew,
     };
     setBooks([...books, bookNewState]);
-    //! setBookNew({ ...bookNew, title: "", author: "" }); 
+//! setBookNew({ ...bookNew, title: "", author: "" }); 
   };
 
   const handleDelete = (id) => {
@@ -49,7 +49,7 @@ export const RobOrigin = () => {
           <BookList books={books} handleDelete={handleDelete} />
         </div>
       </main>
-      <footer>&copy; Rob Books Unlimited</footer>
+      <footer>&copy; Books Unlimited</footer>
     </div>
   );
 };

@@ -1,29 +1,44 @@
-import React, { useState } from "react";
-import Button from "react-bootstrap/Button"
-import Card from "react-bootstrap/Card"
+import { useState, useEffect} from 'react'
 
-const getInitialState = () => false
+export const State=()=> {
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [items, setItems] = useState([]);
 
-export const State = () => {
-const [visible, setVisibility]= useState(getInitialState); 
+  // Note: the empty deps array [] means
+  // this useEffect will run once
+  // similar to componentDidMount()
+  useEffect(() => {
+    fetch("https://restcountries.eu/rest/v2/all")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true);
+          setItems(result);
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      )
+  }, [])
 
-  const handleClick = () => {
-    setVisibility((currentValue)=>!currentValue)
-  };
-
-  return (
-    <div>
-      <div className="container">
-        <h2>What is React ?</h2>
-        <Button variant="primary" onClick={handleClick}>
-          Show answer
-        </Button>
-        {visible && (
-          <Card>
-          <Card.Body>A JavaScript library for building user interfaces</Card.Body>
-        </Card>
-          )}
-      </div>
-    </div>
-  );
-};
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  } else if (!isLoaded) {
+    return <div>Loading...</div>;
+  } else {
+    return (
+      <ul>
+        {items.map(item => (
+          <li key={item.id}>
+            {item.name} {item.price}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+}
