@@ -1,0 +1,43 @@
+.person {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  .container {
+
+    width: 80%;
+    margin-top: 20px;
+    .inputs {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      // width: 100%;
+      color: rgb(134, 25, 25);
+      input{
+        width: 25%;
+        height: 2rem;
+      }
+      button{
+        height: 2rem;
+      }
+    }
+    .users {
+      width: 100%;
+      display: column;
+      // align-items: center;
+      .user {
+
+        height: 2rem;
+        display: flex;
+        justify-content: space-around;
+        border: 2px solid #ccc;
+        align-items: center;
+        color: rgb(105, 101, 101);
+
+        .item{
+          width: 18%;
+          border-right: 2px solid #ccc;
+        }
+      }
+    }
+  }
+}

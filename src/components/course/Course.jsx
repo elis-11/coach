@@ -7,6 +7,7 @@ import { UseSt } from "./UseSt";
 import {New} from "./New";
 import "./Course.scss";
 import { HW } from "./hw/HW";
+import { Rob } from "./rob/Rob";
 
 export const Course = () => {
   return (
@@ -14,6 +15,7 @@ export const Course = () => {
       <div className="links">
         <Link to="">State</Link>
         <Link to="hw">HW</Link>
+        <Link to="rob">Rob</Link>
         <Link to="effect">Effect</Link>
         <Link to="context">Context</Link>
         <Link to="usest">UseSt</Link>
@@ -24,6 +26,7 @@ export const Course = () => {
         <Routes>
           <Route path="" element={<State />} />
           <Route path="/hw/*" element={<HW />} />
+          <Route path="/rob/*" element={<Rob />} />
           <Route path="effect" element={<Effect />} />
           <Route path="context" element={<Context />} />
           <Route path="usest" element={<UseSt />} />

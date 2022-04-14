@@ -4,8 +4,7 @@ export const UseSt = () => {
   const [blogs, setBlogs] = useState([
     { id: "1", title: "Blog 1", author: "Gael" },
     { id: "2", title: "Blog 2", author: "Rob" },
-    { id: "3", title: "Blog 3", author: "Gael" },
-    { id: "4", title: "Blog 4", author: "Eliza" },
+    { id: "3", title: "Blog 4", author: "Elisa" },
   ]);
   const [blogTitleNew, setBlogTitleNew] = useState(""); // INPUT STATE
   const [blogAuthorNew, setBlogAuthorNew] = useState("");
