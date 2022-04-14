@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { FaTrashAlt } from "react-icons/fa";
-import { FaEdit } from "react-icons/fa";
+import {FaEdit, FaTrashAlt } from "react-icons/fa";
 
 import "./Style.scss";
 

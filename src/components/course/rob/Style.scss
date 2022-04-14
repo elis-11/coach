@@ -3,7 +3,6 @@
   display: grid;
   place-items: center;
   .container {
-
     width: 80%;
     margin-top: 20px;
     .inputs {
@@ -12,11 +11,11 @@
       justify-content: center;
       // width: 100%;
       color: rgb(134, 25, 25);
-      input{
+      input {
         width: 25%;
         height: 2rem;
       }
-      button{
+      button {
         height: 2rem;
       }
     }
@@ -25,7 +24,6 @@
       display: column;
       // align-items: center;
       .user {
-
         height: 2rem;
         display: flex;
         justify-content: space-around;
@@ -33,11 +31,24 @@
         align-items: center;
         color: rgb(105, 101, 101);
 
-        .item{
+        .item {
           width: 18%;
           border-right: 2px solid #ccc;
         }
       }
     }
+  }
+}
+.users {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  border: 2px solid #ccc;
+  .user {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 3rem;
+    border: 2px solid #ccc;
   }
 }

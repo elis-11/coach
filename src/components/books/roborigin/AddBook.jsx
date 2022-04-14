@@ -12,6 +12,7 @@ export const AddBook = ({ addBook }) => {
 
   const submitAdd = () => {
     addBook(bookNew);
+    setBookNew({ ...bookNew, title: "", author: "" });
   };
 
   return (
