@@ -5,14 +5,14 @@
   .container {
     width: 80%;
     margin-top: 20px;
-    .inputs {
+    .add {
       display: flex;
       align-items: center;
       justify-content: center;
       // width: 100%;
-      color: rgb(134, 25, 25);
+      background-color: #e6e0e0;
       input {
-        width: 25%;
+        width: 20%;
         height: 2rem;
       }
       button {
@@ -24,7 +24,7 @@
       display: column;
       // align-items: center;
       .user {
-        height: 2rem;
+        height: 2.5rem;
         display: flex;
         justify-content: space-around;
         border: 2px solid #ccc;
@@ -39,17 +39,17 @@
     }
   }
 }
-.users {
-  display: grid;
-  place-items: center;
-  width: 100%;
-  .user {
-    display: flex;
-    justify-content: space-between;
-    place-items: center;
-    width: 80%;
-    height: 3rem;
-    color: rgb(81, 81, 81);
-    border: 2px solid #ccc;
-  }
-}
+// .users {
+//   display: grid;
+//   place-items: center;
+//   width: 100%;
+//   .user {
+//     display: flex;
+//     justify-content: space-between;
+//     place-items: center;
+//     width: 80%;
+//     height: 3rem;
+//     color: rgb(81, 81, 81);
+//     border: 2px solid #ccc;
+//   }
+// }

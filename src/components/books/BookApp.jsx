@@ -35,8 +35,8 @@ export const BookApp = () => {
 
   const addBook = () => {
     const bookNewState = {
+      id: new Date().toString(),
       title: newBook.title,
-      id: new Date().toString()
     };
     setBooks([...books, bookNewState]);
     setNewBook({ ...newBook, title: "" });
@@ -108,6 +108,7 @@ export const BookApp = () => {
                 placeholder="Create a new Book"
                 onChange={handleBookInput}
                 value={newBook.title}
+                autoFocus
               />
               <div>
                 <button onClick={addBook}>Add</button>
