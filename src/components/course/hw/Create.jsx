@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { HW72 } from "./HW72";
 
-export const CreateUs = () => {
+export const Create = () => {
   const [users, setUsers] = useState([
     { id: "", firstname: "", lastname: "", age: "", email: "", password: "" },
   ]);

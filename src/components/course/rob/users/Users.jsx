@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "../Style.scss";
-import { UsersList } from "./UsersList";
+import { UsersList } from './UsersList';
 
 export const Users = () => {
   const [users, setUsers] = useState([
@@ -36,6 +36,7 @@ export const Users = () => {
     email: "",
     city: "",
   });
+
   const addUser = () => {
     const newUserState = {
       id: Date.now().toString(),
@@ -55,24 +56,59 @@ export const Users = () => {
       city: "",
     });
   };
-  const handleUserInput=(e) => {
-    setNewUser({...newUser, [e.target.name]: e.target.value})
-  }
+  const handleUserInput = (e) => {
+    setNewUser({ ...newUser, [e.target.name]: e.target.value });
+  };
 
+  const handleDelete = (id) => {
+    const deleteUser = users.filter((user) => user.id !== id);
+    setUsers(deleteUser);
+  };
   return (
-    <div className='person'>
+    <div className="person">
       <div className="container">
-      <h2>Create Users</h2>
-      
-      <div className="add">
-        <input type="text" name="name" placeholder="Name" value={newUser.name} onChange={handleUserInput}/>
-        <input type="text" name="profession" placeholder="Profession" value={newUser.profession} onChange={handleUserInput}/>
-        <input type="text" name="hobby" placeholder="Hobby" value={newUser.hobby} onChange={handleUserInput}/>
-        <input type="text" name="email" placeholder="Email" value={newUser.email} onChange={handleUserInput}/>
-        <input type="text" name="city" placeholder="City" value={newUser.city} onChange={handleUserInput}/>
-        <button onClick={addUser}>Add</button>
-      </div>
-    <UsersList users={users}/>
+        <h2>Create Users</h2>
+
+        <div className="add">
+          <input
+            type="text"
+            name="name"
+            placeholder="Name"
+            value={newUser.name}
+            onChange={handleUserInput}
+          />
+          <input
+            type="text"
+            name="profession"
+            placeholder="Profession"
+            value={newUser.profession}
+            onChange={handleUserInput}
+          />
+          <input
+            type="text"
+            name="hobby"
+            placeholder="Hobby"
+            value={newUser.hobby}
+            onChange={handleUserInput}
+          />
+          <input
+            type="text"
+            name="email"
+            placeholder="Email"
+            value={newUser.email}
+            onChange={handleUserInput}
+          />
+          <input
+            type="text"
+            name="city"
+            placeholder="City"
+            value={newUser.city}
+            onChange={handleUserInput}
+          />
+          <button onClick={addUser}>Add</button>
+          
+        </div>
+      <UsersList users={users} handleDelete={handleDelete}/>
       </div>
     </div>
   );

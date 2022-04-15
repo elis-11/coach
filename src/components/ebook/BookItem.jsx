@@ -1,6 +1,5 @@
 import React from "react";
-import { FaEdit } from "react-icons/fa";
-import { FaTrashAlt } from "react-icons/fa";
+import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import "./EBook.scss";
 
 export const BookItem = ({ book, handleEditClick, handleDeleteClick }) => {

@@ -2,7 +2,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import { Home } from "./Home";
 import { Update } from "./Update";
 import { Add } from "./Add";
-import { CreateUs } from "./CreateUs";
+import { Create } from "./Create";
 import Person  from "./Person";
 
 export const HW = () => {
@@ -12,7 +12,7 @@ export const HW = () => {
         <Link to="">Home</Link>
         <Link to="update">Update</Link>
         <Link to="add">Add</Link>
-        <Link to="createus">CreateUs</Link>
+        <Link to="create">Create</Link>
         <Link to="person">Person</Link>
       </div>
       <div className="routes">
@@ -20,7 +20,7 @@ export const HW = () => {
           <Route path="" element={<Home />} />
           <Route path="update" element={<Update />} />
           <Route path="add" element={<Add />} />
-          <Route path="createus" element={<CreateUs />} />
+          <Route path="create" element={<Create />} />
           <Route path="person" element={<Person />} />
         </Routes>
       </div>
