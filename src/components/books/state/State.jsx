@@ -3,7 +3,7 @@ import { FaEdit } from "react-icons/fa";
 import { FaTrashAlt } from "react-icons/fa";
 import "../robapp/Robapp.scss";
 
-export const UseState = () => {
+export const State = () => {
   const [books, setBooks] = useState([
     { id: "b1", title: "Guide to Coaching", author: "Rob" },
     { id: "b2", title: "Guide to JavaScript", author: "Gael" },
@@ -48,7 +48,7 @@ export const UseState = () => {
   return (
     <div className="Robapp">
       <header>
-        <h1>Book App</h1>
+        <h1>Use State</h1>
       </header>
       <main>
         <div className="container">
@@ -78,7 +78,7 @@ export const UseState = () => {
           </div>
           <div className="book-list">
             {books.map((book) => (
-              <div key={book._id} className="book">
+              <div key={book.id} className="book">
                 <div>{book.title}</div>
                 <div>{book.author}</div>
                 <div className="icons">
