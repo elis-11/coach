@@ -43,12 +43,13 @@
   display: grid;
   place-items: center;
   width: 100%;
-  border: 2px solid #ccc;
   .user {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    place-items: center;
+    width: 80%;
     height: 3rem;
+    color: rgb(81, 81, 81);
     border: 2px solid #ccc;
   }
 }

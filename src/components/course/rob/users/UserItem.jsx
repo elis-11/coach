@@ -4,7 +4,7 @@ import { FaEdit, FaTrashAlt } from "react-icons/fa";
 
 export const UserItem = ({ user }) => {
   return (
-    <div>
+    <>
       <div className="user">
         <div>{user.firstName}</div>
         <div>{user.lastName}</div>
@@ -15,6 +15,6 @@ export const UserItem = ({ user }) => {
           <FaTrashAlt className="icon" role="button" tabIndex="0" />
         </div>
       </div>
-    </div>
+    </>
   );
 };
