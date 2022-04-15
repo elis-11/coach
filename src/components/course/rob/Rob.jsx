@@ -9,7 +9,7 @@ export const Rob = () => {
     <div>
       <div className="links">
         <Link to="">Person</Link>
-        <Link to="users/*">Users</Link>
+        <Link to="users">Users</Link>
         <Link to="create">Create</Link>
         <Link to="update">Update</Link>
       </div>

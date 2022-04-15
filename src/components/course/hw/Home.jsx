@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const HW6 = () => {
+export const Home = () => {
   const [person, setPerson] = useState({
     id: 1,
     fname: "John",

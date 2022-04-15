@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const HW7 = () => {
+export const Add = () => {
   const [blogs, setBlogs] = useState([
     { id: "1", title: "Blog 1", author: "Gael" },
     { id: "2", title: "Blog 2", author: "Rob" },
@@ -30,7 +30,7 @@ export const HW7 = () => {
   };
   return (
     <div>
-      <p> HW-7</p>
+      <p> Add</p>
       <h2>Blog posts ✨</h2>
       <input value={newTitle} onChange={onTitleChange} autoFocus />
       <input value={newAuthor} onChange={onAuthorChange} />
