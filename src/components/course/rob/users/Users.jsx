@@ -6,31 +6,48 @@ export const Users = () => {
   const [users, setUsers] = useState([
     {
       id: "1",
-      firstName: "Gael",
-      lastName: "Smith",
+      name: "Gael",
+      profession: "Web Dev trainer",
+      hobby: "play computer games",
       email: "gael@gmail.com",
       city: "Berlin",
     },
     {
       id: "2",
-      firstName: "Robert",
-      lastName: "Hartmann",
+      name: "Robert",
+      profession: "Web Dev trainer",
+      hobby: "read",
       email: "robert@gmail.com",
       city: "Berlin",
     },
     {
       id: "3",
-      firstName: "Elisa",
-      lastName: "Codrs",
+      name: "Elisa",
+      profession: "Stydent",
+      hobby: "JavaScript",
       email: "elisa@gmail.com",
       city: "Hamburg",
     },
   ]);
+const [newUser, setNewUser]=useState({})
+
+const addUser=() => {
+  const userNewState={
+    id: new Date().toString(),
+    name: newUser.name,
+    profession: newUser.profession,
+    hobby: newUser.hobby,
+    email: newUser.email,
+    city: newUser.city,
+  }
+  setUsers([...users, userNewState])
+}
 
 
   return (
     <div>
       <h2>Create Users</h2>
+
     <UsersList
     users={users}
     />

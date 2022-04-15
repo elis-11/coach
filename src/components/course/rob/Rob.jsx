@@ -1,36 +1,24 @@
 import { Link, Route, Routes } from "react-router-dom";
-import { HW6 } from "./HW6";
-import { Update } from "./Update";
-import { HW7 } from "./HW7";
-import { HW71 } from "./HW71";
 import { Users } from "./users/Users";
-import { CreatePers } from "./CreatePers";
-import { HW8 } from "./HW8";
+import { Create } from "./Create";
 import {Person}  from "./Person";
+import { Update } from "./Update";
 
 export const Rob = () => {
   return (
     <div>
       <div className="links">
-        <Link to="">HW6</Link>
-        <Link to="update">Update</Link>
-        <Link to="hw7">HW7</Link>
-        <Link to="hw71">HW71</Link>
-        <Link to="users">Users</Link>
-        <Link to="createpers">CreatePers</Link>
-        <Link to="hw8">HW8</Link>
+        <Link to="">Users</Link>
+        <Link to="create">Create</Link>
         <Link to="person">Person</Link>
+        <Link to="update">Update</Link>
       </div>
       <div className="routes">
         <Routes>
-          <Route path="" element={<HW6 />} />
-          <Route path="update" element={<Update />} />
-          <Route path="hw7" element={<HW7 />} />
-          <Route path="hw71" element={<HW71 />} />
-          <Route path="users" element={<Users />} />
-          <Route path="createpers" element={<CreatePers />} />
-          <Route path="hw8" element={<HW8 />} />
+          <Route path="" element={<Users />} />
+          <Route path="create" element={<Create />} />
           <Route path="person" element={<Person />} />
+          <Route path="update" element={<Update />} />
         </Routes>
       </div>
     </div>
