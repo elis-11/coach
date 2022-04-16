@@ -2,9 +2,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import { State } from "./State";
 import { Effect } from "./Effect";
 import { Context } from "./Context";
-import { RobState } from "./RobState";
-import { UseSt } from "./UseSt";
-import {New} from "./New";
+import { Tasks } from "./tasks/Tasks";
 import "./Course.scss";
 import { HW } from "./hw/HW";
 import { Rob } from "./rob/Rob";
@@ -18,9 +16,7 @@ export const Course = () => {
         <Link to="rob">Rob</Link>
         <Link to="effect">Effect</Link>
         <Link to="context">Context</Link>
-        <Link to="usest">UseSt</Link>
-        <Link to="robstate">RobState</Link>
-        <Link to="new">New</Link>
+        <Link to="tasks">Tasks</Link>
       </div>
       <div className="roures">
         <Routes>
@@ -29,9 +25,7 @@ export const Course = () => {
           <Route path="/rob/*" element={<Rob />} />
           <Route path="effect" element={<Effect />} />
           <Route path="context" element={<Context />} />
-          <Route path="usest" element={<UseSt />} />
-          <Route path="robstate" element={<RobState />} />
-          <Route path="new" element={<New />} />
+          <Route path="/tasks/*" element={<Tasks />} />
         </Routes>
       </div>
     </div>
