@@ -32,19 +32,23 @@ export const Add = () => {
     <div>
       <p> Add</p>
       <h2>Blog posts ✨</h2>
-      <input value={newTitle} onChange={onTitleChange} autoFocus />
-      <input value={newAuthor} onChange={onAuthorChange} />
+      <div>
+        <input value={newTitle} onChange={onTitleChange} autoFocus />
+      </div>
+      <div>
+        <input value={newAuthor} onChange={onAuthorChange} />
+      </div>
       <button onClick={addNewBlog}>Add</button>
       <div>
-      {
-        <div className="blogs">
-          {blogs.map((blog) => (
-            <div key={blog.id}>
-              {blog.title} von {blog.author}
-            </div>
-          ))}
-        </div>
-      }
+        {
+          <div className="blogs">
+            {blogs.map((blog) => (
+              <div key={blog.id}>
+                {blog.title} von {blog.author}
+              </div>
+            ))}
+          </div>
+        }
       </div>
     </div>
   );

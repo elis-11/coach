@@ -2,6 +2,7 @@
   width: 100%;
   display: grid;
   place-items: center;
+  // color: red;
   .container {
     width: 80%;
     margin-top: 20px;
@@ -22,17 +23,39 @@
       width: 100%;
       display: column;
       // align-items: center;
+      justify-content: center;
       .user {
-        height: 2.5rem;
+        position: relative;
+        place-items: center;
+        height: 3rem;
+        margin: 2px;
+        border-radius: 4px;
+        font-size: 16px;
+        color: rgb(77, 79, 80);
+        border: 2px solid #ccc;
         display: flex;
         justify-content: space-around;
-        border: 2px solid #ccc;
-        align-items: center;
-        color: rgb(105, 101, 101);
-        
         .item {
-          width: 18%;
+          width: 20%;
           border-right: 2px solid #ccc;
+          padding-left: 10px;
+        }
+
+        .icons {
+          position: absolute;
+          top: 50%;
+          right: 0;
+          font-size: 1.4rem;
+          transform: translateY(-50%);
+          .icon {
+            padding-right: 1px;
+            color: rgb(153, 152, 152);
+            cursor: pointer;
+            :hover {
+              color: rgb(102, 100, 100);
+              outline: none;
+            }
+          }
         }
       }
     }

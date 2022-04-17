@@ -10,7 +10,7 @@ export const UsersList = ({users, handleDelete}) => {
         <div className="item">{user.hobby}</div>
         <div className="item">{user.email}</div>
         <div className="item">{user.city}</div>
-        <div className="icon">
+        <div className="icons">
           <FaEdit className="icon" role="button" />
           <FaTrashAlt
             className="icon"
