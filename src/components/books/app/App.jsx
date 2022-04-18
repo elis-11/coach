@@ -6,8 +6,8 @@ import "./Robapp.scss";
 export const App = () => {
   const [books, setBooks] = useState([
     { id: "b1", title: "Guide to Happiness", author: "Gael" },
-    { id: "b2", title: "Guide to JavaScript", author: "Eliza" },
-    { id: "b3", title: "Guide to Coaching", author: "Rob" },
+    { id: "b2", title: "Guide to Coaching", author: "Rob" },
+    { id: "b3", title: "Guide to JavaScript", author: "Eliza" },
   ]);
   const [bookNew, setBookNew] = useState({
     title: "",

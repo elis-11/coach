@@ -1,7 +1,7 @@
 import { Link, Route, Routes } from "react-router-dom";
 import {Person}  from "./person/Person";
 import { Users } from "./users/Users";
-import { Create } from "./Create";
+import { Create } from "./create/Create";
 import { Update } from "./Update";
 
 export const Rob = () => {

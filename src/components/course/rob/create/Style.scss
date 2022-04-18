@@ -4,24 +4,19 @@
   place-items: center;
   .container {
     width: 80%;
-    height: 65vh;
     margin-top: 20px;
-
     .add {
       display: flex;
       align-items: center;
       justify-content: center;
       background-color: #e6e0e0;
       input {
-        text-align: center;
-        background-color: #e6e0e0;
-        width: 45%;
+        // color: red;
+        width: 20%;
         height: 2rem;
       }
       button {
-        background-color: #e6e0e0;
         height: 2rem;
-        width: 10%;
       }
     }
     .users {
@@ -30,6 +25,7 @@
       // align-items: center;
       justify-content: center;
       .user {
+        position: relative;
         place-items: center;
         height: 3rem;
         margin: 2px;
@@ -40,13 +36,17 @@
         display: flex;
         justify-content: space-around;
         .item {
-          width: 45%;
+          width: 20%;
+          border-right: 2px solid #ccc;
           padding-left: 10px;
         }
 
         .icons {
+          position: absolute;
+          top: 50%;
           right: 0;
           font-size: 1.4rem;
+          transform: translateY(-50%);
           .icon {
             padding-right: 1px;
             color: rgb(153, 152, 152);
@@ -58,14 +58,6 @@
           }
         }
       }
-    }
-  }
-  foother {
-    h2 {
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
     }
   }
 }
