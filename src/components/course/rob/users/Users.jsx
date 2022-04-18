@@ -65,7 +65,7 @@ export const Users = () => {
     setUsers(deleteUser);
   };
   return (
-    <div className="person">
+    <div className="people">
       <div className="container">
         <h2>Create Users</h2>
 

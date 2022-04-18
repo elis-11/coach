@@ -1,8 +1,7 @@
-.person {
+.people {
   width: 100%;
   display: grid;
   place-items: center;
-  // color: red;
   .container {
     width: 80%;
     margin-top: 20px;
@@ -12,6 +11,7 @@
       justify-content: center;
       background-color: #e6e0e0;
       input {
+        // color: red;
         width: 20%;
         height: 2rem;
       }
