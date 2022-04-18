@@ -9,12 +9,15 @@ export const New = () => {
     { id: 3, title: "Guide to Coaching", author: "Rob" },
   ]);
 //*Add Book
-  const [newBook, setNewBook] = useState({});
+  const [newBook, setNewBook] = useState({
+    title: '',
+    author: '',
+  });
 
   const addBook = () => {
     const bookNewState = {id: new Date(), title: newBook.title, author: newBook.author };
     setBooks([...books, bookNewState]);
-    setNewBook({ ...newBook, title: ""})
+    setNewBook({ ...newBook, title: "", author: "",})
   };
   const handleBookInput = (e) => {
     setNewBook({ ...newBook, [e.target.name]: e.target.value });
@@ -51,10 +54,17 @@ const HandleDelete=(id) => {
             <input
               type="text"
               name="title"
-              placeholder="Create a new book"
+              placeholder="Title"
               onChange={handleBookInput}
               value={newBook.title}
               autoFocus
+            />
+            <input
+              type="text"
+              name="author"
+              placeholder="Author"
+              onChange={handleBookInput}
+              value={newBook.author}
             />
             <div>
               <button onClick={addBook}>Add</button>
@@ -65,28 +75,3 @@ const HandleDelete=(id) => {
     </div>
   );
 };
-
-//-------1----------
-// useState for SEARCH
-// const [array, setArray] = useState([]);
-
-// const handleChange = (newValue) => {
-//   setArray((array) => [...array, newValue]);
-// };
-
-//-------2-----------
-
-// For functional components with hooks
-
-// const [search, setSearch] = useState([]);
-
-// // Using .concat(), wrapper function (recommended)
-// setSearch(search => search.concat(query));
-
-// // Spread operator, wrapper function (recommended)
-// setSearch(search => [...search, query]);
-
-//--------3--------
-// const [value, setValue] = useState([])
-// setValue([...value, newvalue])
-//------4-------
