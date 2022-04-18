@@ -1,7 +1,6 @@
 // import { useState, useEffect } from "react";
 import { useState } from "react";
-import { FaEdit } from "react-icons/fa";
-import { FaTrashAlt } from "react-icons/fa";
+import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import "./Robapp.scss";
 
 export const App = () => {
