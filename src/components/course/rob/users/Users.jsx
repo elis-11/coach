@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../Style.scss";
+import "./Style.scss";
 import { UsersList } from './UsersList';
 
 export const Users = () => {

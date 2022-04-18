@@ -1,5 +1,6 @@
 import { Link, Route, Routes } from "react-router-dom";
 import { Robapp } from "./robapp/Robapp";
+import { RobappComp } from "./robappcomp/RobappComp";
 import { BookApp } from "./BookApp";
 import { NewBook } from "./NewBook";
 import { DoubleBook } from "./DoubleBook";
@@ -12,6 +13,7 @@ export const Books = () => {
     <div>
       <div className="links">
         <Link to="">Robapp</Link>
+        <Link to="robappcomp">RobappComp</Link>
         <Link to="bookapp">BookApp</Link>
         <Link to="newbook">NewBook</Link>
         <Link to="doublebook">DoubleBook</Link>
@@ -21,6 +23,7 @@ export const Books = () => {
       <div className="roures">
         <Routes>
           <Route path="" element={<Robapp />} />
+          <Route path="robappcomp" element={<RobappComp />} />
           <Route path="bookapp" element={<BookApp />} />
           <Route path="newbook" element={<NewBook />} />
           <Route path="doublebook" element={<DoubleBook />} />
