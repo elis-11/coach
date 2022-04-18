@@ -3,7 +3,7 @@ import { FaTrashAlt } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
 import "./Books.scss";
 
-export const BookApp = () => {
+export const Book = () => {
   const [books, setBooks] = useState([
     {
       id: 1,

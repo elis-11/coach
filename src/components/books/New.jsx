@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
 
-export const NewBook = () => {
+export const New = () => {
   const [books, setBooks] = useState([
     { id: 1, title: "Guide to Happiness", author: "Gael" },
     { id: 2, title: "Guide to JavaScript", author: "Eliza" },

@@ -1,16 +1,13 @@
 // import { useState, useEffect } from "react";
 import { useState } from "react";
-import { AddForm } from "./AddForm";
+import "../app/Robapp.scss";
+import { AddBook } from "./AddBook";
 import { BookList } from "./BookList";
-import "./Robapp.scss";
 
-export const RobappComp = (author, title) => {
-// export const Robapp = () => {
-
+export const Origin = () => {
   const [books, setBooks] = useState([
-    { id: "b1", title: "Guide to Happiness", author: "Gael" },
-    { id: "b2", title: "Guide to JavaScript", author: "Eliza" },
-    { id: "b3", title: "Guide to Coaching", author: "Rob" },
+    { id: "b1", title: "Guide to Coaching", author: "Rob" },
+    { id: "b2", title: "Guide to JavaScript", author: "Gael" },
   ]);
 
   // useEffect(() => {
@@ -19,15 +16,17 @@ export const RobappComp = (author, title) => {
   //     const data = await response.json();
   //     setBooks(data);
   //   };
-
   //   fetchData();
   // }, []);
 
-  const addBook = (newBook) => {
+  const addBook = (bookNew) => {
+    const newId = Date.now().toString();
     const bookNewState = {
-      id: Date.now().toString(), ...newBook
+      id: newId,
+      ...bookNew,
     };
     setBooks([...books, bookNewState]);
+    // setBookNew({ ...bookNew, title: "", author: "" });
   };
 
   const handleDelete = (id) => {
@@ -38,18 +37,18 @@ export const RobappComp = (author, title) => {
   return (
     <div className="Robapp">
       <header>
-        <h1>Rob App</h1>
+        <h1>Rob Origin App</h1>
       </header>
       <main>
         <div className="container">
           <div className="search">
             <input type="text" name="search" placeholder="Search" />
           </div>
+          <AddBook addBook={addBook} />
           <BookList books={books} handleDelete={handleDelete} />
-          <AddForm addBook={addBook} />
         </div>
       </main>
-      <footer>Copyright &copy; 2022</footer>
+      <footer>&copy; Books Unlimited</footer>
     </div>
   );
 };

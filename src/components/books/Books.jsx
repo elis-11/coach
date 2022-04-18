@@ -1,34 +1,34 @@
 import { Link, Route, Routes } from "react-router-dom";
-import { Robapp } from "./robapp/Robapp";
-import { RobappComp } from "./robappcomp/RobappComp";
-import { BookApp } from "./BookApp";
-import { NewBook } from "./NewBook";
-import { DoubleBook } from "./DoubleBook";
+import { App } from "./app/App";
+import { Comp } from "./comp/Comp";
+import { Book } from "./Book";
+import { New } from "./New";
+import { Double } from "./Double";
 import { State } from "./state/State";
-import { RobOrigin } from "./roborigin/RobOrigin";
+import { Origin } from "./origin/Origin";
 import "./Books.scss";
 
 export const Books = () => {
   return (
     <div>
       <div className="links">
-        <Link to="">Robapp</Link>
-        <Link to="robappcomp">RobappComp</Link>
-        <Link to="bookapp">BookApp</Link>
-        <Link to="newbook">NewBook</Link>
-        <Link to="doublebook">DoubleBook</Link>
+        <Link to="">App</Link>
+        <Link to="comp">Comp</Link>
+        <Link to="book">Book</Link>
+        <Link to="new">New</Link>
+        <Link to="double">Double</Link>
         <Link to="state">State</Link>
-        <Link to="roborigin">RobOrigin</Link>
+        <Link to="origin">Origin</Link>
       </div>
       <div className="roures">
         <Routes>
-          <Route path="" element={<Robapp />} />
-          <Route path="robappcomp" element={<RobappComp />} />
-          <Route path="bookapp" element={<BookApp />} />
-          <Route path="newbook" element={<NewBook />} />
-          <Route path="doublebook" element={<DoubleBook />} />
+          <Route path="" element={<App />} />
+          <Route path="comp" element={<Comp />} />
+          <Route path="book" element={<Book />} />
+          <Route path="new" element={<New />} />
+          <Route path="double" element={<Double />} />
           <Route path="state" element={<State />} />
-          <Route path="roborigin" element={<RobOrigin />} />
+          <Route path="origin" element={<Origin />} />
         </Routes>
       </div>
     </div>

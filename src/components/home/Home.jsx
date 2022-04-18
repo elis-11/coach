@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
-import "../books/robapp/Robapp.scss";
+import "../books/app/Robapp.scss";
 
 export const Home = () => {
   const [books, setBooks] = useState([

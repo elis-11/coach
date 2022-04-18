@@ -1,33 +1,29 @@
+// import { useState, useEffect } from "react";
 import { useState } from "react";
-import { FaTrashAlt } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
-import "./Books.scss";
+import { FaTrashAlt } from "react-icons/fa";
+import "./Robapp.scss";
 
-export const DoubleBook = () => {
+export const App = () => {
   const [books, setBooks] = useState([
-    {
-      id: 1,
-      title: "Guide to Happiness",
-      author: "Gael",
-      email: "gael@gmail.com",
-    },
-    {
-      id: 2,
-      title: "Guide to JavaScript",
-      author: "Eliza",
-      email: "elisa@gmail.com",
-    },
-    {
-      id: 3,
-      title: "Guide to Coaching",
-      author: "Rob",
-      email: "robert@gmail.com",
-    },
+    { id: "b1", title: "Guide to Happiness", author: "Gael" },
+    { id: "b2", title: "Guide to JavaScript", author: "Eliza" },
+    { id: "b3", title: "Guide to Coaching", author: "Rob" },
   ]);
   const [bookNew, setBookNew] = useState({
     title: "",
     author: "",
   });
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const response = await fetch("http://localhost:5000/books");
+  //     const data = await response.json();
+  //     setBooks(data);
+  //   };
+
+  //   fetchData();
+  // }, []);
 
   const addBook = () => {
     const newId = Date.now().toString();
@@ -39,26 +35,24 @@ export const DoubleBook = () => {
     setBooks([...books, bookNewState]);
     setBookNew({ ...books, title: "", author: "" });
   };
-
-  const handleBookInput = (e) => {
-    setBookNew({ ...bookNew, [e.target.name]: e.target.value });
+  const handleBookInput = (event) => {
+    setBookNew({ ...bookNew, [event.target.name]: event.target.value });
   };
 
-  //**delete**/
   const handleDelete = (id) => {
     const deleteBook = books.filter((book) => book.id !== id);
     setBooks(deleteBook);
   };
 
   return (
-    <div className="Book">
+    <div className="Robapp">
       <header>
-        <h2>Double Book</h2>
+        <h1>Rob App</h1>
       </header>
       <main>
         <div className="container">
           <div className="search">
-            <input type="text" name="search" placeholder="Search..." />
+            <input type="text" name="search" placeholder="Search" />
           </div>
           <div className="book-list">
             {books.map((book) => (
@@ -78,26 +72,32 @@ export const DoubleBook = () => {
             ))}
           </div>
           <div className="add">
-            <input
-              type="text"
-              name="title"
-              placeholder="Title"
-              onChange={handleBookInput}
-              value={bookNew.title}
-            />
-            <input
-              type="text"
-              name="author"
-              placeholder="Author"
-              onChange={handleBookInput}
-              value={bookNew.author}
-            />
+            <div>
+              <input
+                type="text"
+                name="title"
+                placeholder="Title"
+                onChange={handleBookInput}
+                value={bookNew.title}
+              />
+            </div>
+            <div>
+              <input
+                type="text"
+                name="author"
+                placeholder="Author"
+                onChange={handleBookInput}
+                value={bookNew.author}
+              />
+            </div>
             <div>
               <button onClick={addBook}>Add</button>
             </div>
           </div>
         </div>
       </main>
+      <footer>Copyright &copy; 2022</footer>
+
     </div>
   );
 };
