@@ -1,4 +1,4 @@
-import "./Style.scss";
+import './Style.scss';
 import { useState } from "react";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 
@@ -14,6 +14,7 @@ export const Create = () => {
   });
   const [isEditing, setIsEditing] = useState(false);
   const [currentMember, setCurrentMember] = useState("");
+
   //Add
   const addMember = () => {
     const membNewState = {
@@ -29,9 +30,9 @@ export const Create = () => {
   };
   //Edit
   const handleEditMember = (e) => {
-    setCurrentMember({ ...currentMember, [e.target.name]: e.target.value });
+    setCurrentMember({ ...currentMember, [e.target.name]: e.target.value});
   };
-  const handleUpdateMember = (id, updatedMember) => {
+  const handleUpdatedMember = (id, updatedMember) => {
     const updatedItem = members.map((member) =>
       member.id === id ? updatedMember : member
     );
@@ -40,7 +41,7 @@ export const Create = () => {
   };
   const handleEditForm = (e) => {
     e.preventDefault();
-    handleUpdateMember(currentMember.id, currentMember);
+    handleUpdatedMember(currentMember.id, currentMember);
   };
   const handleEditClick = (member) => {
     setIsEditing(true);
@@ -89,7 +90,6 @@ export const Create = () => {
                 type="text"
                 name="name"
                 placeholder="Name"
-            
               />
               <input
                 onChange={handleAddMember}
@@ -108,12 +108,9 @@ export const Create = () => {
                   <div>{member.name}</div>
                   <div>{member.experience}</div>
                   <div className="icons">
-                    <FaEdit
-                      onClick={() => handleEditClick(member)}
-                      className="icon"
-                      role="button"
-                      tabIndex="0"
-                    />
+                    <FaEdit 
+                    onClick={() =>handleEditClick(member)}
+                    className="icon" role="button" tabIndex="0" />
                     <FaTrashAlt
                       onClick={() => handleDelete(member.id)}
                       className="icon"
