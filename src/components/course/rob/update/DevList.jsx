@@ -1,11 +1,7 @@
-import { DevItem } from "./DevItem";
+import React from 'react'
 
-export const DevList = ({ devs }) => {
+export const DevList = () => {
   return (
-    <div className="users">
-      {devs.map((dev) => (
-        <DevItem key={dev.id} dev={dev} />
-      ))}
-    </div>
-  );
-};
+    <div>DevList</div>
+  )
+}

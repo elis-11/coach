@@ -3,7 +3,7 @@ import { useState } from "react";
 import { DevList } from "./DevList";
 import { AddDev } from "./AddDev";
 
-export const Update = (name, experience) => {
+export const Update = () => {
   const [devs, setDevs] = useState([
     { id: "b1", name: "Gael", experience: 15 },
     { id: "b2", name: "Rob", experience: 19 },
@@ -16,9 +16,10 @@ export const Update = (name, experience) => {
   //   setDevs(devsCopy)
   // };
 
-  const addDev = (newDev) => {
+  const addDev = (newDevs) => {
     const devNewState = {
-      id: Date.now().toString(), ...newDev};
+      id: Date.now().toString(), ...newDevs
+    };
     setDevs([...devs, devNewState]);
   };
 
@@ -33,7 +34,7 @@ export const Update = (name, experience) => {
       <div className="container">
         <AddDev addDev={addDev} />
         {devs.length ? (
-          <DevList devs={devs} handleDelete={handleDelete} />
+          <DevList devs={devs} handleDelete={handleDelete}/>
         ) : (
           <h2>Your List is empty</h2>
         )}

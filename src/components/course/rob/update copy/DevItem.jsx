@@ -1,6 +1,8 @@
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 
 export const DevItem = ({dev, handleDelete}) => {
+
+  
   return (
     <div className="user">
     <div className="item">{dev.name}</div>
@@ -15,5 +17,5 @@ export const DevItem = ({dev, handleDelete}) => {
       />
     </div>
   </div>
-  )
+)
 }

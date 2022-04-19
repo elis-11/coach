@@ -10,7 +10,6 @@ export const AddDev = ({ addDev }) => {
   const handleAddDevs = (e) => {
     setNewDev({ ...newDev, [e.target.name]: e.target.value });
   };
-
   const submitAdd = () => {
     addDev(newDev);
     setNewDev({ ...newDev, name: "", experience: "" });
