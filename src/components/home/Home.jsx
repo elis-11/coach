@@ -71,7 +71,7 @@ export const Home = () => {
           </div>
 
           {isEditing ? (
-            <form className="edit-form" onSubmit={handleEditForm}>
+            <form className="edit" onSubmit={handleEditForm}>
               <input
                 name="editBook"
                 type="text"
