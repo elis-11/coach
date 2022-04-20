@@ -1,4 +1,4 @@
-import { Link, Route, Routes } from "react-router-dom";
+import { NavLink, Route, Routes } from "react-router-dom";
 import { RobState } from "./RobState";
 import { New } from "./New";
 import { Component } from "./comp/Component";
@@ -8,15 +8,12 @@ export const Tasks = () => {
   return (
     <div>
       <div className="links">
-        <Link
-          to="robstate"
-          // className={({ isActive }) => (isActive ? "link-active" : "link")}
-          >
+        <NavLink to="robstate" end >
           RobState
-        </Link>
-        <Link to="new">New</Link>
-        <Link to="component">Component</Link>
-        <Link to="update">Update</Link>
+        </NavLink>
+        <NavLink to="new">New</NavLink>
+        <NavLink to="component">Component</NavLink>
+        <NavLink to="update">Update</NavLink>
       </div>
       <div className="routes">
         <Routes>

@@ -1,4 +1,4 @@
-import { Link, Route, Routes } from "react-router-dom";
+import { NavLink, Route, Routes } from "react-router-dom";
 import { State } from "./State";
 import { Effect } from "./Effect";
 import { Context } from "./Context";
@@ -9,14 +9,14 @@ import { Rob } from "./rob/Rob";
 
 export const Course = () => {
   return (
-    <div>
+    <div >
       <div className="links">
-        <Link to="">State</Link>
-        <Link to="hw">HW</Link>
-        <Link to="rob">Rob</Link>
-        <Link to="effect">Effect</Link>
-        <Link to="context">Context</Link>
-        <Link to="tasks">Tasks</Link>
+        <NavLink to="" end>State</NavLink>
+        <NavLink to="hw">HW</NavLink>
+        <NavLink to="rob">Rob</NavLink>
+        <NavLink to="effect">Effect</NavLink>
+        <NavLink to="context">Context</NavLink>
+        <NavLink to="tasks">Tasks</NavLink>
       </div>
       <div className="roures">
         <Routes>

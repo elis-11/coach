@@ -1,4 +1,4 @@
-import { Link, Route, Routes } from "react-router-dom";
+import { NavLink, Route, Routes } from "react-router-dom";
 import { App } from "./app/App";
 import { Comp } from "./comp/Comp";
 import { Book } from "./Book";
@@ -12,13 +12,13 @@ export const Books = () => {
   return (
     <div>
       <div className="links">
-        <Link to="">App</Link>
-        <Link to="comp">Comp</Link>
-        <Link to="book">Book</Link>
-        <Link to="new">New</Link>
-        <Link to="double">Double</Link>
-        <Link to="state">State</Link>
-        <Link to="origin">Origin</Link>
+        <NavLink to="" end >App</NavLink>
+        <NavLink to="comp">Comp</NavLink>
+        <NavLink to="book">Book</NavLink>
+        <NavLink to="new">New</NavLink>
+        <NavLink to="double">Double</NavLink>
+        <NavLink to="state">State</NavLink>
+        <NavLink to="origin">Origin</NavLink>
       </div>
       <div className="roures">
         <Routes>

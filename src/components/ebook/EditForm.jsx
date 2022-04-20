@@ -10,7 +10,7 @@ export const EditForm = ({
 }) => {
   return (
     <form
-    className="edit-form"
+    className="edit"
     onSubmit={handleEditFormSubmit}>
     <label htmlFor="editBook"></label>
     <input

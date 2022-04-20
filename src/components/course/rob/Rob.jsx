@@ -1,4 +1,4 @@
-import { Link, Route, Routes } from "react-router-dom";
+import { NavLink, Route, Routes } from "react-router-dom";
 import {Person}  from "./person/Person";
 import { Users } from "./users/Users";
 import { Create } from "./create/Create";
@@ -8,10 +8,10 @@ export const Rob = () => {
   return (
     <div>
       <div className="links">
-        <Link to="">Person</Link>
-        <Link to="users">Users</Link>
-        <Link to="create">Create</Link>
-        <Link to="update">Update</Link>
+        <NavLink to="" end >Person</NavLink>
+        <NavLink to="users">Users</NavLink>
+        <NavLink to="create">Create</NavLink>
+        <NavLink to="update">Update</NavLink>
       </div>
       <div className="routes">
         <Routes>
