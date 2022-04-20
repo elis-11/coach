@@ -1,7 +1,12 @@
-import React from 'react'
+import React from "react";
+import { DevItem } from "./DevItem";
 
-export const DevList = () => {
+export const DevList = ({ devs, handleDelete }) => {
   return (
-    <div>DevList</div>
-  )
-}
+    <div className="users">
+      {devs.map((dev) => (
+        <DevItem key={dev.id} dev={dev} handleDelete={handleDelete} />
+      ))}
+    </div>
+  );
+};

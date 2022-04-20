@@ -3,6 +3,8 @@ import {Person}  from "./person/Person";
 import { Users } from "./users/Users";
 import { Create } from "./create/Create";
 import { Update } from "./update/Update";
+import { Devs } from "./devs/Devs";
+import { New } from "./new/New";
 
 export const Rob = () => {
   return (
@@ -12,6 +14,8 @@ export const Rob = () => {
         <NavLink to="users">Users</NavLink>
         <NavLink to="create">Create</NavLink>
         <NavLink to="update">Update</NavLink>
+        <NavLink to="devs">Devs</NavLink>
+        <NavLink to="new">New</NavLink>
       </div>
       <div className="routes">
         <Routes>
@@ -19,6 +23,8 @@ export const Rob = () => {
           <Route path="users" element={<Users />} />
           <Route path="create" element={<Create />} />
           <Route path="update" element={<Update />} />
+          <Route path="devs" element={<Devs />} />
+          <Route path="new" element={<New />} />
         </Routes>
       </div>
     </div>

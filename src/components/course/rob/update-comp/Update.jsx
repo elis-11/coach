@@ -16,9 +16,9 @@ export const Update = () => {
   //   setDevs(devsCopy)
   // };
 
-  const addDev = (newDevs) => {
+  const addDev = (devNew) => {
     const devNewState = {
-      id: Date.now().toString(), ...newDevs
+      id: Date.now().toString(), ...devNew
     };
     setDevs([...devs, devNewState]);
   };
