@@ -61,8 +61,8 @@ export const Create = () => {
           {isEditing ? (
             <form className="edit" onSubmit={handleEditForm}>
               <input
-                name="name"
                 type="text"
+                name="name"
                 placeholder="Edit Name"
                 onChange={handleEditMember}
                 value={currentMember.name}
