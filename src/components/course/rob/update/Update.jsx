@@ -7,31 +7,35 @@ export const Update = () => {
     { id: "b1", name: "Gael", city: "Berlin" },
     { id: "b2", name: "Rob", city: "Berlin" },
   ]);
-  const [newDev, setNewDev] = useState({
-    name: "",
-    city: "",
-  });
+const [newDev, setNewDev]= useState({
+  name:'',
+  city:'',
+})
+
 
   //Add
-  const addDev = () => {
-    const addNewDev = {
-      id: Date.now().toString(),
-      name: newDev.name,
-      city: newDev.city,
-    };
-    setDevs([...devs, addNewDev]);
-    setNewDev({ ...newDev, name: "", city: "" });
-  };
-  const handleAddDev = (e) => {
-    setNewDev({ ...newDev, [e.target.name]: e.target.value });
-  };
+const addDev=() => {
+  const addNewDev={
+id:Date.now().toString(),
+name: newDev.name,
+city: newDev.city,
+  }
+  setDevs([...devs, addNewDev])
+  setNewDev({...newDev, name:'', city:'',})
+}
+const handleAddDev=(e) => {
+setNewDev({...newDev, [e.target.name]: e.target.value})
+}
+
+
+
   //Edit
 
   //Delete
   const handleDelete = (id) => {
-    const deleteDev = devs.filter((dev) => dev.id !== id);
+    const deleteDev=devs.filter(dev=>dev.id!==id)
     setDevs(deleteDev);
-  };
+  }
 
   return (
     <div className="people">
@@ -49,8 +53,8 @@ export const Update = () => {
           <input
             type="text"
             name="name"
-            placeholder="Name"
             autoFocus
+            placeholder="Name"
             value={newDev.name}
             onChange={handleAddDev}
           />
@@ -72,7 +76,7 @@ export const Update = () => {
                 <div className="icons">
                   <FaEdit className="icon" role="button" tabIndex="0" />
                   <FaTrashAlt
-                    onClick={() => handleDelete(dev.id)}
+                  onClick={() =>handleDelete(dev.id)}
                     className="icon"
                     role="button"
                     tabIndex="0"

@@ -4,13 +4,13 @@ import { FaEdit, FaTrashAlt } from "react-icons/fa";
 
 export const Create = () => {
   const [members, setMembers] = useState([
-    { id: "b1", name: "Gael", experience: 15 },
-    { id: "b2", name: "Elisa", experience: 2 },
-    { id: "b3", name: "Rob", experience: 17 },
+    { id: "b1", name: "Gael", email: "gael@gmail.com" },
+    { id: "b2", name: "Rob", email: "rob@gmail.com" },
+    { id: "b3", name: "Elisa", email: "elisa@gmail.com" },
   ]);
   const [newMember, setNewMember] = useState({
     name: "",
-    experience: "",
+    email: "",
   });
   const [isEditing, setIsEditing] = useState(false);
   const [currentMember, setCurrentMember] = useState("");
@@ -19,10 +19,10 @@ export const Create = () => {
     const membNewState = {
       id: Date.now().toString(),
       name: newMember.name,
-      experience: newMember.experience,
+      email: newMember.email,
     };
     setMembers([...members, membNewState]);
-    setNewMember({ ...newMember, name: "", experience: "" });
+    setNewMember({ ...newMember, name: "", email: "" });
   };
   const handleAddMember = (e) => {
     setNewMember({ ...newMember, [e.target.name]: e.target.value });
@@ -68,11 +68,11 @@ export const Create = () => {
                 value={currentMember.name}
               />
               <input
-                name="experience"
+                name="email"
                 type="text"
-                placeholder="Edit Experience"
+                placeholder="Edit Email"
                 onChange={handleEditMember}
-                value={currentMember.experience}
+                value={currentMember.email}
               />
               <button className="update" type="submit">
                 Update
@@ -93,10 +93,10 @@ export const Create = () => {
               />
               <input
                 onChange={handleAddMember}
-                value={newMember.experience}
+                value={newMember.email}
                 type="text"
-                name="experience"
-                placeholder="Experience"
+                name="email"
+                placeholder="Email"
               />
               <button onClick={addMember}>Add</button>
             </div>
@@ -106,7 +106,7 @@ export const Create = () => {
               {members.map((member) => (
                 <div key={member.id} className="user">
                   <div>{member.name}</div>
-                  <div>{member.experience}</div>
+                  <div>{member.email}</div>
                   <div className="icons">
                     <FaEdit
                       onClick={() => handleEditClick(member)}
