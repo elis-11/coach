@@ -1,43 +1,45 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import './Refs.scss'
 
 export const Refs = () => {
-  // STATE
-  const [users, setUsers] = useState([
-    { id: "1", name: "Gael", age: 28 },
-    { id: "2", name: "Edward", age: 39 },
-  ]);
+  const [user, setUser] = useState({
+    username: "Gael",
+    age: 28,
+  });
 
-  const updateUser = (id, userData) => {
-    const updatedUsers = users.map((user) =>
-      user.id === id ? { ...user, ...userData } : user
-    );
-    console.log({ updatedUsers });
-    setUsers(updatedUsers);
-  };
-  const inputName = useRef();
+  const inputUsername = useRef();
   const inputAge = useRef();
 
   const [editMode, setEditMode] = useState(false);
 
+  useEffect(() => {
+    console.log("[UseEffect Hook] SOME STATE was CHANGED in our App");
+    console.log({ user });
+    console.log({ editMode });
+  });
+
   const onKeyDown = (ev) => {
     if (ev.key === "Enter") {
-      const nameNew = inputName.current.value;
+      const usernameNew = inputUsername.current.value;
       const ageNew = inputAge.current.value;
 
-      setEditMode(false); // make form readonly (!) after our changes
-      updateUser(users, { name: nameNew, age: ageNew });
+      setEditMode(false); // make readonly after change
+
+      setUser({ ...user, username: usernameNew, age: ageNew });
     }
   };
 
+  // HTML
   return (
-    <div className="user-list">
-      {users.map((user) => (
-        <div key={user.id}>
+    <div className="App">
+      <header className="App-header">
+        <h2>Edit Training</h2>
+        <div>
           <input
-            name="name"
-            ref={inputName}
+            name="username"
+            ref={inputUsername}
             onKeyDown={onKeyDown}
-            defaultValue={user.name}
+            defaultValue={user.username}
             readOnly={!editMode}
           />
           <input
@@ -47,12 +49,9 @@ export const Refs = () => {
             defaultValue={user.age}
             readOnly={!editMode}
           />
-          <button onClick={() => setEditMode(!editMode)}>
-            {" "}
-            {editMode ? "Cancel" : "Edit"}{" "}
-          </button>
+          <button onClick={() => setEditMode(!editMode)}>Edit</button>
         </div>
-      ))}
+      </header>
     </div>
   );
 };
