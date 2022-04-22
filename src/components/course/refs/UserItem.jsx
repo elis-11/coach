@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const UserItem = ({ user, updateUser }) => {
   const inputUsername = useRef();
@@ -6,12 +6,16 @@ export const UserItem = ({ user, updateUser }) => {
 
   const [editMode, setEditMode] = useState(false);
 
+  useEffect(() => {
+    console.log("[UseEffect Hook] SOME STATE was CHANGED in our App");
+  });
+
   const onKeyDown = (ev) => {
     if (ev.key === "Enter") {
       const usernameNew = inputUsername.current.value;
       const ageNew = inputAge.current.value;
 
-      setEditMode(false); // make form readonly (!) after our changes
+      setEditMode(false); // make readonly after change
       updateUser(user.id, { username: usernameNew, age: ageNew });
     }
   };
@@ -33,10 +37,7 @@ export const UserItem = ({ user, updateUser }) => {
         defaultValue={user.age}
         readOnly={!editMode}
       />
-      <button onClick={() => setEditMode(!editMode)}>
-        {" "}
-        {editMode ? "Cancel" : "Edit"}{" "}
-      </button>
+      <button onClick={() => setEditMode(!editMode)}>Edit</button>
     </div>
   );
 };
