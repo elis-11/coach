@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 export const UserItem = ({ user, updateUser }) => {
-  const inputUsername = useRef();
+  const inputName = useRef();
   const inputAge = useRef();
 
   const [editMode, setEditMode] = useState(false);
@@ -12,7 +12,7 @@ export const UserItem = ({ user, updateUser }) => {
 
   const onKeyDown = (ev) => {
     if (ev.key === "Enter") {
-      const usernameNew = inputUsername.current.value;
+      const usernameNew = inputName.current.value;
       const ageNew = inputAge.current.value;
 
       setEditMode(false); // make readonly after change
@@ -25,7 +25,7 @@ export const UserItem = ({ user, updateUser }) => {
     <div>
       <input
         name="username"
-        ref={inputUsername}
+        ref={inputName}
         onKeyDown={onKeyDown}
         defaultValue={user.username}
         readOnly={!editMode}
