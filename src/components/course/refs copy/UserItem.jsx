@@ -19,6 +19,8 @@ export const UserItem = ({ user, updateUser }) => {
       updateUser(user.id, { username: usernameNew, age: ageNew });
     }
   };
+
+  // HTML
   return (
     <div>
       <input

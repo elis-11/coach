@@ -1,91 +1,60 @@
-import "./Style.scss";
-import { useState } from "react";
-import { FaEdit, FaTrashAlt } from "react-icons/fa";
+import React from 'react'
+import { useState } from 'react';
+import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 
 export const New = () => {
-  const [devs, setDevs] = useState([
-    { id: "b1", name: "Gael", hobby: "playing" },
-    { id: "b2", name: "Rob", hobby: "reading" },
-    { id: "b3", name: "Elisa", hobby: "JS" },
-  ]);
-  const [newDev, setNewDev] = useState({
-    name: "",
-    hobby: "",
-  });
 
-  // const experUpdate = (id) => {
-  //   const devsCopy = devs.map(dev=> dev.id!==id ? dev :{...dev, hobby: dev.hobby+1})
-  //   console.log(devsCopy);
-  //   setDevs(devsCopy)
-  // };
+const [users, setUsers]=useState([
+  { id: "b1", name: "Gael", hobby: "playing" },
+  { id: "b2", name: "Rob", hobby: "reading" },
+  { id: "b3", name: "Elisa", hobby: "JS" },
+])
 
-  const addDevs = () => {
-    const devsNewState = {
-      id: Date.now().toString(),
-      name: newDev.name,
-      hobby: newDev.hobby,
-    };
-    setDevs([...devs, devsNewState]);
-    setNewDev({ ...newDev, name: "", hobby: "" });
-  };
-  const handleAddDevs = (e) => {
-    setNewDev({ ...newDev, [e.target.name]: e.target.value });
-  };
+const [newUser, setNewUser]=useState({
+  id: Date.now().toString(),
+  name: '',
+  hobby: '',
+})
 
-  const handleDelete = (id) => {
-    const deleteItem = devs.filter((dev) => dev.id !== id);
-    setDevs(deleteItem);
-  };
+const addUser =()=>{
+  const addNewUser={
+    id:Date.now().toString(),
+    name: newUser.name,
+    hobby: newUser.hobby,
+  }
+  setUsers([...users, addNewUser])
+  setNewUser({...newUser, name:'', hobby: '',})
+}
+const handleAddUser=(e)=>{
+  setNewUser({...newUser, [e.target.name]: e.target.value})
+}
+
+const handleDelete = (id) => {
+  const deleteUser=users.filter(user => user.id!==id)
+  setUsers(deleteUser)
+}
 
   return (
-    <div className="people">
-      <h2>Update</h2>
-      <div className="container">
-        <div className="add">
-          <input
-            type="text"
-            name="name"
-            placeholder="Name"
-            value={newDev.name}
-            onChange={handleAddDevs}
-          />
-          <input
-            type="text"
-            name="hobby"
-            placeholder="Experience"
-            value={newDev.hobby}
-            onChange={handleAddDevs}
-          />
-          <button onClick={addDevs}>Add</button>
-        </div>
-        {devs.length ? (
-          <div className="users">
-            {devs.map((dev) => (
-              <div key={dev.id} className="user">
-                <div className="item">{dev.name}</div>
-                <div className="item">{dev.hobby}</div>
-                <div className="icons">
-                  <FaEdit className="icon" role="button" tabIndex="0" />
-                  <FaTrashAlt
-                    onClick={() => handleDelete(dev.id)}
-                    className="icon"
-                    role="button"
-                    tabIndex="0"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <h2>Your List is empty</h2>
-        )}
-      </div>
-      <footer>
-        <h3>
-          {devs.length} List {devs.length === 1 ? "User" : "Users"}
-        </h3>
-        <h3>Copyright &copy;</h3>
-      </footer>
+<div className="people">
+  <div className="container">
+    <div className="add">
+      <input type="text" name="name" placeholder="Name" autoFocus onChange={handleAddUser} value={newUser.name} />
+      <input type="text" name="hobby" placeholder="Hobby" onChange={handleAddUser} value={newUser.hobby} />
+      <button onClick={addUser}>Add</button>
     </div>
-  );
-};
+    <div className="users">
+      {users.map((user=>(
+        <div className="user" key={user.id}>
+          <div className="item">{user.name}</div>
+          <div className="item">{user.hobby}</div>
+          <div className="icons">
+            <FaEdit className="icon" role="button" tabIndex="0" />
+            <FaTrashAlt onClick={()=>handleDelete(user.id)} className="icon" role="button" tabIndex="0" />
+          </div>
+        </div>
+      )))}
+    </div>
+  </div>
+</div>  
+)
+}
