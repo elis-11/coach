@@ -13,23 +13,23 @@ export const Person = () => {
     age: "",
   });
 
-  const addPerson=()=>{
-    const personNewState={
+  const addPerson = () => {
+    const personNewState = {
       id: Date.now().toString(),
       name: newPerson.name,
       age: newPerson.age,
-    }
-    setPeople([...people, personNewState])
-    setNewPerson({...newPerson, name:'', age:'',})
-  }
-  const handleAddPerson=(e)=>{
-    setNewPerson({...newPerson, [e.target.name]: e.target.value})
-  }
+    };
+    setPeople([...people, personNewState]);
+    setNewPerson({ ...newPerson, name: "", age: "" });
+  };
+  const handleAddPerson = (e) => {
+    setNewPerson({ ...newPerson, [e.target.name]: e.target.value });
+  };
 
   const handleDelete = (id) => {
-    const deletePerson=people.filter(person=>person.id !== id)
-    setPeople(deletePerson)
-  }
+    const deletePerson = people.filter((person) => person.id !== id);
+    setPeople(deletePerson);
+  };
 
   return (
     <div className="person">
@@ -38,10 +38,23 @@ export const Person = () => {
           {people.length} List {people.length === 1 ? "Person" : "People"}
         </h2>
         <div className="add">
-          <input onChange={handleAddPerson} value={newPerson.name} type="text" name="name" placeholder="Name" autoFocus />
-          <input onChange={handleAddPerson} value={newPerson.age} type="number" name="age" placeholder="Age" />
+          <input
+            onChange={handleAddPerson}
+            value={newPerson.name}
+            type="text"
+            name="name"
+            placeholder="Name"
+            autoFocus
+          />
+          <input
+            onChange={handleAddPerson}
+            value={newPerson.age}
+            type="number"
+            name="age"
+            placeholder="Age"
+          />
           <button onClick={addPerson}>Add</button>
-        </div>
+      </div>
         {people.length ? (
           <div className="users">
             {people.map((person) => (
@@ -50,7 +63,12 @@ export const Person = () => {
                 <div className="item">{person.age}</div>
                 <div className="icons">
                   <FaEdit className="icon" role="button" tabIndex="0" />
-                  <FaTrashAlt onClick={()=>handleDelete(person.id)} className="icon" role="button" tabIndex="0" />
+                  <FaTrashAlt
+                    onClick={() => handleDelete(person.id)}
+                    className="icon"
+                    role="button"
+                    tabIndex="0"
+                  />
                 </div>
               </div>
             ))}
