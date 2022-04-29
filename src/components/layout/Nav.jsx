@@ -24,18 +24,6 @@ export const Nav = () => {
       >
         Course
       </NavLink>
-      <NavLink
-        to="/books"
-        className={(navData) => (navData.isActive ? "active" : "none")}
-      >
-        Books
-      </NavLink>
-      <NavLink
-        to="/robapp"
-        className={(navData) => (navData.isActive ? "active" : "none")}
-      >
-        Robapp
-      </NavLink>
     </nav>
   );
 };

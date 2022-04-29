@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
-import "../books/add/Add.scss";
+import "./Home.scss";
 
 export const Home = () => {
   const [books, setBooks] = useState([
@@ -13,10 +13,7 @@ export const Home = () => {
   const [newBook, setNewBook] = useState({});
   const [isEditing, setIsEditing] = useState(false);
   const [currentBook, setCurrentBook] = useState("");
-
-  // useEffect(() => {
-  //   console.log("use effect ran");
-  // });
+  const [search, setSearch] = useState("");
 
   // ADD BOOK
   const addBook = () => {
@@ -53,6 +50,12 @@ export const Home = () => {
     setCurrentBook({ ...book });
   };
 
+  const searchBook = books.filter(
+    (book) =>
+      book.title.toLowerCase().includes(search.toLowerCase()) ||
+      book.author.toLowerCase().includes(search.toLowerCase())
+  );
+
   // Delete book
   const handleDelete = (id) => {
     const deleteBook = books.filter((book) => book.id !== id);
@@ -60,12 +63,25 @@ export const Home = () => {
   };
 
   return (
-    <div className="Robapp">
+    <div className="Home">
       <h2>Books App</h2>
       <main>
         <div className="container">
           <div className="search">
-            <input type="text" name="search" placeholder="Search.." />
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+              }}
+            >
+              <input
+                type="text"
+                name="search"
+                role="search"
+                placeholder="Search.."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+            </form>
           </div>
 
           {isEditing ? (
@@ -101,7 +117,7 @@ export const Home = () => {
           )}
 
           <div className="book-list">
-            {books.map((book) => (
+            {searchBook.map((book) => (
               <div key={book.id} className="book">
                 <div>{book.title}</div>
                 <div>{book.author}</div>
@@ -122,6 +138,9 @@ export const Home = () => {
               </div>
             ))}
           </div>
+      <footer>
+        <h2>{books.length} List {books.length ===1 ? 'Book' : 'Books'}</h2>
+      </footer>
         </div>
       </main>
     </div>

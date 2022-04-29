@@ -73,7 +73,7 @@
         color: rgb(77, 79, 80);
         display: flex;
         justify-content: space-between;
-        // border: 2px solid #ccc;
+        border: 2px solid #ccc;
         
         .item {
           width: 45%;
@@ -90,6 +90,7 @@
           width: 10%;
           display: flex;
           justify-content: space-around;
+          align-items: center;
           font-size: 1rem;
           // transform: translateY(-50%);
           .icon {
