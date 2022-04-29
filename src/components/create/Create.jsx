@@ -1,38 +1,38 @@
-import './Style.scss';
 import { useState } from "react";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
+import "./Create.scss";
 
 export const Create = () => {
   const [members, setMembers] = useState([
-    { id: "b1", name: "Gael", experience: 15 },
-    { id: "b2", name: "Elisa", experience: 2 },
-    { id: "b3", name: "Rob", experience: 17 },
+    { id: "b1", name: "Gael", email: "gael@gmail.com" },
+    { id: "b2", name: "Rob", email: "rob@gmail.com" },
+    { id: "b3", name: "Elisa", email: "elisa@gmail.com" },
   ]);
   const [newMember, setNewMember] = useState({
     name: "",
-    experience: "",
+    email: "",
   });
   const [isEditing, setIsEditing] = useState(false);
   const [currentMember, setCurrentMember] = useState("");
-
+  const [search, setSearch] = useState("");
   //Add
   const addMember = () => {
     const membNewState = {
       id: Date.now().toString(),
       name: newMember.name,
-      experience: newMember.experience,
+      email: newMember.email,
     };
     setMembers([...members, membNewState]);
-    setNewMember({ ...newMember, name: "", experience: "" });
+    setNewMember({ ...newMember, name: "", email: "" });
   };
   const handleAddMember = (e) => {
     setNewMember({ ...newMember, [e.target.name]: e.target.value });
   };
   //Edit
   const handleEditMember = (e) => {
-    setCurrentMember({ ...currentMember, [e.target.name]: e.target.value});
+    setCurrentMember({ ...currentMember, [e.target.name]: e.target.value });
   };
-  const handleUpdatedMember = (id, updatedMember) => {
+  const handleUpdateMember = (id, updatedMember) => {
     const updatedItem = members.map((member) =>
       member.id === id ? updatedMember : member
     );
@@ -41,12 +41,18 @@ export const Create = () => {
   };
   const handleEditForm = (e) => {
     e.preventDefault();
-    handleUpdatedMember(currentMember.id, currentMember);
+    handleUpdateMember(currentMember.id, currentMember);
   };
   const handleEditClick = (member) => {
     setIsEditing(true);
     setCurrentMember({ ...member });
   };
+
+  const searchMember = members.filter(
+    (member) =>
+      member.name.toLowerCase().includes(search.toLowerCase()) ||
+      member.email.toLowerCase().includes(search.toLowerCase())
+  );
 
   //Delete
   const handleDelete = (id) => {
@@ -56,24 +62,40 @@ export const Create = () => {
 
   return (
     <div>
-      <div className="people">
+      <div className="Users">
         <div className="container">
           <h2>Create ✨</h2>
+          <div className="search">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+              }}
+            >
+              <input
+                id="search"
+                type="text"
+                role="search"
+                value={search}
+                placeholder="Search..."
+                onChange={(e) => setSearch(e.target.value)}
+              />
+            </form>
+          </div>
           {isEditing ? (
             <form className="edit" onSubmit={handleEditForm}>
               <input
-                name="name"
                 type="text"
+                name="name"
                 placeholder="Edit Name"
                 onChange={handleEditMember}
                 value={currentMember.name}
               />
               <input
-                name="experience"
+                name="email"
                 type="text"
-                placeholder="Edit Experience"
+                placeholder="Edit Email"
                 onChange={handleEditMember}
-                value={currentMember.experience}
+                value={currentMember.email}
               />
               <button className="update" type="submit">
                 Update
@@ -93,24 +115,27 @@ export const Create = () => {
               />
               <input
                 onChange={handleAddMember}
-                value={newMember.experience}
+                value={newMember.email}
                 type="text"
-                name="experience"
-                placeholder="Experience"
+                name="email"
+                placeholder="Email"
               />
               <button onClick={addMember}>Add</button>
             </div>
           )}
           {members.length ? (
             <div className="users">
-              {members.map((member) => (
+              {searchMember.map((member) => (
                 <div key={member.id} className="user">
                   <div>{member.name}</div>
-                  <div>{member.experience}</div>
+                  <div>{member.email}</div>
                   <div className="icons">
-                    <FaEdit 
-                    onClick={() =>handleEditClick(member)}
-                    className="icon" role="button" tabIndex="0" />
+                    <FaEdit
+                      onClick={() => handleEditClick(member)}
+                      className="icon"
+                      role="button"
+                      tabIndex="0"
+                    />
                     <FaTrashAlt
                       onClick={() => handleDelete(member.id)}
                       className="icon"

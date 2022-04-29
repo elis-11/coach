@@ -1,0 +1,117 @@
+.Users {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  .container {
+    width: 80%;
+    margin-top: 20px;
+    .search {
+      input {
+        width: 100%;
+        text-align: center;
+        font-size: 16px;
+        height: 2rem;
+        border: 2px solid #ccc;
+        margin-bottom: 10px;
+        background-color: #e6e0e0;
+      }
+    }
+
+    .add {
+      margin: 10px 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      input {
+        width: 45%;
+        text-align: center;
+        height: 2rem;
+        font-size: 16px;
+        margin: 0;
+        background-color: #e6e0e0;
+        border: 2px solid #ccc;
+      }
+      button {
+        height: 2rem;
+        font-size: 16px;
+        color: grey;
+        border: 2px solid #ccc;
+        background-color: #e6e0e0;
+      }
+    }
+    .users {
+      width: 100%;
+      display: column;
+      // align-items: center;
+      justify-content: center;
+      .user {
+        position: relative;
+        place-items: center;
+        height: 2rem;
+        margin: 2px;
+        border-radius: 4px;
+        font-size: 16px;
+        color: rgb(77, 79, 80);
+        border: 2px solid #ccc;
+        display: flex;
+        justify-content: space-around;
+        .item {
+          width: 20%;
+          padding-left: 10px;
+        }
+
+        .icons {
+          position: absolute;
+          top: 50%;
+          right: 0;
+          font-size: 1.4rem;
+          transform: translateY(-50%);
+          .icon {
+            padding-right: 1px;
+            color: rgb(153, 152, 152);
+            cursor: pointer;
+            :hover {
+              color: rgb(102, 100, 100);
+              outline: none;
+            }
+          }
+        }
+      }
+    }
+    .edit {
+      width: 100%;
+      margin: 10px 0;
+      input {
+        color: grey;
+        width: 35%;
+        height: 2.5rem;
+        border-radius: 4px;
+        font-size: 20px;
+        text-align: center;
+        padding-left: 5px;
+        border: 2px solid #ccc;
+        background-color: #e6e0e0;
+      }
+      .update {
+        width: 15%;
+        height: 2.5rem;
+        border-radius: 4px;
+        font-size: 20px;
+        padding: 0;
+        color: grey;
+        background-color: #e6e0e0;
+        border: 2px solid #ccc;
+      }
+      .cancel {
+        width: 15%;
+        height: 2.5rem;
+        border-radius: 4px;
+        font-size: 20px;
+        padding: 0;
+        color: grey;
+        background-color: #e6e0e0;
+        border: 2px solid #ccc;
+      }
+    }
+  }
+}

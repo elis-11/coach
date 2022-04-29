@@ -24,6 +24,18 @@ export const Nav = () => {
       >
         Course
       </NavLink>
+      <NavLink
+        to="/create"
+        className={(navData) => (navData.isActive ? "active" : "none")}
+      >
+        Create
+      </NavLink>
+      <NavLink
+        to="/devs"
+        className={(navData) => (navData.isActive ? "active" : "none")}
+      >
+        Devs
+      </NavLink>
     </nav>
   );
 };
