@@ -139,7 +139,7 @@ export const Home = () => {
             ))}
           </div>
       <footer>
-        <h2>{books.length} List {books.length ===1 ? 'Book' : 'Books'}</h2>
+        <h2>{searchBook.length} List {searchBook.length ===1 ? 'Book' : 'Books'}</h2>
       </footer>
         </div>
       </main>

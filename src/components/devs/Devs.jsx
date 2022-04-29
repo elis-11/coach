@@ -27,15 +27,16 @@ export const Devs = () => {
     setNewDev({ ...newDev, [e.target.name]: e.target.value });
   };
 
+  const searchDev = devs.filter(
+    (dev) =>
+      dev.name.toLowerCase().includes(search.toLowerCase()) ||
+      dev.city.toLowerCase().includes(search.toLowerCase())
+  );
+
   const handleDelete = (id) => {
     const deleteItem = devs.filter((dev) => dev.id !== id);
     setDevs(deleteItem);
   };
-  const searchDev = devs.filter(
-    (dev) =>
-      dev.name.toLowerCase().includes(search.toLowerCase()) ||
-      dev.city.includes(search.toLowerCase())
-  );
 
   return (
     <div className="Users">
