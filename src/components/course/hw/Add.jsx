@@ -1,55 +1,81 @@
 import { useState } from "react";
+import { FaTrashAlt, FaEdit } from "react-icons/fa";
+import "./Style.scss";
 
 export const Add = () => {
-  const [blogs, setBlogs] = useState([
-    { id: "1", title: "Blog 1", author: "Gael" },
-    { id: "2", title: "Blog 2", author: "Rob" },
-    { id: "3", title: "Blog 3", author: "Gael" },
+  const [students, setStudents] = useState([
+    { id: "1", name: "Niko", specializ: "Full Stack" },
+    { id: "2", name: "Heba", specializ: "Full Stack" },
+    { id: "3", name: "Osama", specializ: "Backend" },
+    { id: "4", name: "Elisa", specializ: "Frontend" },
+    { id: "5", name: "Stephan", specializ: "Full Stack" },
   ]);
-  const [newTitle, setNewTitle] = useState(""); // INPUT STATE
-  const [newAuthor, setNewAuthor] = useState("");
+  const [newStudent, setNewStudent] = useState({
+    name: "",
+    specializ: "",
+  });
 
-  console.log(blogs);
-
-  // reacted auf TYPING des Users
-  const onTitleChange = (event) => {
-    // user hat getippt => aber wo ist es?
-    setNewTitle(event.target.value);
+  const addStudent = () => {
+    const addNewStudent = {
+      id: Date.now().toString(),
+      name: newStudent.name,
+      specializ: newStudent.specializ,
+    };
+    setStudents([...students, addNewStudent]);
+    setNewStudent({ ...newStudent, name: "", specializ: "" });
   };
-  const onAuthorChange = (event) => {
-    setNewAuthor(event.target.value);
+  const handleAddStudent = (e) => {
+    setNewStudent({ ...newStudent, [e.target.name]: e.target.value });
   };
 
-  // reacted auf BUTTON CLICK => ADD des Users
-  const addNewBlog = () => {
-    const newId = Date.now().toString();
-    const newBlog = { id: newId, title: newTitle, author: newAuthor };
-    setBlogs([...blogs, newBlog]); // copy all items from previous array and ADD a new one
-    setNewTitle("");
-    setNewAuthor("");
+  const handleDelete = (id) => {
+    const deleteItem = students.filter((student) => student.id !== id);
+    setStudents(deleteItem);
   };
   return (
-    <div>
-      <p> Add</p>
-      <h2>Blog posts ✨</h2>
-      <div>
-        <input value={newTitle} onChange={onTitleChange} autoFocus />
-      </div>
-      <div>
-        <input value={newAuthor} onChange={onAuthorChange} />
-      </div>
-      <button onClick={addNewBlog}>Add</button>
-      <div>
-        {
-          <div className="blogs">
-            {blogs.map((blog) => (
-              <div key={blog.id}>
-                {blog.title} von {blog.author}
+    <div className="Students">
+      <div className="container">
+        <h2>Students</h2>
+        <div className="add">
+          <input
+            type="text"
+            name="name"
+            placeholder="Name"
+            value={newStudent.name}
+            onChange={handleAddStudent}
+          />
+          <input
+            type="text"
+            name="specializ"
+            placeholder="Specializ"
+            value={newStudent.specializ}
+            onChange={handleAddStudent}
+          />
+          <button type="submit" onClick={addStudent}>
+            Add
+          </button>
+        </div>
+        <div className="students">
+          {students.map((student) => (
+            <div key={student.id} className="student">
+              <div className="item">{student.name}</div>
+              <div className="item">{student.specializ}</div>
+              <div className="icons">
+                <FaEdit className="icon" role="button" tabIndex="0" />
+                <FaTrashAlt
+                  onClick={() => handleDelete(student.id)}
+                  className="icon"
+                  role="button"
+                  tabIndex="0"
+                />
               </div>
-            ))}
-          </div>
-        }
+            </div>
+          ))}
+        </div>
       </div>
+      <footer>
+        <h2>{students.length} List {students.length ===1 ? 'Student' : 'Students'}</h2>
+      </footer>
     </div>
   );
 };

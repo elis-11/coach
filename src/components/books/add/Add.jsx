@@ -1,13 +1,13 @@
 // import { useState, useEffect } from "react";
 import { useState } from "react";
-import { FaEdit } from "react-icons/fa";
-import { FaTrashAlt } from "react-icons/fa";
-import "../robapp/Robapp.scss";
+import { FaEdit, FaTrashAlt } from "react-icons/fa";
+import "./Robapp.scss";
 
-export const RobOrigin = () => {
+export const Add = () => {
   const [books, setBooks] = useState([
-    { id: "b1", title: "Guide to Coaching", author: "Rob" },
-    { id: "b2", title: "Guide to JavaScript", author: "Gael" },
+    { id: "b1", title: "Guide to Happiness", author: "Gael" },
+    { id: "b2", title: "Guide to Coaching", author: "Rob" },
+    { id: "b3", title: "Guide to JavaScript", author: "Eliza" },
   ]);
   const [bookNew, setBookNew] = useState({
     title: "",
@@ -32,7 +32,7 @@ export const RobOrigin = () => {
       author: bookNew.author,
     };
     setBooks([...books, bookNewState]);
-    setBookNew({ ...bookNew, title: "", author: "" });
+    setBookNew({ ...books, title: "", author: "" });
   };
   const handleBookInput = (event) => {
     setBookNew({ ...bookNew, [event.target.name]: event.target.value });
@@ -46,7 +46,7 @@ export const RobOrigin = () => {
   return (
     <div className="Robapp">
       <header>
-        <h1>Book App</h1>
+        <h1>Rob App</h1>
       </header>
       <main>
         <div className="container">
@@ -95,7 +95,8 @@ export const RobOrigin = () => {
           </div>
         </div>
       </main>
-      <footer>&copy; Rob Books Unlimited</footer>
+      <footer>Copyright &copy; 2022</footer>
+
     </div>
   );
 };

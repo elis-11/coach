@@ -1,5 +1,5 @@
 import { NavLink, Route, Routes } from "react-router-dom";
-import { App } from "./app/App";
+import { Add } from "./add/Add";
 import { Comp } from "./comp/Comp";
 import { Book } from "./Book";
 import { New } from "./New";
@@ -12,7 +12,7 @@ export const Books = () => {
   return (
     <div>
       <div className="links">
-        <NavLink to="" end >App</NavLink>
+        <NavLink to="" end >Add</NavLink>
         <NavLink to="comp">Comp</NavLink>
         <NavLink to="book">Book</NavLink>
         <NavLink to="new">New</NavLink>
@@ -22,7 +22,7 @@ export const Books = () => {
       </div>
       <div className="roures">
         <Routes>
-          <Route path="" element={<App />} />
+          <Route path="" element={<Add />} />
           <Route path="comp" element={<Comp />} />
           <Route path="book" element={<Book />} />
           <Route path="new" element={<New />} />

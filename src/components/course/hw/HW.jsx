@@ -3,7 +3,7 @@ import { Home } from "./Home";
 import { Update } from "./Update";
 import { Add } from "./Add";
 import { Create } from "./Create";
-import Person from "./Person";
+import {Person} from "./Person";
 
 export const HW = () => {
   return (

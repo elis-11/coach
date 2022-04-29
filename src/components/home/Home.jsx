@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
-import "../books/app/Robapp.scss";
+import "../books/add/Robapp.scss";
 
 export const Home = () => {
   const [books, setBooks] = useState([
@@ -24,11 +24,9 @@ export const Home = () => {
       title: newBook.title,
       author: newBook.author,
       id: new Date().toString(),
-      // id: new Date().toString(),
     };
     setBooks([...books, bookNewState]);
     setNewBook({ ...newBook, title: "" });
-    // setNewBook({ ...newBook, title: "" });
   };
   const handleBookInput = (e) => {
     setNewBook({ ...newBook, [e.target.name]: e.target.value });

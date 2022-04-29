@@ -22,9 +22,7 @@ export const Refs = () => {
     if (ev.key === "Enter") {
       const usernameNew = inputUsername.current.value;
       const ageNew = inputAge.current.value;
-
       setEditMode(false); // make readonly after change
-
       setUser({ ...user, username: usernameNew, age: ageNew });
     }
   };
