@@ -56,6 +56,15 @@ export const Devs = () => {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
+            {/* <div className="search">
+              <TextField
+                id="outlined-basic"
+                onChange={inputHandler}
+                variant="outlined"
+                fullWidth
+                label="Search"
+              />
+            </div> */}
           </form>
         </div>
         <div className="add">
