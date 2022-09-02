@@ -36,6 +36,12 @@ export const Nav = () => {
       >
         Devs
       </NavLink>
+      <NavLink
+        to="/cars"
+        className={(navData) => (navData.isActive ? "active" : "none")}
+      >
+        Cars
+      </NavLink>
     </nav>
   );
 };
