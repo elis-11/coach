@@ -5,9 +5,9 @@ import "./Home.scss";
 
 export const Home = () => {
   const [books, setBooks] = useState([
-    { id: 1, title: "Guide to Happiness", author: "Gael" },
-    { id: 2, title: "Guide to JavaScript", author: "Eliza" },
-    { id: 3, title: "Guide to Coaching", author: "Rob" },
+    { id: 1, title: "Guide to Happiness", author: "Anne" },
+    { id: 2, title: "Guide to JavaScript", author: "Roy" },
+    { id: 3, title: "Guide to Coaching", author: "Sarah" },
   ]);
 
   const [newBook, setNewBook] = useState({});
