@@ -12,7 +12,7 @@
     place-items: center;
   }
   .container {
-    width: 70%;
+    width: 90%;
     min-height: 70%;
     .search {
       input {
@@ -72,6 +72,7 @@
     }
     .edit {
       width: 100%;
+      display: flex;
       input {
         color: grey;
         width: 68%;

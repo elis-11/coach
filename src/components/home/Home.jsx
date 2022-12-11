@@ -1,14 +1,28 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { FaEdit } from "react-icons/fa";
 import "./Home.scss";
 
 export const Home = () => {
-  const [books, setBooks] = useState([
-    { id: 1, title: "Guide to Happiness", author: "Anne" },
-    { id: 2, title: "Guide to JavaScript", author: "Roy" },
-    { id: 3, title: "Guide to Coaching", author: "Sarah" },
-  ]);
+  const [newBooks, setNBooks] = useState(() => {
+    const savedBooksInLS = localStorage.getItem("newBooks");
+    if (savedBooksInLS) {
+      return JSON.parse(savedBooksInLS);
+    } else {
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    localStorage.setItem("newBooks", JSON.stringify(newBooks));
+  }, [newBooks]);
+
+  // const [newBooks, setNBooks] = useState([
+  // { id: 1, title: "Guide to Happiness", author: "Anne Cords" },
+  // { id: 2, title: "Guide to JavaScript", author: "Ricci Roy" },
+  // { id: 3, title: "Guide to Coaching", author: "Sarah Richter" },
+  // ]);
 
   const [newBook, setNewBook] = useState({});
   const [isEditing, setIsEditing] = useState(false);
@@ -22,8 +36,8 @@ export const Home = () => {
       author: newBook.author,
       id: new Date().toString(),
     };
-    setBooks([...books, bookNewState]);
-    setNewBook({ ...newBook, title: "" });
+    setNBooks([...newBooks, bookNewState]);
+    setNewBook({ ...newBook, title: "", author: "" });
   };
   const handleBookInput = (e) => {
     setNewBook({ ...newBook, [e.target.name]: e.target.value });
@@ -35,11 +49,11 @@ export const Home = () => {
     console.log(currentBook);
   };
   const handleUpdateBook = (id, updatedBook) => {
-    const updatedItem = books.map((book) => {
+    const updatedItem = newBooks.map((book) => {
       return book.id === id ? updatedBook : book;
     });
     setIsEditing(false);
-    setBooks(updatedItem);
+    setNBooks(updatedItem);
   };
   const handleEditForm = (e) => {
     e.preventDefault();
@@ -50,7 +64,7 @@ export const Home = () => {
     setCurrentBook({ ...book });
   };
 
-  const searchBook = books.filter(
+  const searchBook = newBooks.filter(
     (book) =>
       book.title.toLowerCase().includes(search.toLowerCase()) ||
       book.author.toLowerCase().includes(search.toLowerCase())
@@ -58,8 +72,8 @@ export const Home = () => {
 
   // Delete book
   const handleDelete = (id) => {
-    const deleteBook = books.filter((book) => book.id !== id);
-    setBooks(deleteBook);
+    const deleteBook = newBooks.filter((book) => book.id !== id);
+    setNBooks(deleteBook);
   };
 
   return (
@@ -89,8 +103,15 @@ export const Home = () => {
               <input
                 name="editBook"
                 type="text"
-                placeholder="Edit Book"
+                placeholder="Edit book title"
                 value={currentBook.title}
+                onChange={handleEditBook}
+              />
+              <input
+                name="editBook"
+                type="text"
+                placeholder="Edit book author"
+                value={currentBook.author}
                 onChange={handleEditBook}
               />
               <button className="update" type="submit">
@@ -106,10 +127,19 @@ export const Home = () => {
                 type="text"
                 name="title"
                 autoComplete="off"
-                placeholder="Create a new book"
+                placeholder="Add book title"
                 onChange={handleBookInput}
                 value={newBook.title}
               />
+              <input
+                type="text"
+                name="author"
+                autoComplete="off"
+                placeholder="Add book author"
+                onChange={handleBookInput}
+                value={newBook.author}
+              />
+
               <div>
                 <button onClick={addBook}>Add</button>
               </div>
@@ -119,8 +149,8 @@ export const Home = () => {
           <div className="book-list">
             {searchBook.map((book) => (
               <div key={book.id} className="book">
-                <div>{book.title}</div>
                 <div>{book.author}</div>
+                <div>{book.title}</div>
                 <div className="icons">
                   <FaEdit
                     className="icon"
@@ -138,9 +168,12 @@ export const Home = () => {
               </div>
             ))}
           </div>
-      <footer>
-        <h2>{searchBook.length} List {searchBook.length ===1 ? 'Book' : 'Books'}</h2>
-      </footer>
+          <footer>
+            <h2>
+              {searchBook.length} List{" "}
+              {searchBook.length === 1 ? "Book" : "Books"}
+            </h2>
+          </footer>
         </div>
       </main>
     </div>
