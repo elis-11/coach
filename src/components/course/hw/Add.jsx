@@ -4,10 +4,8 @@ import "./Style.scss";
 
 export const Add = () => {
   const [students, setStudents] = useState([
-    { id: "1", name: "Niko", specializ: "Full Stack" },
-    { id: "2", name: "Heba", specializ: "Full Stack" },
-    { id: "3", name: "Osama", specializ: "Backend" },
-    { id: "4", name: "Elisa", specializ: "Frontend" },
+    { id: "1", name: "Ricci", specializ: "Full Stack" },
+    { id: "2", name: "Anne", specializ: "Full Stack" },
     { id: "5", name: "Stephan", specializ: "Full Stack" },
   ]);
   const [newStudent, setNewStudent] = useState({

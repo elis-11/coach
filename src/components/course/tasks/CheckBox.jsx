@@ -2,8 +2,8 @@ import React, { useState } from "react";
 
 export const CheckBox = () => {
   const [teachers, setTeachers] = useState([
-    { id: "1", name: "Rob", city: "Berlin" },
-    { id: "2", name: "Eliza", city: "Hamburg" },
+    { id: "1", name: "Anne", city: "Berlin" },
+    { id: "2", name: "Aza", city: "Hamburg" },
     { id: "3", name: "Olaf", city: "Hamburg" },
   ]);
   const [filteredItems, setFilteredItems] = useState([]);

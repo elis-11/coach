@@ -1,35 +1,10 @@
 import { useEffect, useState } from "react";
 import "./Cars.scss";
+import carsJson from "./cars.json"
 
 export const Cars = () => {
   // Array of all car objects
-  const carList = [
-    {
-      name: "BMW M6",
-      url: "https://mediapool.bmwgroup.com/cache/P9/201411/P90169551/P90169551-the-new-bmw-m6-coup-exterior-12-2014-600px.jpg",
-      release_year: 2020,
-    },
-    {
-      name: "VW Polo",
-      url: "https://cdn.euroncap.com/media/30740/volkswagen-polo-359-235.jpg?mode=crop&width=359&height=235",
-      release_year: 2018,
-    },
-    {
-      name: "Audi S6",
-      url: "https://www.motortrend.com/uploads/sites/5/2020/03/6-2020-audi-s6.jpg?fit=around%7C875:492.1875",
-      release_year: 2020,
-    },
-    {
-      name: "BMW M2",
-      url: "https://imgd.aeplcdn.com/0x0/cw/ec/37092/BMW-M2-Exterior-141054.jpg?wm=0",
-      release_year: 2019,
-    },
-    {
-      name: "Audi A3",
-      url: "https://cdn.motor1.com/images/mgl/BEooZ/s3/2021-audi-s3.jpg",
-      release_year: 2019,
-    },
-  ];
+  const carList = (carsJson);
   // List of all cars satisfing all the filters
   const [filteredList, setFilteredList] = useState(carList);
   // Selected Brand name filter
@@ -42,7 +17,7 @@ export const Cars = () => {
     if (!selectedBrand) {
       return filteredData;
     }
-
+    
     const filteredCars = filteredData.filter(
       (car) => car.name.split(" ").indexOf(selectedBrand) !== -1
     );
@@ -77,7 +52,7 @@ export const Cars = () => {
   };
 
   useEffect(() => {
-    var filteredData = filterByBrand(carList);
+    let filteredData = filterByBrand(carList);
     filteredData = filterByYear(filteredData);
     setFilteredList(filteredData);
     // eslint-disable-next-line react-hooks/exhaustive-deps

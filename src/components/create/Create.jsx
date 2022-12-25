@@ -4,9 +4,9 @@ import "./Create.scss";
 
 export const Create = () => {
   const [members, setMembers] = useState([
-    { id: "b1", name: "Gael", email: "gael@gmail.com" },
-    { id: "b2", name: "Rob", email: "rob@gmail.com" },
-    { id: "b3", name: "Elisa", email: "elisa@gmail.com" },
+    { id: "b1", name: "Ricci", email: "ricci@gmail.com" },
+    { id: "b2", name: "Artur", email: "artur@gmail.com" },
+    { id: "b3", name: "Anne", email: "anne@gmail.com" },
   ]);
   const [newMember, setNewMember] = useState({
     name: "",
@@ -28,6 +28,7 @@ export const Create = () => {
   const handleAddMember = (e) => {
     setNewMember({ ...newMember, [e.target.name]: e.target.value });
   };
+  
   //Edit
   const handleEditMember = (e) => {
     setCurrentMember({ ...currentMember, [e.target.name]: e.target.value });

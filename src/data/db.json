@@ -3,17 +3,17 @@
         {
             "_id": "b1",
             "title": "Guide to Happiness",
-            "author": "Gael"
+            "author": "Ricci"
         },
         {
             "_id": "b2",
             "title": "Guide to JavaScript",
-            " author": "Eliza"
+            " author": "Anne"
         },
         {
             "_id": "b3",
             "title": "Guide to Coaching",
-            "author": "Rob"
+            "author": "Artur"
         }
     ]
 }

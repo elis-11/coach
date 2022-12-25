@@ -3,9 +3,9 @@ import { useState } from "react";
 
 export const Update = () => {
   const [devs, setDevs] = useState([
-    { id: "b1", name: "Gael", experience: 65 },
-    { id: "b2", name: "Rob", experience: 95 },
-    { id: "b3", name: "Elisa", experience: 1 },
+    { id: "b1", name: "Inna", experience: 65 },
+    { id: "b2", name: "Anne", experience: 95 },
+    { id: "b3", name: "Rici", experience: 1 },
   ]);
 
   const experUpdate = (id) => {

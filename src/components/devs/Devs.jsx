@@ -4,9 +4,9 @@ import { FaEdit, FaTrashAlt } from "react-icons/fa";
 
 export const Devs = () => {
   const [devs, setDevs] = useState([
-    { id: "b1", name: "Gael", city: "Berlin" },
-    { id: "b2", name: "Rob", city: "Berlin" },
-    { id: "b3", name: "Elisa", city: "Hamburg" },
+    { id: "b1", name: "Inna", city: "Berlin" },
+    { id: "b2", name: "Ricci", city: "Berlin" },
+    { id: "b3", name: "Asa", city: "Hamburg" },
   ]);
   const [newDev, setNewDev] = useState({
     name: "",

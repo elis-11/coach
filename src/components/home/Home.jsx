@@ -5,7 +5,12 @@ import { FaEdit } from "react-icons/fa";
 import "./Home.scss";
 
 export const Home = () => {
-  const [newBooks, setNBooks] = useState(() => {
+  // const [newBooks, setNewBooks] = useState([
+  // { id: 1, title: "Guide to Happiness", author: "Anne Cords" },
+  // { id: 2, title: "Guide to JavaScript", author: "Ricci Roy" },
+  // { id: 3, title: "Guide to Coaching", author: "Sarah Richter" },
+  // ]);
+  const [newBooks, setNewBooks] = useState(() => {
     const savedBooksInLS = localStorage.getItem("newBooks");
     if (savedBooksInLS) {
       return JSON.parse(savedBooksInLS);
@@ -18,11 +23,6 @@ export const Home = () => {
     localStorage.setItem("newBooks", JSON.stringify(newBooks));
   }, [newBooks]);
 
-  // const [newBooks, setNBooks] = useState([
-  // { id: 1, title: "Guide to Happiness", author: "Anne Cords" },
-  // { id: 2, title: "Guide to JavaScript", author: "Ricci Roy" },
-  // { id: 3, title: "Guide to Coaching", author: "Sarah Richter" },
-  // ]);
 
   const [newBook, setNewBook] = useState({});
   const [isEditing, setIsEditing] = useState(false);
@@ -36,7 +36,7 @@ export const Home = () => {
       author: newBook.author,
       id: new Date().toString(),
     };
-    setNBooks([...newBooks, bookNewState]);
+    setNewBooks([...newBooks, bookNewState]);
     setNewBook({ ...newBook, title: "", author: "" });
   };
   const handleBookInput = (e) => {
@@ -53,7 +53,7 @@ export const Home = () => {
       return book.id === id ? updatedBook : book;
     });
     setIsEditing(false);
-    setNBooks(updatedItem);
+    setNewBooks(updatedItem);
   };
   const handleEditForm = (e) => {
     e.preventDefault();
@@ -73,7 +73,7 @@ export const Home = () => {
   // Delete book
   const handleDelete = (id) => {
     const deleteBook = newBooks.filter((book) => book.id !== id);
-    setNBooks(deleteBook);
+    setNewBooks(deleteBook);
   };
 
   return (
@@ -124,6 +124,7 @@ export const Home = () => {
           ) : (
             <div className="add">
               <input
+                autoFocus
                 type="text"
                 name="title"
                 autoComplete="off"

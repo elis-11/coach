@@ -3,7 +3,7 @@ import "./Refs.scss";
 
 export const Refs = () => {
   const [user, setUser] = useState({
-    username: "Gael",
+    username: "Anne",
     age: 28,
   });
 
