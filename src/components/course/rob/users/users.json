@@ -1,0 +1,26 @@
+[
+    {
+        "id": "1",
+        "name": "Gael",
+        "profession": "Web Dev consultant",
+        "hobby": "play computer games",
+        "email": "gael@gmail.com",
+        "city": "Berlin"
+    },
+    {
+        "id": "2",
+        "name": "Robert",
+        "profession": "Web Dev trainer",
+        "hobby": "read",
+        "email": "robert@gmail.com",
+        "city": "Berlin"
+    },
+    {
+        "id": "3",
+        "name": "Elisa",
+        "profession": "Stydent",
+        "hobby": "JavaScript",
+        "email": "elisa@gmail.com",
+        "city": "Hamburg"
+    }
+]

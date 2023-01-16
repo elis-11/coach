@@ -1,34 +1,10 @@
 import { useState } from "react";
 import "./Style.scss";
-import { UsersList } from './UsersList';
+import { UsersList } from "./UsersList";
+import usersJson from './users.json'
 
 export const Users = () => {
-  const [users, setUsers] = useState([
-    {
-      id: "1",
-      name: "Gael",
-      profession: "Web Dev consultant",
-      hobby: "play computer games",
-      email: "gael@gmail.com",
-      city: "Berlin",
-    },
-    {
-      id: "2",
-      name: "Robert",
-      profession: "Web Dev trainer",
-      hobby: "read",
-      email: "robert@gmail.com",
-      city: "Berlin",
-    },
-    {
-      id: "3",
-      name: "Elisa",
-      profession: "Stydent",
-      hobby: "JavaScript",
-      email: "elisa@gmail.com",
-      city: "Hamburg",
-    },
-  ]);
+  const [users, setUsers] = useState(usersJson);
   const [newUser, setNewUser] = useState({
     name: "",
     profession: "",
@@ -61,9 +37,9 @@ export const Users = () => {
   };
 
   const handleDelete = (id) => {
-    const deleteUser = users.filter((user) => user.id !== id);
-    setUsers(deleteUser);
+    setUsers(users.filter((user) => user.id !== id));
   };
+  
   return (
     <div className="people">
       <div className="container">
@@ -106,9 +82,8 @@ export const Users = () => {
             onChange={handleUserInput}
           />
           <button onClick={addUser}>Add</button>
-          
         </div>
-      <UsersList users={users} handleDelete={handleDelete}/>
+        <UsersList users={users} handleDelete={handleDelete} />
       </div>
     </div>
   );
