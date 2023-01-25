@@ -5,13 +5,13 @@ import { FaEdit } from "react-icons/fa";
 import "./Home.scss";
 
 export const Home = () => {
-  // const [newBooks, setNewBooks] = useState([
+  // const [books, setBooks] = useState([
   // { id: 1, title: "Guide to Happiness", author: "Anne Cords" },
   // { id: 2, title: "Guide to JavaScript", author: "Ricci Roy" },
   // { id: 3, title: "Guide to Coaching", author: "Sarah Richter" },
   // ]);
-  const [newBooks, setNewBooks] = useState(() => {
-    const savedBooksInLS = localStorage.getItem("newBooks");
+  const [books, setBooks] = useState(() => {
+    const savedBooksInLS = localStorage.getItem("books");
     if (savedBooksInLS) {
       return JSON.parse(savedBooksInLS);
     } else {
@@ -20,8 +20,8 @@ export const Home = () => {
   });
 
   useEffect(() => {
-    localStorage.setItem("newBooks", JSON.stringify(newBooks));
-  }, [newBooks]);
+    localStorage.setItem("books", JSON.stringify(books));
+  }, [books]);
 
 
   const [newBook, setNewBook] = useState({});
@@ -30,17 +30,18 @@ export const Home = () => {
   const [search, setSearch] = useState("");
 
   // ADD BOOK
+  const handleBookInput = (e) => {
+    setNewBook({ ...newBook, [e.target.name]: e.target.value });
+  };
+
   const addBook = () => {
     const bookNewState = {
       title: newBook.title,
       author: newBook.author,
       id: new Date().toString(),
     };
-    setNewBooks([...newBooks, bookNewState]);
+    setBooks([...books, bookNewState]);
     setNewBook({ ...newBook, title: "", author: "" });
-  };
-  const handleBookInput = (e) => {
-    setNewBook({ ...newBook, [e.target.name]: e.target.value });
   };
 
   // EDIT BOOK
@@ -49,11 +50,11 @@ export const Home = () => {
     console.log(currentBook);
   };
   const handleUpdateBook = (id, updatedBook) => {
-    const updatedItem = newBooks.map((book) => {
+    const updatedItem = books.map((book) => {
       return book.id === id ? updatedBook : book;
     });
     setIsEditing(false);
-    setNewBooks(updatedItem);
+    setBooks(updatedItem);
   };
   const handleEditForm = (e) => {
     e.preventDefault();
@@ -64,7 +65,7 @@ export const Home = () => {
     setCurrentBook({ ...book });
   };
 
-  const searchBook = newBooks.filter(
+  const searchBook = books.filter(
     (book) =>
       book.title.toLowerCase().includes(search.toLowerCase()) ||
       book.author.toLowerCase().includes(search.toLowerCase())
@@ -72,8 +73,9 @@ export const Home = () => {
 
   // Delete book
   const handleDelete = (id) => {
-    const deleteBook = newBooks.filter((book) => book.id !== id);
-    setNewBooks(deleteBook);
+    const deleteBook = books.filter((book) => book.id !== id);
+    setBooks(deleteBook);
+    console.log("deleteBook:", deleteBook);
   };
 
   return (
@@ -97,7 +99,7 @@ export const Home = () => {
               />
             </form>
           </div>
-
+              {/* EDIT */}
           {isEditing ? (
             <form className="edit" onSubmit={handleEditForm}>
               <input
@@ -115,7 +117,7 @@ export const Home = () => {
                 onChange={handleEditBook}
               />
               <button className="update" type="submit">
-                Update
+                Edit
               </button>
               <button className="cancel" onClick={() => setIsEditing(false)}>
                 Cancel
