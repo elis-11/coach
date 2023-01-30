@@ -45,7 +45,7 @@ export const Home = () => {
   };
 
   // EDIT BOOK
-  const handleEditBook = (e) => {
+  const handleEditBook = (e) => {  // input Change
     setCurrentBook({ ...currentBook, title: e.target.value });
     console.log(currentBook);
   };
@@ -56,11 +56,11 @@ export const Home = () => {
     setIsEditing(false);
     setBooks(updatedItem);
   };
-  const handleEditForm = (e) => {
+  const handleEditSubmitForm = (e) => {  // Submit form
     e.preventDefault();
     handleUpdateBook(currentBook.id, currentBook);
   };
-  const handleEditClick = (book) => {
+  const handleEditButton = (book) => {  // Edit button
     setIsEditing(true);
     setCurrentBook({ ...book });
   };
@@ -99,7 +99,7 @@ export const Home = () => {
           </div>
               {/* EDIT */}
           {isEditing ? (
-            <form className="edit" onSubmit={handleEditForm}>
+            <form className="edit" onSubmit={handleEditSubmitForm}>
               <input
                 name="editBook"
                 type="text"
@@ -148,14 +148,14 @@ export const Home = () => {
           )}
 
           <div className="book-list">
-            {searchBook.map((book) => (
+            {searchBook.map((book, index) => (
               <div key={book.id} className="book">
-                <div>{book.author}</div>
+                <div>{index + 1}: &nbsp; {book.author}</div>
                 <div>{book.title}</div>
                 <div className="icons">
                   <FaEdit
                     className="icon"
-                    onClick={() => handleEditClick(book)}
+                    onClick={() => handleEditButton(book)}
                     role="button"
                     tabIndex="0"
                   />
