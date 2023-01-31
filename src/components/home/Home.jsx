@@ -23,7 +23,6 @@ export const Home = () => {
     localStorage.setItem("books", JSON.stringify(books));
   }, [books]);
 
-
   const [newBook, setNewBook] = useState({});
   const [isEditing, setIsEditing] = useState(false);
   const [currentBook, setCurrentBook] = useState("");
@@ -45,7 +44,8 @@ export const Home = () => {
   };
 
   // EDIT BOOK
-  const handleEditBook = (e) => {  // input Change
+  const handleEditBook = (e) => {
+    // input Change
     setCurrentBook({ ...currentBook, title: e.target.value });
     console.log(currentBook);
   };
@@ -56,21 +56,22 @@ export const Home = () => {
     setIsEditing(false);
     setBooks(updatedItem);
   };
-  const handleEditSubmitForm = (e) => {  // Submit form
+  const handleEditSubmitForm = (e) => {
+    // Submit form
     e.preventDefault();
     handleUpdateBook(currentBook.id, currentBook);
   };
-  const handleEditButton = (book) => {  // Edit button
+  const handleEditButton = (book) => {
+    // Edit button
     setIsEditing(true);
     setCurrentBook({ ...book });
   };
 
-  const searchBook = books.filter(
-    (book) =>
-      book.title.toLowerCase().includes(search.toLowerCase()) ||
-      book.author.toLowerCase().includes(search.toLowerCase())
+  const searchBook = books.filter((book) =>
+    book.title.toLowerCase().includes(search.toLowerCase()) ||
+    book.author.toLowerCase().includes(search.toLowerCase())
   );
-  
+
   // Delete book
   const handleDelete = (id) => {
     const deleteBook = books.filter((book) => book.id !== id);
@@ -98,7 +99,7 @@ export const Home = () => {
               />
             </form>
           </div>
-              {/* EDIT */}
+          {/* EDIT */}
           {isEditing ? (
             <form className="edit" onSubmit={handleEditSubmitForm}>
               <input
@@ -151,7 +152,9 @@ export const Home = () => {
           <div className="book-list">
             {searchBook.map((book, index) => (
               <div key={book.id} className="book">
-                <div>{index + 1}: &nbsp; {book.author}</div>
+                <div>
+                  {index + 1}: &nbsp; {book.author}
+                </div>
                 <div>{book.title}</div>
                 <div className="icons">
                   <FaEdit
