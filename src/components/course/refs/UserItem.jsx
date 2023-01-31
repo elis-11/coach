@@ -1,10 +1,17 @@
 import { useEffect, useRef, useState } from "react";
 
-export const UserItem = ({ user, updateUser }) => {
+export const UserItem = ({ users, setUsers, user }) => {
   const inputName = useRef();
   const inputAge = useRef();
 
   const [editMode, setEditMode] = useState(false);
+
+  const updateUser = (id, userData) => {
+    const updatedUsers = users.map((user) =>
+      user.id === id ? { ...user, ...userData } : user
+    );
+    setUsers(updatedUsers);
+  };
 
   useEffect(() => {
     console.log("[UseEffect Hook] SOME STATE was CHANGED in our App");
@@ -19,6 +26,7 @@ export const UserItem = ({ user, updateUser }) => {
       updateUser(user.id, { username: usernameNew, age: ageNew });
     }
   };
+
   return (
     <div>
       <input

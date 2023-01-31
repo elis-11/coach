@@ -1,11 +1,11 @@
 import React from 'react'
 import { UserItem } from './UserItem'
 
-export const UserList = ({ users, updateUser}) => {
+export const UserList = ({ users, setUsers}) => {
   return (
     <>
     {users.map((user) => (
-      <UserItem user={user} updateUser={updateUser} />
+      <UserItem user={user} users={users} setUsers={setUsers} />
     ))}
   </>
 )
