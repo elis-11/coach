@@ -67,10 +67,11 @@ export const Home = () => {
     setCurrentBook({ ...book });
   };
 
-  const searchBook = books.filter((book) =>
-    book.title.toLowerCase().includes(search.toLowerCase()) ||
-    book.author.toLowerCase().includes(search.toLowerCase())
-  );
+  // const searchBook = books.filter((book) =>
+  // const searchBook = books.filter((book) =>
+  //   book.title.toLowerCase().includes(search.toLowerCase()) ||
+  //   book.author.toLowerCase().includes(search.toLowerCase())
+  // );
 
   // Delete book
   const handleDelete = (id) => {
@@ -150,7 +151,8 @@ export const Home = () => {
           )}
 
           <div className="book-list">
-            {searchBook.map((book, index) => (
+            {/* {searchBook.map((book, index) => ( */}
+            {books.map((book, index) => (
               <div key={book.id} className="book">
                 <div>
                   {index + 1}: &nbsp; {book.author}
@@ -175,8 +177,10 @@ export const Home = () => {
           </div>
           <footer>
             <h2>
-              {searchBook.length} List{" "}
-              {searchBook.length === 1 ? "Book" : "Books"}
+              {/* {searchBook.length} List{" "} */}
+              {/* {searchBook.length === 1 ? "Book" : "Books"} */}
+              {books.length} List{" "}
+              {books.length === 1 ? "Book" : "Books"}
             </h2>
           </footer>
         </div>
