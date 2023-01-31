@@ -70,6 +70,7 @@ export const Home = () => {
       book.title.toLowerCase().includes(search.toLowerCase()) ||
       book.author.toLowerCase().includes(search.toLowerCase())
   );
+  
   // Delete book
   const handleDelete = (id) => {
     const deleteBook = books.filter((book) => book.id !== id);
